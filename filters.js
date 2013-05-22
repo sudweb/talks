@@ -30,4 +30,17 @@ angular.module('talksFilters', [])
 
       return label.join(' ');
     };
+  })
+  .filter('tagify', function(){
+    return function(text){
+      var keywords = (text+'').trim();
+
+      if (!keywords.match(',')){
+        keywords = keywords.match('[A-Z]')
+          ? keywords.replace(/\s+([A-Z])/g, ', $1')
+          : keywords.replace(/\s+/g, ', ');
+      }
+
+      return keywords.split(',');
+    };
   });

@@ -24,30 +24,37 @@
         <div class="span8 offset1" id="talk-container">
             <div class="alert alert-info" ng-hide="talks">Chargement en cours …</div>
 
-            <div ng-cloak class="talk talk-{{talk.rating_label}}" id="talk-{{$index + 1}}" ng-repeat="talk in talks">
-                <h2 class="talk-title">{{talk.title}}</h2>
+            <div ng-cloak ng-repeat="talk in talks">
+                <article class="talk talk-{{talk.rating | moodify}}" id="talk-{{$index + 1}}">
+                    <h2 class="talk-title">{{talk.title}}</h2>
 
-                <span class="total">{{talk.total}}</span>
+                    <span class="total">{{talk.total}}</span>
 
-                <p class="meta">
-                    <a href="mailto:{{email}}" class="author">{{talk.first_name}} {{talk.last_name}}</a> – {{talk.sex}}, {{talk.location}} <em>via</em> {{talk.transportation}}<br />
-                    {{talk.url}}
-                </p>
-                <p>
-                    <span class="label label-success">{{talk.language}}</span>
-                    <span class="label {{talk.talk_20 | labelify}}">20 minutes</span>
-                    <span class="label {{talk.talk_lt | labelify}}">LT</span>
-                    <span class="label {{talk.talk_workshop | labelify}}">Workshop</span>
-                </p>
-                <p>{{talk.tags}}</p>
+                    <p class="meta">
+                        <a href="mailto:{{talk.email}}" class="author">{{talk.first_name}} {{talk.last_name}}</a>
+                        – {{talk.sex}}, {{talk.location}}
+                        <em>via</em> {{talk.transportation}}<br />
 
-                <div class="row-fluid">
-                    <div class="talk-description span7">{{talk.description}}</div>
-                </div>
+                        {{talk.url}}
+                    </p>
+                    <p>
+                        <span class="label label-success">{{talk.language}}</span>
+                        <span class="label {{talk.talk_20 | labelify}}">20 minutes</span>
+                        <span class="label {{talk.talk_lt | labelify}}">LT</span>
+                        <span class="label {{talk.talk_workshop | labelify}}">Workshop</span>
+                    </p>
+                    <p ng-show="talk.keywords">
+                        <span ng-repeat="tag in talk.keywords | tagify" class="label label-info">{{tag}}</span>
+                    </p>
 
-                <div class="row-fluid" ng-show="talk.expectations">
-                    <blockquote class="span7"><p>{{talk.expectations}}</p></blockquote>
-                </div>
+                    <div class="row-fluid">
+                        <div class="talk-description span7">{{talk.description}}</div>
+                    </div>
+
+                    <div class="row-fluid" ng-show="talk.expectations">
+                        <blockquote class="span7"><p>{{talk.expectations}}</p></blockquote>
+                    </div>
+                </article>
             </div>
         </div>
     </div>
@@ -60,95 +67,5 @@
 <script src="controller.js"></script>
 <script src="filters.js"></script>
 <script src="app.js"></script>
-<script>
-
-
-
-    /*
-    $.ss("http://spreadsheets.google.com/tq?key=" + getUrlArgument('key'))
-            .setQuery("select *")
-            .setField("date,first_name,blah,last_name,talk_40,themes,audience,audience_level,keywords,language,title,description,sex,location,email,phone,transportation,hosting,expectations,freespeech,talk_20,talk_lt,talk_workshop,url,rating,remarks,total")
-            .send(function(){
-                $container.empty();
-                this.each(function(i){
-                    var view = this;
-                    view.counter = i + 1;
-                    view.id = "talk-"+ view.counter;
-
-                    //move this to a one time init
-                    view.author = function(){
-                        return this.first_name+" "+this.last_name;
-                    };
-
-                    view.rating_label = function(){
-                        var label = [];
-
-                        if (this.rating < 0){
-                            label.push('negative');
-                        }
-
-                        if (this.rating === 0){
-                            label.push('neutral');
-                        }
-
-                        if (this.rating > 0){
-                            label.push('positive');
-                        }
-
-                        if (this.rating === 2)
-                        {
-                            label.push('favorite');
-                        }
-
-                        return label.join(' ');
-                    };
-
-                    view.autobr = function(){
-                        return function(text, render){
-                            return render(text).replace(/(\r\n|\r|\n)/gm, '<br />');
-                        };
-                    };
-
-                    //move this to a one time init
-                    view.label = function(){
-                        return function(text, render){
-                            return render(text)
-                                    .replace(/label (1|Oui|Yes)/i, "label label-success")
-                                    .replace(/label (-1|Non|No)/i, "label label-empty")
-                                    .replace(/label (0|Envisageable|Maybe)/i, "label label-maybe");
-                        };
-                    };
-
-                    view.linkify = function(){
-                        return function(text, render){
-                            return render(text)
-                                    .replace(/(https?:\/\/(www.)?)?twitter.com\/(#!\/)?([^\s\W]+)/mg, "@$4")
-                                    .replace(/(^|\s)(http[^\s]+)/mg, "$1<a href='$2' target='_blank'>$2</a>");
-                        };
-                    };
-
-                    //move this to a one time init
-                    view.tags = function(){
-                        var keywords = this.keywords.trim();
-
-                        if (!keywords.match(',')){
-                            keywords = keywords.match('[A-Z]')
-                                    ? keywords.replace(/\s+([A-Z])/g, ', $1')
-                                    : keywords.replace(/\s+/g, ', ');
-                        }
-
-                        return '<span class="label label-info">' + keywords.split(',').join('</span> <span class="label label-info">') + '</span>';
-                    };
-
-                    $navbar.append(Mustache.to_html(SidebarItemTemplate, view));
-                    $container.append(Mustache.to_html(TalkTemplate, view));
-                });
-
-                twttr.anywhere(function (T) {
-                    T.linkifyUsers();
-                    T.hovercards();
-                });
-            });*/
-</script>
 </body>
 </html>
