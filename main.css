@@ -1,0 +1,78 @@
+body{
+  counter-reset: TalkNumber;
+}
+
+.label{
+  margin-right: .5em;
+}
+
+
+.nav-list li[data-counter]:before{
+  content: attr(data-counter);
+  line-height: 1.75;
+  position: absolute;
+  left: .5em;
+  z-index: 10;
+}
+
+.talk{
+  counter-increment: TalkNumber;
+  margin-bottom: 3em;
+  position: relative;
+}
+.talk-title::before{
+  color: #999;
+  content: "#" counter(TalkNumber);
+  position: absolute;
+  right: 101%;
+}
+.total{
+  background: #2D6987;
+  border-radius: 110%;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.5em;
+  padding: .5em .4em;
+  position: absolute;
+  right: 100.5%;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
+}
+.talk-negative{
+  opacity: .1;
+}
+.talk-negative:hover,
+.talk-negative:focus,
+.talk-negative:active{   /* touch event? */
+  color: red;
+  opacity: 1;
+}
+.talk-positive{
+  color: #005707;
+}
+
+.talk-description{
+  font-size: 1.5em;
+  line-height: 1.25;
+  margin: .5em 0;
+}
+
+.label-empty{
+  background-color: #ddd;
+}
+.label-maybe{
+
+}
+
+@media(min-width: 768px){
+  .nav-list{
+    max-height: 90%;
+    overflow-y: scroll;
+    padding-left: 20px;
+    position: fixed;
+    width: 20%;
+  }
+
+  .nav-list li[data-counter]:before{
+    left: 0;
+  }
+}

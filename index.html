@@ -1,0 +1,168 @@
+
+<!html>
+<html>
+<head lang="fr">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sud Web – Sujets</title>
+    <meta name="viewport" content="initial-scale=1">
+    <link href="components/bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="components/bootstrap/docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+            <ol class="nav nav-list">
+                <li class="nav-header">Sommaire</li>
+                <li class="divider"></li>
+            </ol>
+        </div>
+
+        <div class="span8 offset1" id="talk-container">
+            <div class="alert alert-info">Chargement en cours …</div>
+        </div>
+    </div>
+</div>
+
+
+<script id="talk-template" type="application/x-mustache-tmpl">
+    <div class="talk talk-{{rating_label}}" id="{{id}}">
+        <h2 class="talk-title">{{title}}</h2>
+
+        <span class="total">{{total}}</span>
+
+        <p class="meta">
+            <a href="mailto:{{email}}" class="author">{{author}}</a> – {{sex}}, {{location}} <em>via</em> {{transportation}}<br />
+            {{#linkify}}{{url}}{{/linkify}}
+        </p>
+        <p>
+            <span class="label label-success">{{language}}</span>
+            {{#label}}<span class="label {{talk_20}}">20 minutes</span>{{/label}}
+            {{#label}}<span class="label {{talk_lt}}">LT</span>{{/label}}
+            {{#label}}<span class="label {{talk_workshop}}">Workshop</span>{{/label}}
+        </p>
+        <p>{{{tags}}}</p>
+
+        <div class="row-fluid">
+            <div class="talk-description span7">{{#autobr}}{{description}}{{/autobr}}</div>
+        </div>
+
+        {{#expectations}}
+        <div class="row-fluid">
+            <blockquote class="span7"><p>{{expectations}}</p></blockquote>
+        </div>
+        {{/expectations}}
+    </div>
+</script>
+<script id="sidebar-talk-item" type="application/x-mustache-tmpl">
+    <li data-counter="{{counter}}"><a href="#{{id}}">{{title}}</a></li>
+</script>
+<script src="components/jquery/jquery.min.js"></script>
+<script src="components/mustache/mustache.js"></script>
+<script src="components/jSpreadSheet/src/jspreadsheet.min.js"></script>
+<script src="//platform.twitter.com/anywhere.js?id=4Yj31xvNphClir9fsArng&v=1"></script>
+<script>
+    var TalkTemplate = $("#talk-template").html();
+    var SidebarItemTemplate = $("#sidebar-talk-item").html();
+    var $container = $("#talk-container");
+    var $navbar = $("ol.nav");
+
+    function getUrlArgument(key){
+        var value = '';
+
+        location.search.replace(new RegExp(key+'=([^&$]+)'), function(m, matched_value){
+            value = matched_value;
+        });
+
+        return value;
+    }
+
+    $.ss("http://spreadsheets.google.com/tq?key=" + getUrlArgument('key'))
+            .setQuery("select *")
+            .setField("date,first_name,blah,last_name,talk_40,themes,audience,audience_level,keywords,language,title,description,sex,location,email,phone,transportation,hosting,expectations,freespeech,talk_20,talk_lt,talk_workshop,url,rating,remarks,total")
+            .send(function(){
+                $container.empty();
+                this.each(function(i){
+                    var view = this;
+                    view.counter = i + 1;
+                    view.id = "talk-"+ view.counter;
+
+                    //move this to a one time init
+                    view.author = function(){
+                        return this.first_name+" "+this.last_name;
+                    };
+
+                    view.rating_label = function(){
+                        var label = [];
+
+                        if (this.rating < 0){
+                            label.push('negative');
+                        }
+
+                        if (this.rating === 0){
+                            label.push('neutral');
+                        }
+
+                        if (this.rating > 0){
+                            label.push('positive');
+                        }
+
+                        if (this.rating === 2)
+                        {
+                            label.push('favorite');
+                        }
+
+                        return label.join(' ');
+                    };
+
+                    view.autobr = function(){
+                        return function(text, render){
+                            return render(text).replace(/(\r\n|\r|\n)/gm, '<br />');
+                        };
+                    };
+
+                    //move this to a one time init
+                    view.label = function(){
+                        return function(text, render){
+                            return render(text)
+                                    .replace(/label (1|Oui|Yes)/i, "label label-success")
+                                    .replace(/label (-1|Non|No)/i, "label label-empty")
+                                    .replace(/label (0|Envisageable|Maybe)/i, "label label-maybe");
+                        };
+                    };
+
+                    view.linkify = function(){
+                        return function(text, render){
+                            return render(text)
+                                    .replace(/(https?:\/\/(www.)?)?twitter.com\/(#!\/)?([^\s\W]+)/mg, "@$4")
+                                    .replace(/(^|\s)(http[^\s]+)/mg, "$1<a href='$2' target='_blank'>$2</a>");
+                        };
+                    };
+
+                    //move this to a one time init
+                    view.tags = function(){
+                        var keywords = this.keywords.trim();
+
+                        if (!keywords.match(',')){
+                            keywords = keywords.match('[A-Z]')
+                                    ? keywords.replace(/\s+([A-Z])/g, ', $1')
+                                    : keywords.replace(/\s+/g, ', ');
+                        }
+
+                        return '<span class="label label-info">' + keywords.split(',').join('</span> <span class="label label-info">') + '</span>';
+                    };
+
+                    $navbar.append(Mustache.to_html(SidebarItemTemplate, view));
+                    $container.append(Mustache.to_html(TalkTemplate, view));
+                });
+
+                twttr.anywhere(function (T) {
+                    T.linkifyUsers();
+                    T.hovercards();
+                });
+            });
+</script>
+</body>
+</html>
