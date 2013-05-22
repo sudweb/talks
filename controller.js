@@ -27,6 +27,7 @@ TalkController.getUrlArgument = function getUrlArgument(key){
   return value;
 }
 
+//@todo handle mapping with field names to avoid relying on column order (good for BC)
 TalkController.fields = [
   "date",
   "first_name",
