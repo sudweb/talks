@@ -1,6 +1,5 @@
-
 <!html>
-<html>
+<html ng-app>
 <head lang="fr">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sud Web – Sujets</title>
@@ -11,74 +10,59 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="TalkController">
     <div class="row-fluid">
         <div class="span3">
             <ol class="nav nav-list">
                 <li class="nav-header">Sommaire</li>
                 <li class="divider"></li>
+
+                <li data-counter="{{talk.counter}}" ng-repeat="talk in talks"><a href="#{{talk.id}}">{{talk.title}}</a></li>
             </ol>
         </div>
 
         <div class="span8 offset1" id="talk-container">
             <div class="alert alert-info">Chargement en cours …</div>
+
+            <div class="talk talk-{{rating_label}}" id="{{id}}" ng-repeat="talk in talks">
+                <h2 class="talk-title">{{talk.title}}</h2>
+
+                <span class="total">{{total}}</span>
+
+                <p class="meta">
+                    <a href="mailto:{{email}}" class="author">{{author}}</a> – {{sex}}, {{location}} <em>via</em> {{transportation}}<br />
+                    {{url}}
+                </p>
+                <p>
+                    <span class="label label-success">{{language}}</span>
+                    <span class="label {{talk_20}}">20 minutes</span>
+                    <span class="label {{talk_lt}}">LT</span>
+                    <span class="label {{talk_workshop}}">Workshop</span>
+                </p>
+                <p>{{tags}}</p>
+
+                <div class="row-fluid">
+                    <div class="talk-description span7">{{description}}</div>
+                </div>
+
+                <div class="row-fluid">
+                    <blockquote class="span7"><p>{{expectations}}</p></blockquote>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-
-<script id="talk-template" type="application/x-mustache-tmpl">
-    <div class="talk talk-{{rating_label}}" id="{{id}}">
-        <h2 class="talk-title">{{title}}</h2>
-
-        <span class="total">{{total}}</span>
-
-        <p class="meta">
-            <a href="mailto:{{email}}" class="author">{{author}}</a> – {{sex}}, {{location}} <em>via</em> {{transportation}}<br />
-            {{#linkify}}{{url}}{{/linkify}}
-        </p>
-        <p>
-            <span class="label label-success">{{language}}</span>
-            {{#label}}<span class="label {{talk_20}}">20 minutes</span>{{/label}}
-            {{#label}}<span class="label {{talk_lt}}">LT</span>{{/label}}
-            {{#label}}<span class="label {{talk_workshop}}">Workshop</span>{{/label}}
-        </p>
-        <p>{{{tags}}}</p>
-
-        <div class="row-fluid">
-            <div class="talk-description span7">{{#autobr}}{{description}}{{/autobr}}</div>
-        </div>
-
-        {{#expectations}}
-        <div class="row-fluid">
-            <blockquote class="span7"><p>{{expectations}}</p></blockquote>
-        </div>
-        {{/expectations}}
-    </div>
-</script>
-<script id="sidebar-talk-item" type="application/x-mustache-tmpl">
-    <li data-counter="{{counter}}"><a href="#{{id}}">{{title}}</a></li>
-</script>
 <script src="components/jquery/jquery.min.js"></script>
-<script src="components/mustache/mustache.js"></script>
+<script src="components/angular/angular.min.js"></script>
 <script src="components/jSpreadSheet/src/jspreadsheet.min.js"></script>
 <script src="//platform.twitter.com/anywhere.js?id=4Yj31xvNphClir9fsArng&v=1"></script>
+<script src="controller.js"></script>
 <script>
-    var TalkTemplate = $("#talk-template").html();
-    var SidebarItemTemplate = $("#sidebar-talk-item").html();
-    var $container = $("#talk-container");
-    var $navbar = $("ol.nav");
 
-    function getUrlArgument(key){
-        var value = '';
 
-        location.search.replace(new RegExp(key+'=([^&$]+)'), function(m, matched_value){
-            value = matched_value;
-        });
 
-        return value;
-    }
-
+    /*
     $.ss("http://spreadsheets.google.com/tq?key=" + getUrlArgument('key'))
             .setQuery("select *")
             .setField("date,first_name,blah,last_name,talk_40,themes,audience,audience_level,keywords,language,title,description,sex,location,email,phone,transportation,hosting,expectations,freespeech,talk_20,talk_lt,talk_workshop,url,rating,remarks,total")
@@ -162,7 +146,7 @@
                     T.linkifyUsers();
                     T.hovercards();
                 });
-            });
+            });*/
 </script>
 </body>
 </html>
