@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "dependencies": {
     "angular": "~1.0.6",
-    "jquery": "~2.0.0",
-    "bootstrap": "~2.3.2",
-    "mustache": "~0.7.2",
-    "jSpreadSheet": "https://github.com/ngs/jSpreadSheet.git"
+    "bootstrap": "~2.3.2"
   }
 }
