@@ -2,6 +2,10 @@ body{
   counter-reset: TalkNumber;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none;
+}
+
 .label{
   margin-right: .5em;
 }
