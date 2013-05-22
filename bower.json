@@ -1,0 +1,8 @@
+{
+  "name": "talks",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.0.6",
+    "jquery": "~2.0.0"
+  }
+}
