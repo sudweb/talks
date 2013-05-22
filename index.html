@@ -1,5 +1,5 @@
 <!html>
-<html ng-app>
+<html ng-app="talks">
 <head lang="fr">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sud Web – Sujets</title>
@@ -27,17 +27,17 @@
             <div ng-cloak class="talk talk-{{talk.rating_label}}" id="talk-{{$index + 1}}" ng-repeat="talk in talks">
                 <h2 class="talk-title">{{talk.title}}</h2>
 
-                <span class="total">{{talk.score}}</span>
+                <span class="total">{{talk.total}}</span>
 
                 <p class="meta">
-                    <a href="mailto:{{email}}" class="author">{{talk.author}}</a> – {{talk.sex}}, {{talk.location}} <em>via</em> {{talk.transportation}}<br />
+                    <a href="mailto:{{email}}" class="author">{{talk.first_name}} {{talk.last_name}}</a> – {{talk.sex}}, {{talk.location}} <em>via</em> {{talk.transportation}}<br />
                     {{talk.url}}
                 </p>
                 <p>
                     <span class="label label-success">{{talk.language}}</span>
-                    <span class="label {{talk.talk_20}}">20 minutes</span>
-                    <span class="label {{talk.talk_lt}}">LT</span>
-                    <span class="label {{talk.talk_workshop}}">Workshop</span>
+                    <span class="label {{talk.talk_20 | labelify}}">20 minutes</span>
+                    <span class="label {{talk.talk_lt | labelify}}">LT</span>
+                    <span class="label {{talk.talk_workshop | labelify}}">Workshop</span>
                 </p>
                 <p>{{talk.tags}}</p>
 
@@ -45,7 +45,7 @@
                     <div class="talk-description span7">{{talk.description}}</div>
                 </div>
 
-                <div class="row-fluid">
+                <div class="row-fluid" ng-show="talk.expectations">
                     <blockquote class="span7"><p>{{talk.expectations}}</p></blockquote>
                 </div>
             </div>
@@ -58,6 +58,8 @@
 <script src="components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="components/jSpreadSheet/src/jspreadsheet.min.js"></script>
 <script src="controller.js"></script>
+<script src="filters.js"></script>
+<script src="app.js"></script>
 <script>
 
 
