@@ -2,6 +2,7 @@
   "name": "sudweb-talks",
   "version": "2.0.0",
   "description": "Talk visualisation tool used for Call for Papers. Backed by Google Spreadsheets.",
+  "private": true,
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
