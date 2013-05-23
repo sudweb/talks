@@ -1,3 +1,4 @@
+"use strict";
 
 function TalkController($scope, $http){
   $scope.talks = [];
@@ -5,15 +6,7 @@ function TalkController($scope, $http){
   $http.jsonp("https://spreadsheets.google.com/tq?key=" + TalkController.getUrlArgument('key')+"&tqx=responseHandler:JSON_CALLBACK;out:json")
     .success(function(response){
 
-      $scope.talks = response.table.rows.map(function(row){
-        var data = {};
-
-        row.c.forEach(function(column, index){
-          data[ TalkController.fields[index] ] = column.v;
-        });
-
-        return data;
-      });
+      $scope.talks = TalkController.mapResponseFields(response);
     });
 }
 
@@ -25,7 +18,19 @@ TalkController.getUrlArgument = function getUrlArgument(key){
   });
 
   return value;
-}
+};
+
+TalkController.mapResponseFields = function mapResponseFields(response){
+  return response.table.rows.map(function(row){
+    var data = {};
+
+    row.c.forEach(function(column, index){
+      data[ TalkController.fields[index] ] = column.v;
+    });
+
+    return data;
+  });
+};
 
 //@todo handle mapping with field names to avoid relying on column order (good for BC)
 TalkController.fields = [
