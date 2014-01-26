@@ -30,14 +30,23 @@
 
                     <span class="total">{{talk.total}}</span>
 
-                    <p class="meta">
+                    <p class="meta" ng-show="talk.speaker_name">
+                      <a href="mailto:{{talk.email}}" class="author">{{talk.speaker_name}}</a>
+                    </p>
+
+                    <p class="meta" ng-show="talk.first_name || talk.last_name">
                         <a href="mailto:{{talk.email}}" class="author">{{talk.first_name}} {{talk.last_name}}</a>
                         – {{talk.genre}}, {{talk.location}}
                         <em>via</em> {{talk.transportation}}<br />
 
                         {{talk.url}}
                     </p>
-                    <p>
+
+                    <p ng-show="talk.formats">
+                      <span ng-repeat="format in talk.formats | tagify:','" class="label label-success">{{format}}</span>
+                    </p>
+
+                    <p ng-show="talk.talk_20 || talk.talk_lt || talk.talk_workshop">
                         <span class="label label-success">{{talk.language}}</span>
                         <span class="label {{talk.talk_20 | labelify}}">20 minutes</span>
                         <span class="label {{talk.talk_lt | labelify}}">LT</span>

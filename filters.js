@@ -32,15 +32,15 @@ angular.module('talksFilters', [])
     };
   })
   .filter('tagify', function(){
-    return function(text){
+    return function(text, splitChar){
       var keywords = (text+'').trim();
 
-      if (!keywords.match(',')){
+      if (!keywords.match(',') && splitChar === undefined){
         keywords = keywords.match('[A-Z]')
           ? keywords.replace(/\s+([A-Z])/g, ', $1')
           : keywords.replace(/\s+/g, ', ');
       }
 
-      return keywords.split(',');
+      return keywords.split(splitChar || ',');
     };
   });

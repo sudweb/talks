@@ -64,7 +64,7 @@ TalkController.mapResponseFields = function mapResponseFields (response) {
  */
 TalkController.mapResponseHeaderFields = function mapResponseHeaderFields (columns) {
   var fields = {};
-  var mapping = TalkController.fieldMapping;
+  var mapping = TalkController.getMappingFromColumns(columns);
 
   columns.forEach(function columnMapper(column, index) {
     if (mapping[column.label]) {
@@ -75,50 +75,64 @@ TalkController.mapResponseHeaderFields = function mapResponseHeaderFields (colum
   return fields;
 };
 
+TalkController.getMappingFromColumns = function getMappingFromColumns(columns){
+  return TalkController.fieldMapping[columns.length <= 10 ? 'current' : 'legacy'];
+};
+
 TalkController.fieldMapping = {
-  "TS":                                                                            "first_name",
-  "First Name":                                                                    "first_name",
-  "Nom":                                                                           "last_name",
-  "Last Name":                                                                     "last_name",
-  "Thématique concernée":                                                          "themes",
-  "Related to":                                                                    "themes",
-  "Public ciblé":                                                                  "audience",
-  "Audience":                                                                      "audience",
-  "Niveau d'expérience souhaité du public":                                        "audience_level",
-  "Audience Level : Beginner, intermediate, expert":                               "audience_level",
-  "Mots clés caractérisant la conférence":                                         "keywords",
-  "Tags and related keywords":                                                     "keywords",
-  "Langue parlée pendant la conférence":                                           "language",
-  "Spoken language during the talk":                                               "language",
-  "Titre de la conférence":                                                        "title",
-  "Title of your presentation":                                                    "title",
-  "Description":                                                                   "description",
-  "Sexe":                                                                          "genre",
-  "Gender":                                                                        "genre",
-  "Provenance":                                                                    "location",
-  "Location":                                                                      "location",
-  "Adresse email":                                                                 "email",
-  "Email":                                                                         "email",
-  "Numéro de téléphone":                                                           "phone",
-  "Phone":                                                                         "phone",
-  "Mode de déplacement envisagé":                                                  "transportation",
-  "Transportation means":                                                          "transportation",
-  "Besoin d'être hébergé":                                                         "hosting",
-  "Souhaits, attentes et remarques vis à vis de Sud Web":                          "expectations",
-  "Expectations about Sud Web":                                                    "expectations",
-  "Autres remarques et questions.":                                                "freespeech",
-  "Any questions ?":                                                               "freespeech",
-  "Possible formats for this session [40 minutes presentation]":                   "talk_40",
-  "Format(s) d'intervention possible pour ce sujet [Conférence de 20 minutes]":    "talk_20",
-  "Possible formats for this session [20 minutes presentation]":                   "talk_20",
-  "Format(s) d'intervention possible pour ce sujet [Lightning Talk de 5 minutes]": "talk_lt",
-  "Possible formats for this session [5 minutes Lightning Talk]":                  "talk_lt",
-  "Format(s) d'intervention possible pour ce sujet [Atelier/Dojo/BarCamp]":        "talk_workshop",
-  "Possible formats for this session [Workshop/Open Forum/Barcamp]":               "talk_workshop",
-  "URL":                                                                           "url",
-  "N/A":                                                                           "rating",
-  "Remarques":                                                                     "remarks",
-  "Note":                                                                          "total"
+  legacy: {
+    "TS":                                                                            "first_name",
+    "First Name":                                                                    "first_name",
+    "Nom":                                                                           "last_name",
+    "Last Name":                                                                     "last_name",
+    "Thématique concernée":                                                          "themes",
+    "Related to":                                                                    "themes",
+    "Public ciblé":                                                                  "audience",
+    "Audience":                                                                      "audience",
+    "Niveau d'expérience souhaité du public":                                        "audience_level",
+    "Audience Level : Beginner, intermediate, expert":                               "audience_level",
+    "Mots clés caractérisant la conférence":                                         "keywords",
+    "Tags and related keywords":                                                     "keywords",
+    "Langue parlée pendant la conférence":                                           "language",
+    "Spoken language during the talk":                                               "language",
+    "Titre de la conférence":                                                        "title",
+    "Title of your presentation":                                                    "title",
+    "Description":                                                                   "description",
+    "Sexe":                                                                          "genre",
+    "Gender":                                                                        "genre",
+    "Provenance":                                                                    "location",
+    "Location":                                                                      "location",
+    "Adresse email":                                                                 "email",
+    "Email":                                                                         "email",
+    "Numéro de téléphone":                                                           "phone",
+    "Phone":                                                                         "phone",
+    "Mode de déplacement envisagé":                                                  "transportation",
+    "Transportation means":                                                          "transportation",
+    "Besoin d'être hébergé":                                                         "hosting",
+    "Souhaits, attentes et remarques vis à vis de Sud Web":                          "expectations",
+    "Expectations about Sud Web":                                                    "expectations",
+    "Autres remarques et questions.":                                                "freespeech",
+    "Any questions ?":                                                               "freespeech",
+    "Possible formats for this session [40 minutes presentation]":                   "talk_40",
+    "Format(s) d'intervention possible pour ce sujet [Conférence de 20 minutes]":    "talk_20",
+    "Possible formats for this session [20 minutes presentation]":                   "talk_20",
+    "Format(s) d'intervention possible pour ce sujet [Lightning Talk de 5 minutes]": "talk_lt",
+    "Possible formats for this session [5 minutes Lightning Talk]":                  "talk_lt",
+    "Format(s) d'intervention possible pour ce sujet [Atelier/Dojo/BarCamp]":        "talk_workshop",
+    "Possible formats for this session [Workshop/Open Forum/Barcamp]":               "talk_workshop",
+    "URL":                                                                           "url",
+    "N/A":                                                                           "rating",
+    "Remarques":                                                                     "remarks",
+    "Note":                                                                          "total"
+  },
+  current: {
+    "Prénom et nom":                      "speaker_name",
+    "Votre adresse email":                "email",
+    "Titre":                              "title",
+    "Formats":                            "formats",
+    "Que devrait en retenir le public ?": "description",
+    "Remarques, questions ?":             "expectations"
+  }
 };
 
 // Explicit injection
