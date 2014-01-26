@@ -14,6 +14,14 @@ Backend and frontend dependencies will be handled via `npm`.
 npm install
 ```
 
+## Deploy
+
+To deploy any update to the live server, run the following command:
+
+```bash
+npm run deploy
+```
+
 ## Usage
 
 The `index.html` must be served over HTTP to work properly.
