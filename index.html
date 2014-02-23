@@ -37,7 +37,7 @@
         <div class="col-md-8 col-md-offset-1" id="talk-container">
             <div class="alert alert-info" ng-hide="talks">Chargement en cours …</div>
 
-            <div ng-cloak ng-repeat="talk in talks | filter | filter:byFormat:display">
+            <div ng-cloak ng-repeat="talk in talks | byFormat:display">
                 <article class="talk talk-{{talk.rating | moodify}}" id="talk-{{$index + 1}}">
                     <h2 class="talk-title">{{talk.title}}</h2>
 

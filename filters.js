@@ -8,10 +8,20 @@ angular.module('talksFilters', [])
     };
   })
   .filter('byFormat', function(){
-    return function(talks, field){
-      console.log(arguments);
-      return talks.map(function(talk){
-        console.log(talk[field || '']);
+    var mapping = {
+      'talk_lt': 'Lightning Talk',
+      'talk_workshop': 'Élaboratoire'
+    };
+
+    return function(talks, fields){
+      return (talks || []).filter(function(talk){
+        if (talk.formats.trim() === ''){
+          return true;
+        }
+
+        return Object.keys(fields).some(function(field){
+          return !!(~talk.formats.indexOf(mapping[field])) === fields[field];
+        });
       });
     };
   })
