@@ -7,6 +7,15 @@ angular.module('talksFilters', [])
         .replace(/(0|Envisageable|Maybe)/i, "label label-maybe");
     };
   })
+  .filter('ratify', function(){
+    return function(rating){
+      if (Number.isNaN(rating) || typeof rating !== 'number'){
+        return '-';
+      }
+
+      return rating;
+    };
+  })
   .filter('moodify', function(){
     return function(rating){
       var label = [];

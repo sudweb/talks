@@ -31,15 +31,16 @@ body{
   right: 101%;
 }
 .total{
-  background: #2D6987;
-  border-radius: 110%;
-  color: #fff;
   display: inline-block;
-  font-size: 1.5em;
-  padding: .5em .4em;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: normal;
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
   position: absolute;
-  right: 100.5%;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
+  right: 101%;
+  width: 30px;
 }
 .talk-negative{
   opacity: .1;
