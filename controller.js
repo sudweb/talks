@@ -131,7 +131,9 @@ TalkController.fieldMapping = {
     "Titre":                              "title",
     "Formats":                            "formats",
     "Que devrait en retenir le public ?": "description",
-    "Remarques, questions ?":             "expectations"
+    "Remarques, questions ?":             "expectations",
+    "Remarques":                          "remarks",
+    "Note":                               "total"
   }
 };
 
