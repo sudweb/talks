@@ -7,6 +7,14 @@ angular.module('talksFilters', [])
         .replace(/(0|Envisageable|Maybe)/i, "label label-maybe");
     };
   })
+  .filter('byFormat', function(){
+    return function(talks, field){
+      console.log(arguments);
+      return talks.map(function(talk){
+        console.log(talk[field || '']);
+      });
+    };
+  })
   .filter('ratify', function(){
     return function(rating){
       if (Number.isNaN(rating) || typeof rating !== 'number'){

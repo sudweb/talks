@@ -18,6 +18,13 @@
               <h3 class="panel-title">Sommaire</h3>
             </div>
 
+            <div class="panel-body">
+              <div class="btn-group btn-group-justified">
+                <div class="btn-group"><button type="button" class="btn btn-default" ng-click="toggleDisplay('talk_lt')" ng-class="{ active: display.talk_lt }">Lightning Talk</button></div>
+                <div class="btn-group"><button type="button" class="btn btn-default" ng-click="toggleDisplay('talk_workshop')" ng-class="{ active: display.talk_workshop }">Élaboratoire</button></div>
+              </div>
+            </div>
+
             <div class="list-group">
               <a ng-repeat="talk in talks" href="#talk-{{$index + 1}}" class="list-group-item" data-counter="{{$index + 1}}">
                 <span class="badge">{{talk.total | ratify}}</span>
@@ -30,7 +37,7 @@
         <div class="col-md-8 col-md-offset-1" id="talk-container">
             <div class="alert alert-info" ng-hide="talks">Chargement en cours …</div>
 
-            <div ng-cloak ng-repeat="talk in talks">
+            <div ng-cloak ng-repeat="talk in talks | filter | filter:byFormat:display">
                 <article class="talk talk-{{talk.rating | moodify}}" id="talk-{{$index + 1}}">
                     <h2 class="talk-title">{{talk.title}}</h2>
 

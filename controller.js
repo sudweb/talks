@@ -12,6 +12,15 @@ function TalkController ($scope, $http) {
 
   spreadsheet_url = spreadsheet_url.replace('%%key%%', TalkController.getUrlArgument('key'));
 
+  $scope.display = {
+    talk_lt: true,
+    talk_workshop: true
+  };
+
+  $scope.toggleDisplay = function toggleDisplay (category) {
+    $scope.display[category] = ($scope.display[category] ? false : true);
+  };
+
   $http.jsonp(spreadsheet_url)
     .success(function dataSuccess(response) {
       $scope.talks = TalkController.mapResponseFields(response);
