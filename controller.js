@@ -9,13 +9,23 @@
  */
 function TalkController ($scope, $http) {
   var spreadsheet_url = "https://spreadsheets.google.com/tq?key=%%key%%&tqx=responseHandler:JSON_CALLBACK;out:json";
+  var $scrollSpy = jQuery('body').scrollspy({
+    target: '#talk-summary .list-group-capped'
+  }).data('bs.scrollspy');
+
+  $scrollSpy.selector = '#talk-summary .list-group-capped a.list-group-item'
 
   spreadsheet_url = spreadsheet_url.replace('%%key%%', TalkController.getUrlArgument('key'));
 
+  $scope.talks = [];
   $scope.display = {
     talk_lt: true,
     talk_workshop: true
   };
+
+  $scope.$watch('talks', function(){
+    setTimeout($scrollSpy.refresh.bind($scrollSpy), 150);
+  });
 
   $scope.toggleDisplay = function toggleDisplay (category) {
     $scope.display[category] = ($scope.display[category] ? false : true);

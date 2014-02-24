@@ -12,7 +12,7 @@
 
 <div class="container" ng-controller="TalkController">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 affix" id="talk-summary">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">Sommaire</h3>
@@ -25,8 +25,8 @@
               </div>
             </div>
 
-            <div class="list-group">
-              <a ng-repeat="talk in talks" href="#talk-{{$index + 1}}" class="list-group-item" data-counter="{{$index + 1}}">
+            <div class="list-group list-group-capped">
+              <a ng-repeat="talk in talks | byFormat:display" href="#talk-{{$index + 1}}" class="list-group-item" data-counter="{{$index + 1}}">
                 <span class="badge">{{talk.total | ratify}}</span>
                 {{talk.title}}
               </a>
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div class="col-md-8 col-md-offset-1" id="talk-container">
+        <div class="col-md-8 col-md-offset-4" id="talk-container">
             <div class="alert alert-info" ng-hide="talks">Chargement en cours …</div>
 
             <div ng-cloak ng-repeat="talk in talks | byFormat:display">
@@ -84,7 +84,7 @@
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="controller.js"></script>
 <script src="filters.js"></script>
 <script src="app.js"></script>

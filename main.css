@@ -10,6 +10,11 @@ body{
   margin-right: .5em;
 }
 
+.list-group-capped {
+  max-height: 75vh;
+  overflow-y: scroll;
+}
+
 
 .nav-list li[data-counter]:before{
   content: attr(data-counter);
