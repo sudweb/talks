@@ -1,0 +1,20 @@
+diff --git a/bower_components/bootstrap/dist/js/bootstrap.js b/bower_components/bootstrap/dist/js/bootstrap.js
+index 8ae571b..63a69ef 100644
+--- a/bower_components/bootstrap/dist/js/bootstrap.js
++++ b/bower_components/bootstrap/dist/js/bootstrap.js
+@@ -1626,6 +1626,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
+ 
+     $(this.selector)
+       .parentsUntil(this.options.target, '.active')
++      .add(this.selector)
+       .removeClass('active')
+ 
+     var selector = this.selector +
+@@ -1633,7 +1634,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
+         this.selector + '[href="' + target + '"]'
+ 
+     var active = $(selector)
+-      .parents('li')
+       .addClass('active')
+ 
+     if (active.parent('.dropdown-menu').length) {
