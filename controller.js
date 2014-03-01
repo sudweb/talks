@@ -10,8 +10,10 @@
 function TalkController ($scope, $http) {
   var spreadsheet_url = "https://spreadsheets.google.com/tq?key=%%key%%&tqx=responseHandler:JSON_CALLBACK;out:json";
   var $scrollSpy = jQuery('body').scrollspy({
-    target: '#talk-summary .list-group-capped'
+    target: '#talk-summary .list-group-capped',
+    offset: 150
   }).data('bs.scrollspy');
+  var refreshSpy = setTimeout.bind(null, $scrollSpy.refresh.bind($scrollSpy), 250);
 
   $scrollSpy.selector = '#talk-summary .list-group-capped a.list-group-item'
 
@@ -28,9 +30,10 @@ function TalkController ($scope, $http) {
     reverse: false
   };
 
-  $scope.$watch('talks', function(){
-    setTimeout($scrollSpy.refresh.bind($scrollSpy), 150);
-  });
+  $scope.$watch('display.talk_lt', refreshSpy);
+  $scope.$watch('display.talk_workshop', refreshSpy);
+  $scope.$watch('sort.field', refreshSpy);
+  $scope.$watch('talks', refreshSpy);
 
   $scope.toggleDisplay = function toggleDisplay (category) {
     $scope.display[category] = ($scope.display[category] ? false : true);
