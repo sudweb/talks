@@ -23,12 +23,24 @@ function TalkController ($scope, $http) {
     talk_workshop: true
   };
 
+  $scope.sort = {
+    field: '',
+    reverse: false
+  };
+
   $scope.$watch('talks', function(){
     setTimeout($scrollSpy.refresh.bind($scrollSpy), 150);
   });
 
   $scope.toggleDisplay = function toggleDisplay (category) {
     $scope.display[category] = ($scope.display[category] ? false : true);
+  };
+
+  $scope.toggleSort = function toggleSort () {
+    var isSorted = !!$scope.sort.field;
+
+    $scope.sort.field = isSorted ? '' : 'total';
+    $scope.sort.reverse = isSorted ? false : true;
   };
 
   $http.jsonp(spreadsheet_url)
@@ -62,8 +74,8 @@ TalkController.getUrlArgument = function getUrlArgument (key) {
 TalkController.mapResponseFields = function mapResponseFields (response) {
   var fields = TalkController.mapResponseHeaderFields(response.table.cols);
 
-  return response.table.rows.map(function (row) {
-    var data = {};
+  return response.table.rows.map(function (row, i) {
+    var data = { id: i+1 };
 
     row.c.forEach(function fieldMapper(column, index) {
       if (fields[index]) {

@@ -37,6 +37,7 @@ angular.module('talksFilters', [])
   .filter('moodify', function(){
     return function(rating){
       var label = [];
+      console.log(rating)
 
       if (rating < 0){
         label.push('negative');
@@ -54,6 +55,7 @@ angular.module('talksFilters', [])
       {
         label.push('favorite');
       }
+
 
       return label.join(' ');
     };
