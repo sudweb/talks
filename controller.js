@@ -15,12 +15,15 @@ function TalkController ($scope, $http) {
   }).data('bs.scrollspy');
   var refreshSpy = setTimeout.bind(null, $scrollSpy.refresh.bind($scrollSpy), 250);
 
-  $scrollSpy.selector = '#talk-summary .list-group-capped a.list-group-item'
+  $scrollSpy.selector = '#talk-summary .list-group-capped a.list-group-item';
 
   spreadsheet_url = spreadsheet_url.replace('%%key%%', TalkController.getUrlArgument('key'));
 
   $scope.talks = [];
+  $scope.editionYear = null;
   $scope.display = {
+    talk_40: true,
+    talk_20: true,
     talk_lt: true,
     talk_workshop: true
   };
@@ -30,6 +33,8 @@ function TalkController ($scope, $http) {
     reverse: false
   };
 
+  $scope.$watch('display.talk_40', refreshSpy);
+  $scope.$watch('display.talk_20', refreshSpy);
   $scope.$watch('display.talk_lt', refreshSpy);
   $scope.$watch('display.talk_workshop', refreshSpy);
   $scope.$watch('sort.field', refreshSpy);
@@ -49,6 +54,8 @@ function TalkController ($scope, $http) {
   $http.jsonp(spreadsheet_url)
     .success(function dataSuccess(response) {
       $scope.talks = TalkController.mapResponseFields(response);
+
+      $scope.editionYear = $scope.talks[0].created_at.getUTCFullYear() + 1;
     });
 }
 
@@ -86,6 +93,25 @@ TalkController.mapResponseFields = function mapResponseFields (response) {
       }
     });
 
+    // remaps Sud Web < 2014 proposal formats
+    if (!('formats' in data)){
+      data.formats = [];
+
+      Object.keys(TalkController.fieldMapping.talks).forEach(function(field){
+        if (!data.hasOwnProperty(field)) {
+          return;
+        }
+
+        if (['Non', 'No', '-1'].indexOf(data[field]) === -1){
+          data.formats.push(TalkController.fieldMapping.talks[field]);
+        }
+
+        delete data[field];
+      });
+
+      data.formats = data.formats.join(',');
+    }
+
     return data;
   });
 };
@@ -114,7 +140,14 @@ TalkController.getMappingFromColumns = function getMappingFromColumns(columns){
 };
 
 TalkController.fieldMapping = {
+  talks: {
+    "talk_40": "40 minutes",
+    "talk_20": "20 minutes",
+    "talk_lt": "Lightning Talk",
+    "talk_workshop": "Élaboratoire"
+  },
   legacy: {
+    "Timestamp":                                                                     "created_at",
     "TS":                                                                            "first_name",
     "First Name":                                                                    "first_name",
     "Nom":                                                                           "last_name",
@@ -160,6 +193,7 @@ TalkController.fieldMapping = {
     "Note":                                                                          "total"
   },
   current: {
+    "Timestamp":                          "created_at",
     "Prénom et nom":                      "speaker_name",
     "Votre adresse email":                "email",
     "Titre":                              "title",

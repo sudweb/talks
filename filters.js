@@ -9,18 +9,22 @@ angular.module('talksFilters', [])
   })
   .filter('byFormat', function(){
     var mapping = {
-      'talk_lt': 'Lightning Talk',
-      'talk_workshop': 'Élaboratoire'
+      '40 minutes': 'talk_40',
+      '20 minutes': 'talk_20',
+      'Lightning Talk': 'talk_lt',
+      'Élaboratoire': 'talk_workshop'
     };
 
-    return function(talks, fields){
+    return function(talks, formatsDisplay){
       return (talks || []).filter(function(talk){
         if (talk.formats.trim() === ''){
           return true;
         }
 
-        return Object.keys(fields).some(function(field){
-          return !!(~talk.formats.indexOf(mapping[field])) === fields[field];
+        return talk.formats.split(',').some(function(format){
+          var formatId = mapping[format];
+
+          return formatsDisplay[formatId];
         });
       });
     };
