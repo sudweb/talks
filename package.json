@@ -1,6 +1,6 @@
 {
   "name": "sudweb-talks",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Talk visualisation tool used for Call for Papers. Backed by Google Spreadsheets.",
   "private": true,
   "main": "index.html",
@@ -24,12 +24,12 @@
     "for",
     "paper"
   ],
-  "author": "Thomas Parisot <thomas@oncle-tom.net>",
+  "author": "Thomas Parisot (https://oncletom.io)",
   "license": "MIT",
   "dependencies": {
-    "bower": "~1.2.8"
+    "bower": "^1.2.8"
   },
   "devDependencies": {
-    "serve": "~1.3.0"
+    "serve": "^1.3.0"
   }
 }
