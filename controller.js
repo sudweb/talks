@@ -190,6 +190,7 @@ TalkController.fieldMapping = {
     "URL":                                                                           "url",
     "N/A":                                                                           "rating",
     "Remarques":                                                                     "remarks",
+    "Total":                                                                         "total",
     "Note":                                                                          "total"
   },
   current: {
