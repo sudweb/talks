@@ -197,11 +197,16 @@ TalkController.fieldMapping = {
     "Timestamp":                          "created_at",
     "Prénom et nom":                      "speaker_name",
     "Votre adresse email":                "email",
+    "Ton adresse email":                  "email",
     "Titre":                              "title",
+    "Titre de la présentation":           "title",
     "Formats":                            "formats",
     "Que devrait en retenir le public ?": "description",
+    "Description de la présentation":     "description",
     "Remarques, questions ?":             "expectations",
+    "Si le public ne devait retenir qu'une chose du LT, ce serait quoi ?": "expectations",
     "Remarques":                          "remarks",
+    "Des remarques ? Des questions ? Des besoins particuliers ?": "remarks",
     "Note":                               "total"
   }
 };
