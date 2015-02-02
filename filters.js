@@ -1,3 +1,7 @@
+Number.isNaN = Number.isNaN || function(value) {
+  return typeof value === "number" && isNaN(value);
+};
+
 angular.module('talksFilters', [])
   .filter('labelify', function(){
     return function(label){
