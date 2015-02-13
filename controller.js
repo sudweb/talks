@@ -135,8 +135,8 @@ TalkController.mapResponseHeaderFields = function mapResponseHeaderFields (colum
   return fields;
 };
 
-TalkController.getMappingFromColumns = function getMappingFromColumns(columns){
-  return TalkController.fieldMapping[columns.length <= 10 ? 'current' : 'legacy'];
+TalkController.getMappingFromColumns = function getMappingFromColumns(){
+  return TalkController.fieldMapping['formFields'];
 };
 
 TalkController.fieldMapping = {
@@ -146,7 +146,7 @@ TalkController.fieldMapping = {
     "talk_lt": "Lightning Talk",
     "talk_workshop": "Élaboratoire"
   },
-  legacy: {
+  formFields: {
     "Timestamp":                                                                     "created_at",
     "TS":                                                                            "first_name",
     "First Name":                                                                    "first_name",
@@ -191,23 +191,18 @@ TalkController.fieldMapping = {
     "N/A":                                                                           "rating",
     "Remarques":                                                                     "remarks",
     "Total":                                                                         "total",
-    "Note":                                                                          "total"
-  },
-  current: {
-    "Timestamp":                          "created_at",
-    "Prénom et nom":                      "speaker_name",
-    "Votre adresse email":                "email",
-    "Ton adresse email":                  "email",
-    "Titre":                              "title",
-    "Titre de la présentation":           "title",
-    "Formats":                            "formats",
-    "Que devrait en retenir le public ?": "description",
-    "Description de la présentation":     "description",
-    "Remarques, questions ?":             "expectations",
-    "Si le public ne devait retenir qu'une chose du LT, ce serait quoi ?": "expectations",
-    "Remarques":                          "remarks",
-    "Des remarques ? Des questions ? Des besoins particuliers ?": "remarks",
-    "Note":                               "total"
+    "Note":                                                                          "total",
+    "Prénom et nom":                                                                 "speaker_name",
+    "Votre adresse email":                                                           "email",
+    "Ton adresse email":                                                             "email",
+    "Titre":                                                                         "title",
+    "Titre de la présentation":                                                      "title",
+    "Formats":                                                                       "formats",
+    "Que devrait en retenir le public ?":                                            "description",
+    "Description de la présentation":                                                "description",
+    "Remarques, questions ?":                                                        "expectations",
+    "Si le public ne devait retenir qu'une chose du LT, ce serait quoi ?":           "expectations",
+    "Des remarques ? Des questions ? Des besoins particuliers ?":                    "remarks"
   }
 };
 
