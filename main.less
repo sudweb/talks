@@ -15,9 +15,17 @@ body{
   margin-right: .5em;
 }
 
-.list-group-capped {
+[role="nav"] {
   max-height: 75vh;
   overflow-y: scroll;
+
+  li > a {
+    border-radius: 0;
+  }
+
+  .badge {
+    float: right;
+  }
 }
 
 

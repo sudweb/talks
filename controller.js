@@ -13,12 +13,10 @@ const bootstrap = require('bootstrap');
 function TalkController ($scope, $http) {
   var spreadsheet_url = "https://spreadsheets.google.com/tq?key=%%key%%&tqx=responseHandler:JSON_CALLBACK;out:json";
   var $scrollSpy = jQuery('body').scrollspy({
-    target: '#talk-summary .list-group-capped',
+    target: '#talk-summary',
     offset: 150
   }).data('bs.scrollspy');
   var refreshSpy = setTimeout.bind(null, $scrollSpy.refresh.bind($scrollSpy), 250);
-
-  $scrollSpy.selector = '#talk-summary .list-group-capped a.list-group-item';
 
   spreadsheet_url = spreadsheet_url.replace('%%key%%', TalkController.getUrlArgument('key'));
 
@@ -58,7 +56,7 @@ function TalkController ($scope, $http) {
     .success(function dataSuccess(response) {
       $scope.talks = TalkController.mapResponseFields(response);
 
-      $scope.editionYear = $scope.talks[0].created_at.getUTCFullYear() + 1;
+      $scope.editionYear = eval('new ' + $scope.talks[0].created_at).getUTCFullYear() + 1;
     });
 }
 

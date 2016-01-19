@@ -25,13 +25,15 @@
               <strong>{{(talks | byFormat:display).length}}</strong> propositions.
             </div>
 
-            <div class="list-group list-group-capped" role="nav">
-              <a ng-repeat="talk in talks | byFormat:display" href="#talk-{{talk.id}}" class="list-group-item" data-counter="{{talk.id}}">
-                <span class="badge">{{talk.total | ratify}}</span>
-                <span class="talk-counter">{{talk.id}}</span>
-                {{talk.title}}
-              </a>
-            </div>
+            <ul class="nav nav-pills nav-stacked" role="nav">
+              <li ng-repeat="talk in talks | byFormat:display">
+                <a href="#talk-{{talk.id}}" data-counter="{{talk.id}}">
+                  <span class="badge">{{talk.total | ratify}}</span>
+                  <span class="talk-counter">{{talk.id}}</span>
+                  {{talk.title}}
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
