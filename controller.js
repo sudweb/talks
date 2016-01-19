@@ -91,7 +91,7 @@ TalkController.mapResponseFields = function mapResponseFields (response) {
     var data = { id: i+1 };
 
     row.c.forEach(function fieldMapper(column, index) {
-      if (fields[index]) {
+      if (column && fields[index]) {
         data[ fields[index] ] = column.v;
       }
     });
@@ -200,12 +200,16 @@ TalkController.fieldMapping = {
     "Ton adresse email":                                                             "email",
     "Titre":                                                                         "title",
     "Titre de la présentation":                                                      "title",
+    "Titre de ta présentation":                                                      "title",
     "Formats":                                                                       "formats",
     "Que devrait en retenir le public ?":                                            "description",
     "Description de la présentation":                                                "description",
+    "Description de ta présentation":                                                "description",
     "Remarques, questions ?":                                                        "expectations",
     "Si le public ne devait retenir qu'une chose du LT, ce serait quoi ?":           "expectations",
-    "Des remarques ? Des questions ? Des besoins particuliers ?":                    "remarks"
+    "Si le public ne devait retenir qu'une chose, ce serait...":                     "expectations",
+    "Des remarques ? Des questions ? Des besoins particuliers ?":                    "remarks",
+    "Tu veux ajouter quelque chose ?":                                               "remarks"
   }
 };
 

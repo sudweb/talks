@@ -20,6 +20,7 @@ module.exports = angular.module('talksFilters', [])
       '40 minutes': 'talk_40',
       '20 minutes': 'talk_20',
       'Lightning Talk': 'talk_lt',
+      '5 minutes (Lightning Talk)': 'talk_lt',
       'Élaboratoire': 'talk_workshop'
     };
 
