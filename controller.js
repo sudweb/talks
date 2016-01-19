@@ -1,5 +1,8 @@
 "use strict";
 
+const jQuery = global.jQuery = require('jquery');
+const bootstrap = require('bootstrap');
+
 /**
  * Talks Controller
  *
@@ -208,3 +211,5 @@ TalkController.fieldMapping = {
 
 // Explicit injection
 TalkController.$inject = ['$scope', '$http'];
+
+module.exports = TalkController;

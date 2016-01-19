@@ -22,19 +22,10 @@ To deploy any update to the live server, run the following command:
 npm run deploy
 ```
 
-## Usage
+## Develop
 
-The `index.html` must be served over HTTP to work properly.
-
-### Standard HTTP Server
-
-```bash
-open http://localhost/path/to/index.html?key=<Google Spreadsheet key>
-```
-
-### Embedded Server
+Start the development server with the following command:
 
 ```bash
 npm start
-open http://localhost:5000/index.html?key=<Google Spreadsheet key>
 ```

@@ -4,9 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sud Web – Sujets</title>
     <meta name="viewport" content="initial-scale=1">
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="main.css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,7 +26,7 @@
             </div>
 
             <div class="list-group list-group-capped" role="nav">
-              <a ng-repeat="talk in talks | byFormat:display | orderBy:sort.field:sort.reverse" href="#talk-{{talk.id}}" class="list-group-item" data-counter="{{talk.id}}">
+              <a ng-repeat="talk in talks | byFormat:display" href="#talk-{{talk.id}}" class="list-group-item" data-counter="{{talk.id}}">
                 <span class="badge">{{talk.total | ratify}}</span>
                 <span class="talk-counter">{{talk.id}}</span>
                 {{talk.title}}
@@ -92,11 +89,6 @@
     </div>
 </div>
 
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="controller.js"></script>
-<script src="filters.js"></script>
-<script src="app.js"></script>
+<script src="bundle.js" async defer></script>
 </body>
 </html>
