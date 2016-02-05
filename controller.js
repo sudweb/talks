@@ -2,6 +2,7 @@
 
 const jQuery = global.jQuery = require('jquery');
 const bootstrap = require('bootstrap');
+const REFRESH_INTERVAL_TIME = 30000;
 
 /**
  * Talks Controller
@@ -52,12 +53,17 @@ function TalkController ($scope, $http) {
     $scope.sort.reverse = isSorted ? false : true;
   };
 
-  $http.jsonp(spreadsheet_url)
-    .success(function dataSuccess(response) {
+  $http.jsonp(spreadsheet_url).success(response => {
       $scope.talks = TalkController.mapResponseFields(response);
 
       $scope.editionYear = eval('new ' + $scope.talks[0].created_at).getUTCFullYear() + 1;
     });
+
+  setInterval(() => {
+    $http.jsonp(spreadsheet_url).success(response => {
+      $scope.talks = TalkController.mapResponseFields(response);
+    })
+  }, REFRESH_INTERVAL_TIME);
 }
 
 /**
@@ -83,10 +89,10 @@ TalkController.getUrlArgument = function getUrlArgument (key) {
  * @returns {Array.<Object>}
  */
 TalkController.mapResponseFields = function mapResponseFields (response) {
-  var fields = TalkController.mapResponseHeaderFields(response.table.cols);
+  const fields = TalkController.mapResponseHeaderFields(response.table.cols);
 
-  return response.table.rows.map(function (row, i) {
-    var data = { id: i+1 };
+  return response.table.rows.map((row, i) => {
+    const data = { id: i+1 };
 
     row.c.forEach(function fieldMapper(column, index) {
       if (column && fields[index]) {
@@ -98,7 +104,7 @@ TalkController.mapResponseFields = function mapResponseFields (response) {
     if (!('formats' in data)){
       data.formats = [];
 
-      Object.keys(TalkController.fieldMapping.talks).forEach(function(field){
+      Object.keys(TalkController.fieldMapping.talks).forEach(field => {
         if (!data.hasOwnProperty(field)) {
           return;
         }
