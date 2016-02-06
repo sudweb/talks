@@ -2,7 +2,7 @@
 
 const jQuery = global.jQuery = require('jquery');
 const bootstrap = require('bootstrap');
-const REFRESH_INTERVAL_TIME = 30000;
+const REFRESH_INTERVAL_TIME = 10000;
 
 /**
  * Talks Controller
