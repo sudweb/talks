@@ -28,7 +28,8 @@
   "dependencies": {
     "angular": "~1.0.8",
     "bootstrap": "^3.3.6",
-    "jquery": "^2.2.0"
+    "jquery": "^2.2.0",
+    "markdown-it": "^5.1.0"
   },
   "devDependencies": {
     "browserify": "^13.0.0",

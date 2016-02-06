@@ -1,6 +1,7 @@
 'use strict';
 
 const angular = require('angular');
+const md = require('markdown-it')();
 
 Number.isNaN = Number.isNaN || function(value) {
   return typeof value === "number" && isNaN(value);
@@ -14,6 +15,9 @@ module.exports = angular.module('talksFilters', [])
         .replace(/(-1|Non|No)/i, "label label-empty")
         .replace(/(0|Envisageable|Maybe)/i, "label label-maybe");
     };
+  })
+  .filter('markdown', function () {
+    return text => md.render(text);
   })
   .filter('byFormat', function(){
     var mapping = {

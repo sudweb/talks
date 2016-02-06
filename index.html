@@ -73,17 +73,17 @@
                     </p>
 
                     <div class="row">
-                        <div class="talk-description col-md-7">{{talk.description}}</div>
+                        <div class="talk-description col-md-7" ng-bind-html-unsafe="talk.description | markdown"></div>
                     </div>
 
                     <div class="row" ng-show="talk.expectations">
                         <h4>Ce que le public en retiendra</h4>
-                        <blockquote class="col-md-7"><p>{{talk.expectations}}</p></blockquote>
+                        <blockquote class="col-md-7" ng-bind-html-unsafe="talk.expectations | markdown"></blockquote>
                     </div>
 
                     <div class="row" ng-show="talk.remarks">
                         <h4>Remarques</h4>
-                        <blockquote class="col-md-7"><p>{{talk.remarks}}</p></blockquote>
+                        <blockquote class="col-md-7" ng-bind-html-unsafe="talk.remarks | markdown"></blockquote>
                     </div>
                 </article>
             </div>
