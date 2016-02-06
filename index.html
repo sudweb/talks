@@ -26,7 +26,7 @@
             </div>
 
             <ul class="nav nav-pills nav-stacked" role="nav">
-              <li ng-repeat="talk in talks | byFormat:display">
+              <li ng-repeat="talk in talks | byFormat:display | orderBy:sort.field:sort.reverse">
                 <a href="#talk-{{talk.id}}" data-counter="{{talk.id}}">
                   <span class="badge">{{talk.total | ratify}}</span>
                   <span class="talk-counter">{{talk.id}}</span>
@@ -91,6 +91,6 @@
     </div>
 </div>
 
-<script src="bundle.js" async defer></script>
+<script src="bundle.js"></script>
 </body>
 </html>
