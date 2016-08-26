@@ -6,6 +6,8 @@ This is nice and handy but totally unreadable.
 This tool is a **frontend visualizer** of Sud Web talk proposals.
 For the sake of our sanity.
 
+![screenshot](https://oncletom.io/images/2016/06/sudweb-tooling-talks.png)
+
 ## Install
 
 Backend and frontend dependencies will be handled via `npm`.
