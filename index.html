@@ -16,7 +16,7 @@
                 <div class="btn-group" ng-hide="editionYear > 2012"><button type="button" class="btn btn-default" ng-click="toggleDisplay('talk_40')" ng-class="{ active: display.talk_40 }">40'</button></div>
                 <div class="btn-group" ng-hide="editionYear > 2013"><button type="button" class="btn btn-default" ng-click="toggleDisplay('talk_20')" ng-class="{ active: display.talk_20 }">20'</button></div>
                 <div class="btn-group"><button type="button" class="btn btn-default" ng-click="toggleDisplay('talk_lt')" ng-class="{ active: display.talk_lt }">LT</button></div>
-                <div class="btn-group"><button type="button" class="btn btn-default" ng-click="toggleDisplay('talk_workshop')" ng-class="{ active: display.talk_workshop }">Élaboratoires</button></div>
+                <div class="btn-group" ng-hide="editionYear > 2014"><button type="button" class="btn btn-default" ng-click="toggleDisplay('talk_workshop')" ng-class="{ active: display.talk_workshop }">Élaboratoires</button></div>
                 <div class="btn-group"><button type="button" class="btn btn-default" ng-click="toggleSort()" ng-class="{ active: sort.field }"><span class="glyphicon glyphicon-sort-by-attributes-alt"></span></button></div>
               </div>
             </div>
