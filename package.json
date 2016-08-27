@@ -6,7 +6,7 @@
   "main": "index.html",
   "scripts": {
     "build": "browserify -e app.js -t lessify -o bundle.js",
-    "deploy": "gh-pages --src '{bundle,index}.{js,html}' -d .",
+    "deploy": "gh-pages --repo 'https://github.com/sudweb/talks.git' --src '{bundle,index}.{js,html}' -d .",
     "predeploy": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "budo app.js:bundle.js --live --open --port 5000 -- -t lessify"
