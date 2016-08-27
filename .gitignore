@@ -29,3 +29,6 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 bundle.js
+
+# Exclude super secret file for Travis
+super_secret.txt
