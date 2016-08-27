@@ -15,8 +15,7 @@ addons:
       - g++-4.8
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_0cc7effbabbd_key -iv $encrypted_0cc7effbabbd_iv
-  -in super_secret.txt.enc -out super_secret.txt -d
+- openssl aes-256-cbc -K $encrypted_0cc7effbabbd_key -iv $encrypted_0cc7effbabbd_iv -in super_secret.txt.enc -out super_secret.txt -d
 
 before_deploy:
 - git config --global user.email "builds@travis-ci.com"
