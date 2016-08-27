@@ -1,0 +1,33 @@
+language: node_js
+node_js: 4
+cache:
+  directories:
+  - node_modules
+sudo: false
+
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_0cc7effbabbd_key -iv $encrypted_0cc7effbabbd_iv -in super_secret.txt.enc -out super_secret.txt -d
+
+before_deploy:
+- git config --global user.email "builds@travis-ci.com"
+- git config --global user.name "Travis CI"
+
+deploy:
+  provider: script
+  script: npm run deploy
+  skip_cleanup: true
+  on:
+    branch: gh-pages
+
+notifications:
+  slack:
+    secure: p+vyBa1gp/s/BeZ9lF3T4nZslzggL4rQj+CDH0Esvy4TIqszcUWvGxV5wgLHh3aYn7YcPmZe4HgdguDm7iWDflRjIsbQ+/pmtToDF8xbt8YNfoyVPWZQ5PTiON9NCcPTIuzljNKAAISf+5IETOWlPpZwRXZyzkJ2KjGQ3lizIBn3xDuCHCLKbLWAxIyIUQev3kZXFLJLy49vhmJ/01crThzZljGgaETqA2HULmdlzYd2QZ8QsQ5zha6uy4MoHs5ew22dPF/K2hl98/NHgiYbXqs4xehoJxVI7TYhL9HDpwtDIrNkJ66GT9d/aprT7lyf+BLjO7BgtjbPbXGJtEAYUaGj9FyHf7r0IOl7CbG5ULwxj3ufbsUN6Vnd2htwdbBY84cTE8Hq/PxUsw7rRvugqDmfQ7ITrIdJlKl8O7u704zVCYYxIkRtEUOPSWo3HbT2ixDDo/8XaRonn6VPqyTelZGhGRDlWTQ9/YD4AYuCfg3qFCzPPHnxjyTzjcO5iO1vMmde5QPxz/ZVoU5eY00AYwt5+ck+o0e8UePUef/zNyPQH6RrZOsyKAY9Gct/32TjjMk10JiS1AiBiWeqPDVzSgQbbdhDUWIif4SG8FZpsj/4z/LeTQ9MKKHBxw/1El+BBP3aqRRD9mq18Z7Fv018HFae291njU/xnuy+oxwVuyY=
