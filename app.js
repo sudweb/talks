@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-require('./main.less');
+require('./main.less')
 
-const angular = require('angular');
-const talksFilters = require('./filters');
-const TalkController = require('./controller');
+const angular = require('angular')
+const talksFilters = require('./filters')
+const TalkController = require('./controller')
 
-const App = angular.module('talks', ['talksFilters']);
+const App = angular.module('talks', ['talksFilters'])
 
-App.controller('TalkController', TalkController);
+App.controller('TalkController', TalkController)
