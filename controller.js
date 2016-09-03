@@ -1,8 +1,8 @@
-"use strict";
+'use strict'
 
-const jQuery = global.jQuery = require('jquery');
-const bootstrap = require('bootstrap');
-const REFRESH_INTERVAL_TIME = 10000;
+const jQuery = global.jQuery = require('jquery')
+const bootstrap = require('bootstrap')
+const REFRESH_INTERVAL_TIME = 10000
 
 /**
  * Talks Controller
@@ -12,58 +12,58 @@ const REFRESH_INTERVAL_TIME = 10000;
  * @constructor
  */
 function TalkController ($scope, $http) {
-  var spreadsheet_url = "https://spreadsheets.google.com/tq?key=%%key%%&tqx=responseHandler:JSON_CALLBACK;out:json";
+  var spreadsheetUrl = 'https://spreadsheets.google.com/tq?key=%%key%%&tqx=responseHandler:JSON_CALLBACK;out:json'
   var $scrollSpy = jQuery('body').scrollspy({
     target: '#talk-summary',
     offset: 150
-  }).data('bs.scrollspy');
-  var refreshSpy = setTimeout.bind(null, $scrollSpy.refresh.bind($scrollSpy), 250);
+  }).data('bs.scrollspy')
+  var refreshSpy = setTimeout.bind(null, $scrollSpy.refresh.bind($scrollSpy), 250)
 
-  spreadsheet_url = spreadsheet_url.replace('%%key%%', TalkController.getUrlArgument('key'));
+  spreadsheetUrl = spreadsheetUrl.replace('%%key%%', TalkController.getUrlArgument('key'))
 
-  $scope.talks = [];
-  $scope.editionYear = null;
+  $scope.talks = []
+  $scope.editionYear = null
   $scope.display = {
     talk_40: true,
     talk_20: true,
     talk_lt: true,
     talk_workshop: true
-  };
+  }
 
   $scope.sort = {
     field: '',
     reverse: false
-  };
+  }
 
-  $scope.$watch('display.talk_40', refreshSpy);
-  $scope.$watch('display.talk_20', refreshSpy);
-  $scope.$watch('display.talk_lt', refreshSpy);
-  $scope.$watch('display.talk_workshop', refreshSpy);
-  $scope.$watch('sort.field', refreshSpy);
-  $scope.$watch('talks', refreshSpy);
+  $scope.$watch('display.talk_40', refreshSpy)
+  $scope.$watch('display.talk_20', refreshSpy)
+  $scope.$watch('display.talk_lt', refreshSpy)
+  $scope.$watch('display.talk_workshop', refreshSpy)
+  $scope.$watch('sort.field', refreshSpy)
+  $scope.$watch('talks', refreshSpy)
 
   $scope.toggleDisplay = function toggleDisplay (category) {
-    $scope.display[category] = ($scope.display[category] ? false : true);
-  };
+    $scope.display[category] = ($scope.display[category] ? false : true)
+  }
 
   $scope.toggleSort = function toggleSort () {
-    var isSorted = !!$scope.sort.field;
+    var isSorted = !!$scope.sort.field
 
-    $scope.sort.field = isSorted ? '' : 'total';
-    $scope.sort.reverse = isSorted ? false : true;
-  };
+    $scope.sort.field = isSorted ? '' : 'total'
+    $scope.sort.reverse = isSorted ? false : true
+  }
 
-  $http.jsonp(spreadsheet_url).success(response => {
-      $scope.talks = TalkController.mapResponseFields(response);
+  $http.jsonp(spreadsheetUrl).success(response => {
+    $scope.talks = TalkController.mapResponseFields(response)
 
-      $scope.editionYear = eval('new ' + $scope.talks[0].created_at).getUTCFullYear() + 1;
-    });
+    $scope.editionYear = eval('new ' + $scope.talks[0].created_at).getUTCFullYear() + 1
+  })
 
   setInterval(() => {
-    $http.jsonp(spreadsheet_url).success(response => {
-      $scope.talks = TalkController.mapResponseFields(response);
+    $http.jsonp(spreadsheetUrl).success(response => {
+      $scope.talks = TalkController.mapResponseFields(response)
     })
-  }, REFRESH_INTERVAL_TIME);
+  }, REFRESH_INTERVAL_TIME)
 }
 
 /**
@@ -73,14 +73,14 @@ function TalkController ($scope, $http) {
  * @returns {string}
  */
 TalkController.getUrlArgument = function getUrlArgument (key) {
-  var value = '';
+  var value = ''
 
-  location.search.replace(new RegExp(key + '=([^&$]+)'), function (m, matched_value) {
-    value = matched_value;
-  });
+  location.search.replace(new RegExp(key + '=([^&$]+)'), function (m, matchedValue) {
+    value = matchedValue
+  })
 
-  return value;
-};
+  return value
+}
 
 /**
  * Maps JSON response to an array of "Talk" objects
@@ -89,39 +89,39 @@ TalkController.getUrlArgument = function getUrlArgument (key) {
  * @returns {Array.<Object>}
  */
 TalkController.mapResponseFields = function mapResponseFields (response) {
-  const fields = TalkController.mapResponseHeaderFields(response.table.cols);
+  const fields = TalkController.mapResponseHeaderFields(response.table.cols)
 
   return response.table.rows.map((row, i) => {
-    const data = { id: i+1 };
+    const data = { id: i + 1 }
 
-    row.c.forEach(function fieldMapper(column, index) {
+    row.c.forEach(function fieldMapper (column, index) {
       if (column && fields[index]) {
-        data[ fields[index] ] = column.v;
+        data[ fields[index] ] = column.v
       }
-    });
+    })
 
     // remaps Sud Web < 2014 proposal formats
-    if (!('formats' in data)){
-      data.formats = [];
+    if (!('formats' in data)) {
+      data.formats = []
 
       Object.keys(TalkController.fieldMapping.talks).forEach(field => {
         if (!data.hasOwnProperty(field)) {
-          return;
+          return
         }
 
-        if (['Non', 'No', '-1'].indexOf(data[field]) === -1){
-          data.formats.push(TalkController.fieldMapping.talks[field]);
+        if (['Non', 'No', '-1'].indexOf(data[field]) === -1) {
+          data.formats.push(TalkController.fieldMapping.talks[field])
         }
 
-        delete data[field];
-      });
+        delete data[field]
+      })
 
-      data.formats = data.formats.join(',');
+      data.formats = data.formats.join(',')
     }
 
-    return data;
-  });
-};
+    return data
+  })
+}
 
 /**
  * Create a data mapping between response column labels and rows index
@@ -130,97 +130,97 @@ TalkController.mapResponseFields = function mapResponseFields (response) {
  * @returns {Object} Key/Value array-like object
  */
 TalkController.mapResponseHeaderFields = function mapResponseHeaderFields (columns) {
-  var fields = {};
-  var mapping = TalkController.getMappingFromColumns(columns);
+  var fields = {}
+  var mapping = TalkController.getMappingFromColumns(columns)
 
-  columns.forEach(function columnMapper(column, index) {
+  columns.forEach(function columnMapper (column, index) {
     if (mapping[column.label]) {
-      fields[index] = mapping[column.label];
+      fields[index] = mapping[column.label]
     }
-  });
+  })
 
-  return fields;
-};
+  return fields
+}
 
-TalkController.getMappingFromColumns = function getMappingFromColumns(){
-  return TalkController.fieldMapping['formFields'];
-};
+TalkController.getMappingFromColumns = function getMappingFromColumns () {
+  return TalkController.fieldMapping['formFields']
+}
 
 TalkController.fieldMapping = {
   talks: {
-    "talk_40": "40 minutes",
-    "talk_20": "20 minutes",
-    "talk_lt": "Lightning Talk",
-    "talk_workshop": "Élaboratoire"
+    'talk_40': '40 minutes',
+    'talk_20': '20 minutes',
+    'talk_lt': 'Lightning Talk',
+    'talk_workshop': 'Élaboratoire'
   },
   formFields: {
-    "Timestamp":                                                                     "created_at",
-    "TS":                                                                            "first_name",
-    "First Name":                                                                    "first_name",
-    "Prénom":                                                                        "first_name",
-    "Nom":                                                                           "last_name",
-    "Last Name":                                                                     "last_name",
-    "Thématique concernée":                                                          "themes",
-    "Related to":                                                                    "themes",
-    "Public ciblé":                                                                  "audience",
-    "Audience":                                                                      "audience",
-    "Niveau d'expérience souhaité du public":                                        "audience_level",
-    "Audience Level : Beginner, intermediate, expert":                               "audience_level",
-    "Mots clés caractérisant la conférence":                                         "keywords",
-    "Tags and related keywords":                                                     "keywords",
-    "Langue parlée pendant la conférence":                                           "language",
-    "Spoken language during the talk":                                               "language",
-    "Titre":                                                                         "title",
-    "Titre de la conférence":                                                        "title",
-    "Title of your presentation":                                                    "title",
-    "Description":                                                                   "description",
-    "Sexe":                                                                          "genre",
-    "Gender":                                                                        "genre",
-    "Provenance":                                                                    "location",
-    "Location":                                                                      "location",
-    "Adresse email":                                                                 "email",
-    "Email":                                                                         "email",
-    "Numéro de téléphone":                                                           "phone",
-    "Phone":                                                                         "phone",
-    "Mode de déplacement envisagé":                                                  "transportation",
-    "Transportation means":                                                          "transportation",
-    "Besoin d'être hébergé":                                                         "hosting",
-    "Souhaits, attentes et remarques vis à vis de Sud Web":                          "expectations",
-    "Expectations about Sud Web":                                                    "expectations",
-    "Autres remarques et questions.":                                                "freespeech",
-    "Any questions ?":                                                               "freespeech",
-    "Format":                                                                        "talk",
-    "Possible formats for this session [40 minutes presentation]":                   "talk_40",
-    "Format(s) d'intervention possible pour ce sujet [Conférence de 20 minutes]":    "talk_20",
-    "Possible formats for this session [20 minutes presentation]":                   "talk_20",
-    "Format(s) d'intervention possible pour ce sujet [Lightning Talk de 5 minutes]": "talk_lt",
-    "Possible formats for this session [5 minutes Lightning Talk]":                  "talk_lt",
-    "Format(s) d'intervention possible pour ce sujet [Atelier/Dojo/BarCamp]":        "talk_workshop",
-    "Possible formats for this session [Workshop/Open Forum/Barcamp]":               "talk_workshop",
-    "URL":                                                                           "url",
-    "N/A":                                                                           "rating",
-    "Remarques":                                                                     "remarks",
-    "Total":                                                                         "total",
-    "Note":                                                                          "total",
-    "Prénom et nom":                                                                 "speaker_name",
-    "Votre adresse email":                                                           "email",
-    "Ton adresse email":                                                             "email",
-    "Titre de la conférence":                                                        "title",
-    "Titre de la présentation":                                                      "title",
-    "Titre de ta présentation":                                                      "title",
-    "Formats":                                                                       "formats",
-    "Que devrait en retenir le public ?":                                            "description",
-    "Description de la présentation":                                                "description",
-    "Description de ta présentation":                                                "description",
-    "Remarques, questions ?":                                                        "expectations",
-    "Si le public ne devait retenir qu'une chose du LT, ce serait quoi ?":           "expectations",
-    "Si le public ne devait retenir qu'une chose, ce serait...":                     "expectations",
-    "Des remarques ? Des questions ? Des besoins particuliers ?":                    "remarks",
-    "Tu veux ajouter quelque chose ?":                                               "remarks"
+    'Timestamp': 'created_at',
+    'TS': 'first_name',
+    'First Name': 'first_name',
+    'Prénom': 'first_name',
+    'Nom': 'last_name',
+    'Last Name': 'last_name',
+    'Thématique concernée': 'themes',
+    'Related to': 'themes',
+    'Public ciblé': 'audience',
+    'Audience': 'audience',
+    "Niveau d'expérience souhaité du public": 'audience_level',
+    'Audience Level : Beginner, intermediate, expert': 'audience_level',
+    'Mots clés caractérisant la conférence': 'keywords',
+    'Tags and related keywords': 'keywords',
+    'Langue parlée pendant la conférence': 'language',
+    'Spoken language during the talk': 'language',
+    'Titre': 'title',
+    'Titre de la conférence': 'title',
+    'Title of your presentation': 'title',
+    'Description': 'description',
+    'Sexe': 'genre',
+    'Gender': 'genre',
+    'Provenance': 'location',
+    'Location': 'location',
+    'Adresse email': 'email',
+    'Email': 'email',
+    'Numéro de téléphone': 'phone',
+    'Phone': 'phone',
+    'Mode de déplacement envisagé': 'transportation',
+    'Transportation means': 'transportation',
+    "Besoin d'être hébergé": 'hosting',
+    'Souhaits, attentes et remarques vis à vis de Sud Web': 'expectations',
+    'Expectations about Sud Web': 'expectations',
+    'Autres remarques et questions.': 'freespeech',
+    'Any questions ?': 'freespeech',
+    'Format': 'talk',
+    'Possible formats for this session [40 minutes presentation]': 'talk_40',
+    "Format(s) d'intervention possible pour ce sujet [Conférence de 20 minutes]": 'talk_20',
+    'Possible formats for this session [20 minutes presentation]': 'talk_20',
+    "Format(s) d'intervention possible pour ce sujet [Lightning Talk de 5 minutes]": 'talk_lt',
+    'Possible formats for this session [5 minutes Lightning Talk]': 'talk_lt',
+    "Format(s) d'intervention possible pour ce sujet [Atelier/Dojo/BarCamp]": 'talk_workshop',
+    'Possible formats for this session [Workshop/Open Forum/Barcamp]': 'talk_workshop',
+    'URL': 'url',
+    'N/A': 'rating',
+    'Remarques': 'remarks',
+    'Total': 'total',
+    'Note': 'total',
+    'Prénom et nom': 'speaker_name',
+    'Votre adresse email': 'email',
+    'Ton adresse email': 'email',
+    'Titre de ta conférence': 'title',
+    'Titre de la présentation': 'title',
+    'Titre de ta présentation': 'title',
+    'Formats': 'formats',
+    'Que devrait en retenir le public ?': 'description',
+    'Description de la présentation': 'description',
+    'Description de ta présentation': 'description',
+    'Remarques, questions ?': 'expectations',
+    "Si le public ne devait retenir qu'une chose du LT, ce serait quoi ?": 'expectations',
+    "Si le public ne devait retenir qu'une chose, ce serait...": 'expectations',
+    'Des remarques ? Des questions ? Des besoins particuliers ?': 'remarks',
+    'Tu veux ajouter quelque chose ?': 'remarks'
   }
-};
+}
 
 // Explicit injection
-TalkController.$inject = ['$scope', '$http'];
+TalkController.$inject = ['$scope', '$http']
 
-module.exports = TalkController;
+module.exports = TalkController
