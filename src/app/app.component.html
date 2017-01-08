@@ -2,6 +2,9 @@
   {{title}}
 </h1>
 
-<ul *ngFor="let talk of talks">
-  <li><strong>{{talk.title}}</strong>{{talk.name}}</li>
-</ul>
+<div *ngFor="let talk of talks">
+  <h3>{{talk.title}}</h3>
+  <p>de <a href="{{talk.email}}">{{talk.speaker_name}}</a></p>
+  <p>{{talk.description}}</p>
+
+</div>

@@ -16,6 +16,7 @@ const TALKS: Talks[] = [
 })
 export class AppComponent implements OnInit {
   talks = TALKS;
+  entries: Object;
 
   constructor(
     private spreadsheetService: SpreadsheetService,
@@ -23,9 +24,17 @@ export class AppComponent implements OnInit {
 
   getTalks(): void {
     this.spreadsheetService
-        .getTalks()
+        .getTalks().then(talks => {
+          this.talks = talks;
+          this.spreadsheetService
+              .getEntries().then(entries => {
+                this.entries = entries;
+                console.log(this.entries)
+              })
+          console.log(this.talks)
+        })
   }
-
+  
   ngOnInit(): void {
     this.getTalks();
   }

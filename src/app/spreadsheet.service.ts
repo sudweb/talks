@@ -1,10 +1,9 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http, Jsonp } from '@angular/http';
-
+import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/map';
 
 import { Talks } from './talks';
+import { Entries } from './entries';
 
 //   // getUrlArgument(key) {
 //   //   var value = '';
@@ -19,62 +18,41 @@ const id = '1I8mJSe6PgrUBmpGHCqtDWcxsSfLWPN11Ezi14bmJ1Iw';
 @Injectable()
 export class SpreadsheetService {
   sheetsToLoad: number;
+  endpoint: string = 'https://spreadsheets.google.com';
   key: string = '1I8mJSe6PgrUBmpGHCqtDWcxsSfLWPN11Ezi14bmJ1Iw';
   baseJsonPath: string;
   columnNames: string[] = [];
   elements: Object[] = [];
+  toLoad: string[] = [];
+  foundSheetNames: string[] = [];
+  raw: Object;
+  prettyColumns: Object;
 
   constructor(
-    private http: Http,
-    private _jsonp: Jsonp
+    private http: Http
   ) {}
 
-  /*
-    Use Cross-Origin XMLHttpRequest to get the data in browsers that support it.
-  */
-  xhrFetch(path, callback) {
-    const endpoint = 'https://spreadsheets.google.com';
+  getTalks(): Promise<Talks[]> {
+    this.baseJsonPath = '/feeds/worksheets/' + this.key + '/public/basic?alt=json';
 
-    //support IE8's separate cross-domain object
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', endpoint + path);
-    var self = this;
-    xhr.onload = function() {
-      var json;
-      try {
-        json = JSON.parse(xhr.responseText);
-      } catch (e) {
-        console.error(e);
-      }
-      callback.call(self, json);
-    };
-    xhr.send();
+    return this.loadSheets()
+      .then(response => response as Talks[])
+      .catch(this.handleError);
   }
 
-  requestData(path, callback) {
-    var supportsCORS = false;
-    var inLegacyIE = false;
-    try {
-      var testXHR = new XMLHttpRequest();
-      if (typeof testXHR.withCredentials !== 'undefined') {
-        supportsCORS = true;
-      } else {
-        if ('XDomainRequest' in window) {
-          supportsCORS = true;
-          inLegacyIE = true;
-        }
-      }
-    } catch (e) { }
-
-    const endpoint = 'https://spreadsheets.google.com';
-
-    //CORS only works in IE8/9 across the same protocol
-    //You must have your server on HTTPS to talk to Google, or it'll fall back on injection
-    var protocol = endpoint.split('//').shift() || 'http';
-    if (supportsCORS && (!inLegacyIE || protocol === location.protocol)) {
-      this.xhrFetch(path, callback);
-    }
+  getEntries(): Promise<Entries[]> {
+    this.baseJsonPath = '/feeds/worksheets/' + this.key + '/public/basic?alt=json';
+    return this.fetchPrettyColumns()
+      .then(response => response as Entries[])
+      .catch(this.handleError);
   }
+
+  private requestData(path): Promise<any> {
+    return this.http.get(this.endpoint + path)
+      .toPromise()
+  }
+
+
 
   /*
     Load all worksheets of the spreadsheet, turning each into a Tabletop Model.
@@ -84,37 +62,58 @@ export class SpreadsheetService {
 
     Used as a callback for the worksheet-based JSON
   */
-  loadSheets(data) {
-    var i, ilen;
-    let toLoad = [];
-    let foundSheetNames = [];
+  private loadSheets(): Promise<any> {
+    this.baseJsonPath = '/feeds/worksheets/' + this.key + '/public/basic?alt=json';
 
-    for (i = 0, ilen = data.feed.entry.length; i < ilen ; i++) {
-      foundSheetNames.push(data.feed.entry[i].title.$t);
-      var linkIdx = data.feed.entry[i].link.length-1;
-      var sheetId = data.feed.entry[i].link[linkIdx].href.split('/').pop();
-      var jsonPath = '/feeds/list/' + this.key + '/' + sheetId + '/public/values?alt=json';
+    return this.requestData(this.baseJsonPath)
+      .then(response => {
+        const data = response.json();
+        for (let i = 0, ilen = data.feed.entry.length; i < ilen ; i++) {
+          this.foundSheetNames.push(data.feed.entry[i].title.$t);
+          var linkIdx = data.feed.entry[i].link.length-1;
+          var sheetId = data.feed.entry[i].link[linkIdx].href.split('/').pop();
+          var jsonPath = '/feeds/list/' + this.key + '/' + sheetId + '/public/values?alt=json';
 
-      toLoad.push(jsonPath);
-    }
+          this.toLoad.push(jsonPath);
+        }
 
-    this.sheetsToLoad = toLoad.length;
-    for(i = 0, ilen = toLoad.length; i < ilen; i++) {
-      this.requestData(toLoad[i], this.loadSheet);
-    }
+        this.sheetsToLoad = this.toLoad.length;
+
+        for(let i = 0, ilen = this.toLoad.length; i < ilen; i++) {
+          return this.requestData(this.toLoad[i])
+            .then(response => this.loadSheet(response.json()))
+            .catch(this.handleError);
+        }
+      })
+      .catch(this.handleError);
   }
 
   /*
     Parse a single list-based worksheet, turning it into a Tabletop Model
     Used as a callback for the list-based JSON
   */
-  loadSheet(data) {
+  private loadSheet(data) {
+    this.raw = data;
     for (var key in data.feed.entry[0]){
       if (/^gsx/.test(key)) {
         this.columnNames.push(key.replace('gsx$',''));
       }
     }
-
+    var columnIds = {
+      'timestamp': 'timestamp',
+      'prénometnom': 'speaker_name',
+      'email': 'email',
+      'titredetaprésentation': 'title',
+      'formats': 'format',
+      'descriptiondetaprésentation': 'description',
+      'genre': 'genre',
+      'note': 'note',
+      'décision': 'decision',
+      'orateurok': 'validate',
+      'silepublicnedevaitretenirquunechoseceserait': 'resume',
+      'tuveuxajouterquelquechose': 'more'
+    };
+    
     for (let i = 0, ilen =  data.feed.entry.length ; i < ilen; i++) {
       var source = data.feed.entry[i];
       var element = {};
@@ -122,9 +121,9 @@ export class SpreadsheetService {
         var cell = source['gsx$' + this.columnNames[j]];
         if (typeof(cell) !== 'undefined') {
           if (cell.$t !== '' && !isNaN(cell.$t)) {
-            element[this.columnNames[j]] = +cell.$t;
+            element[columnIds[this.columnNames[j]]] = +cell.$t;
           } else {
-            element[this.columnNames[j]] = cell.$t;
+            element[columnIds[this.columnNames[j]]] = cell.$t;
           }
         } else {
           element[this.columnNames[j]] = '';
@@ -133,16 +132,42 @@ export class SpreadsheetService {
       if (element['rowNumber'] === undefined) {
         element['rowNumber'] = i + 1;
       }
-        
       this.elements.push(element);
     }
-  
+
     console.log(this);
+    return this.elements;
   }
 
-  getTalks() {
-    this.baseJsonPath = '/feeds/worksheets/' + this.key + '/public/basic?alt=json';
-    this.requestData(this.baseJsonPath, this.loadSheets);
+  /*
+    * Store column names as an object
+    * with keys of Google-formatted "columnName"
+    * and values of human-readable "Column name"
+    */
+  private getPrettyColumns(data) {
+    var prettyColumns = {};
+
+    var columnNames = this.columnNames;
+
+    var i = 0;
+    var l = columnNames.length;
+
+    for (; i < l; i++) {
+      if (typeof data.feed.entry[i].content.$t !== 'undefined') {
+        prettyColumns[columnNames[i]] = data.feed.entry[i].content.$t;
+      } else {
+        prettyColumns[columnNames[i]] = columnNames[i];
+      }
+    }
+
+    return this.prettyColumns = prettyColumns;
+  }
+
+  private fetchPrettyColumns(): Promise<any> {
+    const cellurl = this.raw['feed'].link[3].href.replace('/feeds/list/', '/feeds/cells/').replace('https://spreadsheets.google.com', '');
+
+    return this.requestData(cellurl)
+      .then(response => this.getPrettyColumns(response.json()))
   }
 
   private handleError(error: any): Promise<any> {

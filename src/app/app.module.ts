@@ -7,11 +7,13 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { SpreadsheetService } from './spreadsheet.service';
 import { Talks } from './talks';
+import { KeysPipe } from './keys.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
