@@ -1,3 +1,7 @@
 <h1>
   {{title}}
 </h1>
+
+<ul *ngFor="let talk of talks">
+  <li><strong>{{talk.title}}</strong>{{talk.name}}</li>
+</ul>
