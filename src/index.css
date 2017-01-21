@@ -9,7 +9,7 @@ body {
   --yellow: #f8a912;
   --grey: #353535;
   font-size: 1.4em;
-  line-height: 1.43;
+  line-height: 20px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -33,6 +33,7 @@ h1 {
 
 h2 {
   font-size: 2em;
+  line-height: 1.08108108em;
   margin-bottom: 0;
   color: var(--red);
 }
@@ -61,6 +62,7 @@ h3:not(:first-child) {
 @media (min-width: 40em) {
   body {
     font-size: 1.6em;
+    line-height: 23px;
   }
 
   main {
