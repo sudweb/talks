@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import md5 from 'js-md5';
-
+import { isPK, isLT } from '../services/FormatService';
 import { List, ListItem } from 'material-ui/List';
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardText } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
-import {red500, lightBlack, amber500} from 'material-ui/styles/colors';
+import {red500, lightBlack, orange500, teal500} from 'material-ui/styles/colors';
+import Chip from 'material-ui/Chip';
 
 class Talk extends Component {
   getDate(date) {
@@ -26,7 +27,7 @@ class Talk extends Component {
       return <Avatar backgroundColor={red500}>PK</Avatar>
     }
     if (format === 'Lightning Talk : 5 minutes') {
-      return <Avatar backgroundColor={amber500}>LT</Avatar>
+      return <Avatar backgroundColor={orange500}>LT</Avatar>
     }
 
     return null;
@@ -52,12 +53,16 @@ class Talk extends Component {
       return null;
     }
 
+    const formatStyle = {
+      backgroundColor: isPK(talk.formats) ? teal500 : orange500,
+      marginTop: '.85em'
+    }
+
     return (
       <Card className="Talk">
-        <CardTitle>
-          <h2>{talk.titredetaprésentation}</h2>
-        </CardTitle>
         <CardText>
+          <h2>{talk.titredetaprésentation}</h2>
+          <Chip labelColor='white' style={formatStyle}>{talk.formats}</Chip>
           <List>
             <ListItem
               onTouchTap={() => this.sendMail(talk.email)}

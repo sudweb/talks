@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
-import {teal500, red400, amber500} from 'material-ui/styles/colors';
+import {teal500, red400, orange500} from 'material-ui/styles/colors';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
 class Talks extends Component {
@@ -10,7 +10,7 @@ class Talks extends Component {
       return <Avatar backgroundColor={teal500}>PK</Avatar>
     }
     if (format === 'Lightning Talk : 5 minutes') {
-      return <Avatar backgroundColor={amber500}>LT</Avatar>
+      return <Avatar backgroundColor={orange500}>LT</Avatar>
     }
 
     return null;
