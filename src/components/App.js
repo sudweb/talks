@@ -7,7 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import AppBar from 'material-ui/AppBar';
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-
+import Drawer from 'material-ui/Drawer';
 
 import CircularProgress from 'material-ui/CircularProgress';
 import { red500 } from 'material-ui/styles/colors';
@@ -37,7 +37,8 @@ class App extends Component {
         all: 0,
         PK: 0,
         LT: 0
-      }
+      },
+      open: true
     }
   }
 
@@ -90,6 +91,8 @@ class App extends Component {
     return talks;
   }
 
+  handleToggle = () => this.setState({open: !this.state.open});
+
   getContent() {
     const {talks, count} = this.state;
     if (talks === null) {
@@ -97,12 +100,14 @@ class App extends Component {
     }
     return (
       <main>
-        <TalkList
-          count={count}
-          talks={this.getFilteredList(talks)}
-          selectTalk={talk => this.selectTalk(talk)}
-          setFilter={format => this.setFilter(format)}
-          />
+        <Drawer open={this.state.open} width={360} openSecondary={true} style={{position: 'relative'}}>
+          <TalkList
+            count={count}
+            talks={this.getFilteredList(talks)}
+            selectTalk={talk => this.selectTalk(talk)}
+            setFilter={format => this.setFilter(format)}
+            />
+        </Drawer>
         <Talk talk={this.state.selectedTalk} />
       </main>
     );
@@ -114,6 +119,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="container">
           <AppBar
+            onLeftIconButtonTouchTap={() => this.handleToggle()}
             style={{ backgroundColor: red500 }}
             title={<h1>Propositions de sujets Sud Web</h1>}
             />

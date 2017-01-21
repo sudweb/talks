@@ -54,10 +54,15 @@ h3:not(:first-child) {
 .TalkList {
   width: 100%;
   overflow: auto;
-  max-width: 36em;
+  width: 100%
 }
 
 .Talk {
   flex: 2;
   overflow: auto;
+}
+
+.Talk > div {
+  max-width: 80em;
+  margin: 0 3em;
 }
