@@ -1,10 +1,41 @@
 import React, { Component } from 'react';
-import {List, ListItem} from 'material-ui/List';
+import {List, ListItem, makeSelectable} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import {teal500, red400, orange500} from 'material-ui/styles/colors';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
-class Talks extends Component {
+let SelectableList = makeSelectable(List);
+
+function wrapState(ComposedComponent) {
+  return class SelectableList extends Component {
+    componentWillMount() {
+      this.setState({
+        selectedIndex: this.props.defaultValue,
+      });
+    }
+
+    handleRequestChange = (event, index) => {
+      this.setState({
+        selectedIndex: index,
+      });
+    };
+
+    render() {
+      return (
+        <ComposedComponent
+          value={this.state.selectedIndex}
+          onChange={this.handleRequestChange}
+        >
+          {this.props.children}
+        </ComposedComponent>
+      );
+    }
+  };
+}
+
+SelectableList = wrapState(SelectableList);
+
+class TalkList extends Component {
   getFormat(format) {
     if (format === 'Pecha Kucha : 20 images x 20 secondes') {
       return <Avatar backgroundColor={teal500}>PK</Avatar>
@@ -19,8 +50,9 @@ class Talks extends Component {
   getTalk(talk, i) {
     return (
         <ListItem
-            onTouchTap={() => this.props.selectTalk(talk)}
             key={i}
+            value={i}
+            onTouchTap={() => this.props.selectTalk(i)}
             primaryText={talk.titredetaprésentation}
             secondaryText={talk.prénometnom}
             leftAvatar={this.getFormat(talk.formats)}
@@ -41,12 +73,12 @@ class Talks extends Component {
           <Tab label={`PK (${count.PK})`} value="PK" />
           <Tab label={`LT (${count.LT})`} value="LT" />
         </Tabs>
-        <List>
+        <SelectableList defaultValue={1}>
           {talks.map((talk, i) => this.getTalk(talk, i))}
-        </List>
+        </SelectableList>
       </div>
     );
   }
 }
 
-export default Talks;
+export default TalkList;

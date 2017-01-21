@@ -8,7 +8,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import AppBar from 'material-ui/AppBar';
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import Drawer from 'material-ui/Drawer';
-
+import { Card, CardText } from 'material-ui/Card';
 import CircularProgress from 'material-ui/CircularProgress';
 import { red500 } from 'material-ui/styles/colors';
 
@@ -63,9 +63,9 @@ class App extends Component {
       })
   }
 
-  selectTalk(talk) {
+  selectTalk(i) {
     this.setState({
-      selectedTalk: talk
+      selectedTalk: i
     });
   }
 
@@ -91,10 +91,27 @@ class App extends Component {
     return talks;
   }
 
+  getSelectedTalk(selectedTalk) {
+    if (selectedTalk === null) {
+      return (
+        <Card className="Talk">
+        <CardText>
+          <p>Veuillez sélectionner un talk</p>
+        </CardText>
+      </Card>
+      )
+    }
+
+    return (
+      <Talk talk={this.state.talks[selectedTalk]} />
+    )
+  }
+
   handleToggle = () => this.setState({open: !this.state.open});
 
   getContent() {
-    const {talks, count} = this.state;
+    const {talks, count, selectedTalk} = this.state;
+
     if (talks === null) {
       return <div className="loading"><CircularProgress color={red500} size={80} thickness={5} /></div>;
     }
@@ -108,7 +125,7 @@ class App extends Component {
             setFilter={format => this.setFilter(format)}
             />
         </Drawer>
-        <Talk talk={this.state.selectedTalk} />
+        {this.getSelectedTalk(selectedTalk)}
       </main>
     );
   }
