@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import SpreadsheetService from '../services/SpreadsheetService';
 import moment from 'moment';
 import md5 from 'js-md5';
 
 import { List, ListItem } from 'material-ui/List';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
-import Paper from 'material-ui/Paper';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
 import {red500, lightBlack, amber500} from 'material-ui/styles/colors';
 

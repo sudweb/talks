@@ -31,7 +31,7 @@ h1 {
 
 h2 {
   font-size: 3em;
-  margin: 0;
+  margin-bottom: 0;
   color: var(--red);
 }
 
@@ -42,6 +42,13 @@ h3 {
 
 h3:not(:first-child) {
   margin-top: 1em;
+}
+
+.loading {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .TalkList {

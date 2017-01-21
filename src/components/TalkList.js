@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
-
-import moment from 'moment';
-import md5 from 'js-md5';
-
 import {List, ListItem} from 'material-ui/List';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
-import Paper from 'material-ui/Paper';
-import CommunicationEmail from 'material-ui/svg-icons/communication/email';
 import {teal500, red400, amber500} from 'material-ui/styles/colors';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import Badge from 'material-ui/Badge';
 
 class Talks extends Component {
   getFormat(format) {
