@@ -8,7 +8,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import AppBar from 'material-ui/AppBar';
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import Drawer from 'material-ui/Drawer';
-import { Card, CardText } from 'material-ui/Card';
 import CircularProgress from 'material-ui/CircularProgress';
 import { red500 } from 'material-ui/styles/colors';
 
@@ -94,11 +93,9 @@ class App extends Component {
   getSelectedTalk(selectedTalk) {
     if (selectedTalk === null) {
       return (
-        <Card className="Talk">
-        <CardText>
+        <main>
           <p>Veuillez sélectionner un talk</p>
-        </CardText>
-      </Card>
+        </main>
       )
     }
 

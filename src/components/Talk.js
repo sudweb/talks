@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import md5 from 'js-md5';
-import { isPK, isLT } from '../services/FormatService';
+import { isPK } from '../services/FormatService';
 import { List, ListItem } from 'material-ui/List';
-import { Card, CardText } from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
 import {red500, lightBlack, orange500, teal500} from 'material-ui/styles/colors';
@@ -59,32 +58,30 @@ class Talk extends Component {
     }
 
     return (
-      <Card className="Talk">
-        <CardText>
-          <h2>{talk.titredetaprésentation}</h2>
-          <Chip labelColor='white' style={formatStyle}>{talk.formats}</Chip>
-          <List>
-            <ListItem
-              onTouchTap={() => this.sendMail(talk.email)}
-              primaryText={
-                <span>{talk.prénometnom}<span style={{color: lightBlack}}>, le {this.getDate(talk.timestamp)}</span></span>
-              }
-              secondaryText={talk.email}
-              leftAvatar={this.getAvatar(talk.email)}
-              rightIcon={<CommunicationEmail color={red500} />}
-              />
-          </List>
-          <h3>Description</h3>
-          {this.getText(talk.descriptiondetaprésentation)}
+      <section className="Talk">
+        <h2>{talk.titredetaprésentation}</h2>
+        <Chip labelColor='white' style={formatStyle}>{talk.formats}</Chip>
+        <List>
+          <ListItem
+            onTouchTap={() => this.sendMail(talk.email)}
+            primaryText={
+              <span>{talk.prénometnom}<span style={{color: lightBlack}}>, le {this.getDate(talk.timestamp)}</span></span>
+            }
+            secondaryText={talk.email}
+            leftAvatar={this.getAvatar(talk.email)}
+            rightIcon={<CommunicationEmail color={red500} />}
+            />
+        </List>
+        <h3>Description</h3>
+        {this.getText(talk.descriptiondetaprésentation)}
 
 
-          <h3>Si le public ne devait retenir qu'une chose, ce serait...</h3>
-          {this.getText(talk['silepublicnedevaitretenirquunechoseceserait...'])}
+        <h3>Si le public ne devait retenir qu'une chose, ce serait...</h3>
+        {this.getText(talk['silepublicnedevaitretenirquunechoseceserait...'])}
 
-          <h3>Tu veux ajouter quelque chose ?</h3>
-          {this.getText(talk.tuveuxajouterquelquechose)}
-        </CardText>
-      </Card>
+        <h3>Tu veux ajouter quelque chose ?</h3>
+        {this.getText(talk.tuveuxajouterquelquechose)}
+      </section>
     );
   }
 }
