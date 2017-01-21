@@ -9,7 +9,8 @@ body {
   --red: #e84538;
   --yellow: #f8a912;
   --grey: #353535;
-  /*background: var(--grey);*/
+  font-size: 1.4em;
+  line-height: 1.43;
 }
 
 .container {
@@ -62,7 +63,13 @@ h3:not(:first-child) {
   overflow: auto;
 }
 
-.Talk > div {
-  max-width: 80em;
-  margin: 0 3em;
+@media (min-width: 40em) {
+  body {
+    font-size: 1.6em;
+  }
+
+  .Talk > div {
+    max-width: 50em;
+    margin: 0 3em;
+  }
 }

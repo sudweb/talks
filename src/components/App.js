@@ -119,6 +119,7 @@ class App extends Component {
       <main>
         <Drawer open={this.state.open} width={360} openSecondary={true} style={{position: 'relative'}}>
           <TalkList
+            selectedTalk={selectedTalk}
             count={count}
             talks={this.getFilteredList(talks)}
             selectTalk={talk => this.selectTalk(talk)}

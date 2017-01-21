@@ -73,7 +73,7 @@ class TalkList extends Component {
           <Tab label={`PK (${count.PK})`} value="PK" />
           <Tab label={`LT (${count.LT})`} value="LT" />
         </Tabs>
-        <SelectableList defaultValue={1}>
+        <SelectableList>
           {talks.map((talk, i) => this.getTalk(talk, i))}
         </SelectableList>
       </div>
