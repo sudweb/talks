@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import {authorize} from '../services/AuthService';
+import {authorize, signout} from '../services/AuthService';
 import {loadSheetsApi} from '../services/SpreadsheetService';
 import {loadPeopleApi} from '../services/PeopleService';
 import { isPK, isLT, countTalksByFormats } from '../services/FormatService';
 import TalkList from './TalkList';
 import Talk from './Talk';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Profile from './Profile';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import Drawer from 'material-ui/Drawer';
 import CircularProgress from 'material-ui/CircularProgress';
 import { red500 } from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';
-import Avatar from 'material-ui/Avatar';
-import { ListItem } from 'material-ui/List';
+
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -74,15 +75,15 @@ class App extends Component {
       .catch(error => this.handleError(error));
   }
 
-  handleAuthResult() {
-    authorize()
+  handleAuthResult(immediate) {
+    authorize(immediate)
       .then(() => this.loadData())
-      .catch(error => this.handleError(error));
+      .catch(error => this.handleError(error))
     return false;
   }
 
   componentDidMount() {
-    window.addEventListener('google-loaded', this.handleAuthResult());
+    window.addEventListener('google-loaded', this.handleAuthResult(true));
   }
 
   selectTalk(i) {
@@ -178,33 +179,16 @@ class App extends Component {
     );
   }
 
-  getProfile() {
-    const  {profile} = this.state;
-
-    if (!profile) {
-      return null
-    }
-
-    const styleProfile = {
-      color: 'white', 
-      paddingTop: !profile.email ? 24 : 14, 
-      paddingBottom: !profile.email ? 4 : 14
-    }
-
-    return (
-      
-      <ListItem
-        innerDivStyle={styleProfile}
-        primaryText={profile.name || ''}
-        secondaryText={profile.email || ' '}
-        leftAvatar={<Avatar style={{top: 12}} src={profile.img} backgroundColor='white' />}
-        />
-    )
+  signout() {
+    this.setState({auth: false, profile: null});
+    signout();
   }
 
+  getProfile() {
+    return <Profile profile={this.state.profile} signout={() => this.signout()} />
+  }
 
   render() {
-    console.log(this.state);
     return (
       <MuiThemeProvider>
         <div className="container">
@@ -216,6 +200,7 @@ class App extends Component {
             iconStyleRight={{margin: 0}}
             />
           {this.getContent()}
+          <Profile />
         </div>
       </MuiThemeProvider>
     );
