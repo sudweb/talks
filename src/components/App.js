@@ -32,6 +32,7 @@ class App extends Component {
     super(props);
     this.state = {
       auth: false,
+      errorMessage: null,
       selectedTalk: null,
       talks: null,
       filter: null,
@@ -42,6 +43,19 @@ class App extends Component {
       },
       open: true
     }
+  }
+
+  handleError(error) {
+    console.log(error)
+    let message = error.message;
+
+    switch(error.status) {
+      case 'PERMISSION_DENIED':
+        message = 'Vous n\'êtes pas autorisé(e) à accéder à cette ressource.';
+        break;
+    }
+
+    this.setState({auth: false, errorMessage: message})
   }
 
   loadSheetData() {
@@ -64,13 +78,14 @@ class App extends Component {
           return false;
         });
         this.setState({ count: { all, PK, LT } });
-      });
+      })
+      .catch(error => this.handleError(error));
   }
 
   handleAuthResult() {
     SpreadsheetService.authorize()
       .then(() => this.loadSheetData())
-      .catch(() => this.setState({auth: false}));
+      .catch(error => this.handleError(error));
     return false;
   }
 
@@ -125,6 +140,17 @@ class App extends Component {
 
   handleToggle = () => this.setState({open: !this.state.open});
 
+  getErrors() {
+    const {errorMessage} = this.state;
+    if (errorMessage !== null) {
+      return (
+        <p style={{color: red500}}>{errorMessage}</p>
+      )
+    }
+
+    return null;
+  }
+
   getContent() {
     const {talks, count, selectedTalk, auth} = this.state;
     
@@ -132,6 +158,7 @@ class App extends Component {
       return (
         <main>
           <p>Vous devez être connecté pour accéder à cette ressouce</p>
+          {this.getErrors()}
           <RaisedButton onClick={() => this.handleAuthResult()} label="Se connecter sur Google Drive" backgroundColor={red500} labelColor='white' />
         </main>
       )
@@ -159,6 +186,7 @@ class App extends Component {
 
 
   render() {
+    console.log(this.state);
     return (
       <MuiThemeProvider>
         <div className="container">

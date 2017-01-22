@@ -34,6 +34,10 @@ class SpreadsheetService {
     var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
 
     return new Promise((resolve, reject) => {
+      gapi.client.request({
+        'path': 'https://people.googleapis.com/v1/people/me',
+      }).then((res) => console.log(res));
+
       gapi.client.load(discoveryUrl)
         .then(() => {
           gapi.client.sheets.spreadsheets.values.get({
@@ -46,9 +50,7 @@ class SpreadsheetService {
             } else {
               reject('No data found.');
             }
-          }, function(response) {
-            reject('Error: ' + response.result.error.message);
-          });
+          }, response => reject(response.result.error));
         });
     });
   }
