@@ -185,13 +185,19 @@ class App extends Component {
       return null
     }
 
+    const styleProfile = {
+      color: 'white', 
+      paddingTop: !profile.email ? 24 : 14, 
+      paddingBottom: !profile.email ? 4 : 14
+    }
+
     return (
       
       <ListItem
-        innerDivStyle={{color: 'white', paddingTop: 14, paddingBottom: 14}}
-        primaryText={profile.names[0].displayName}
-        secondaryText={profile.emailAddresses[0].value}
-        leftAvatar={<Avatar style={{top: 12}} src={profile.photos[0].url} backgroundColor='white' />}
+        innerDivStyle={styleProfile}
+        primaryText={profile.name || ''}
+        secondaryText={profile.email || ' '}
+        leftAvatar={<Avatar style={{top: 12}} src={profile.img} backgroundColor='white' />}
         />
     )
   }

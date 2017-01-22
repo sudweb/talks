@@ -13,7 +13,7 @@ export const authorize = () => {
     setTimeout(() => {
       gapi.auth.authorize({
         'client_id': CLIENT_ID,
-        'scope': SCOPES,
+        'scope': SCOPES.join(' '),
         'immediate': false,
         'cookie_policy': 'single_host_origin'
       }, authResult => {
