@@ -1,84 +1,72 @@
 import slug from 'slug';
+import {
+    SPREADSHEET_ID
+} from '../config.json';
+
 const gapi = window.gapi;
 
-const CLIENT_ID = '460329070283-8j9kmv5hucpqh2qv2aeirupk7ddg31si.apps.googleusercontent.com';
-const SPREADSHEET_ID = '1I8mJSe6PgrUBmpGHCqtDWcxsSfLWPN11Ezi14bmJ1Iw';
-const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
+/**
+ * Load profile data
+ * 
+ * @returns
+ * 
+ * @memberOf SpreadsheetService
+ */
+export const loadSheetsApi = () => {
+  var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
 
-class SpreadsheetService {
-    /**
-   * Check if current user has authorized this application.
-   */
-  authorize() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        gapi.auth.authorize({
-          'client_id': CLIENT_ID,
-          'scope': SCOPES,
-          'immediate': false,
-          'cookie_policy': 'single_host_origin'
-        }, authResult => {
-          if (authResult && !authResult.error) {
-            resolve(authResult);
+  return new Promise((resolve, reject) => {
+    gapi.client.load(discoveryUrl)
+      .then(() => {
+        gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: SPREADSHEET_ID,
+          range: 'Propositions',
+        }).then(response => {
+          const range = response.result;
+          if (range.values.length > 0) {
+            resolve(parseResponse(range));
           } else {
-            reject(authResult.error);
+            reject('No data found.');
           }
-        });
-      }, 100);
-    });
+        }, response => reject(response.result.error));
+      });
+  });
+}
+
+/**
+ * Get parse column name
+ * 
+ * @param {string} str
+ * @returns
+ * 
+ * @memberOf SpreadsheetService
+ */
+const getPrettyColumnNames = str => {
+  return slug(str, {
+    lower: true,
+    replacement: '_'
+  });
+}
+
+/**
+ * Parse talks retuls list
+ * 
+ * @param {object} range
+ * @returns
+ * 
+ * @memberOf SpreadsheetService
+ */
+const parseResponse = range => {
+  let data = [];
+  for (let i = 0; i < range.values.length; i++) {
+    var row = range.values[i];
+    let talk = {};
+    if (i !== 0) {
+      range.values[0].map((field, j) => {
+          talk[getPrettyColumnNames(field)] = row[j];
+      });
+      data.push(talk);
+    }    
   }
-
-  /**
-   * Load Sheets API client library.
-   */
-  loadSheetsApi() {
-    var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
-
-    return new Promise((resolve, reject) => {
-      gapi.client.request({
-        'path': 'https://people.googleapis.com/v1/people/me',
-      }).then((res) => console.log(res));
-
-      gapi.client.load(discoveryUrl)
-        .then(() => {
-          gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: SPREADSHEET_ID,
-            range: 'Propositions',
-          }).then(response => {
-            const range = response.result;
-            if (range.values.length > 0) {
-              resolve(this.parseResponse(range));
-            } else {
-              reject('No data found.');
-            }
-          }, response => reject(response.result.error));
-        });
-    });
-  }
-
-  getPrettyColumnNames(str) {
-    return slug(str, {
-      lower: true,
-      replacement: '_'
-    });
-  }
-
-  parseResponse(range) {
-    let data = [];
-    for (let i = 0; i < range.values.length; i++) {
-      var row = range.values[i];
-      let talk = {};
-      if (i !== 0) {
-        range.values[0].map((field, j) => {
-            talk[this.getPrettyColumnNames(field)] = row[j];
-        });
-        data.push(talk);
-      }
-      
-    }
-    console.log(data);
-    return data;
-  }
-};
-
-export default new SpreadsheetService();
+  return data;
+}

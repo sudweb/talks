@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import SpreadsheetService from '../services/SpreadsheetService';
+import {authorize} from '../services/AuthService';
+import {loadSheetsApi} from '../services/SpreadsheetService';
+import {loadPeopleApi} from '../services/PeopleService';
 import { isPK, isLT, countTalksByFormats } from '../services/FormatService';
 import TalkList from './TalkList';
 import Talk from './Talk';
@@ -11,7 +13,8 @@ import Drawer from 'material-ui/Drawer';
 import CircularProgress from 'material-ui/CircularProgress';
 import { red500 } from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';
-
+import Avatar from 'material-ui/Avatar';
+import { ListItem } from 'material-ui/List';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -33,6 +36,7 @@ class App extends Component {
     this.state = {
       auth: false,
       errorMessage: null,
+      profile: null,
       selectedTalk: null,
       talks: null,
       filter: null,
@@ -57,18 +61,22 @@ class App extends Component {
     this.setState({auth: false, errorMessage: message})
   }
 
-  loadSheetData() {
+  loadData() {
     this.setState({auth: true});
-    SpreadsheetService.loadSheetsApi()
+    loadSheetsApi()
       .then(talks => {
         this.setState({ talks: talks, count: countTalksByFormats(talks) });
       })
       .catch(error => this.handleError(error));
+
+    loadPeopleApi()
+      .then(profile => this.setState({profile: profile}))
+      .catch(error => this.handleError(error));
   }
 
   handleAuthResult() {
-    SpreadsheetService.authorize()
-      .then(() => this.loadSheetData())
+    authorize()
+      .then(() => this.loadData())
       .catch(error => this.handleError(error));
     return false;
   }
@@ -170,6 +178,24 @@ class App extends Component {
     );
   }
 
+  getProfile() {
+    const  {profile} = this.state;
+
+    if (!profile) {
+      return null
+    }
+
+    return (
+      
+      <ListItem
+        innerDivStyle={{color: 'white', paddingTop: 14, paddingBottom: 14}}
+        primaryText={profile.names[0].displayName}
+        secondaryText={profile.emailAddresses[0].value}
+        leftAvatar={<Avatar style={{top: 12}} src={profile.photos[0].url} backgroundColor='white' />}
+        />
+    )
+  }
+
 
   render() {
     console.log(this.state);
@@ -180,6 +206,8 @@ class App extends Component {
             onLeftIconButtonTouchTap={() => this.handleToggle()}
             style={{ backgroundColor: red500 }}
             title={<h1>Propositions de sujets Sud Web</h1>}
+            iconElementRight={this.getProfile()}
+            iconStyleRight={{margin: 0}}
             />
           {this.getContent()}
         </div>
