@@ -7,6 +7,7 @@ import Avatar from 'material-ui/Avatar';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
 import {red500, lightBlack, orange500, teal500} from 'material-ui/styles/colors';
 import Chip from 'material-ui/Chip';
+import IconButton from 'material-ui/IconButton';
 
 class Talk extends Component {
   getDate(date) {
@@ -49,6 +50,43 @@ class Talk extends Component {
     window.location = `mailto:${email}`;
   }
 
+  getProfile(talk) {
+    if (!talk.email || talk.email === ' ') {
+      return (
+        <ListItem
+          disabled={true}
+          primaryText={
+            <span>{talk.prenom_et_nom}<span style={{color: lightBlack}}>, le {this.getDate(talk.timestamp)}</span></span>
+          }
+          leftAvatar={this.getAvatar(talk.email)}
+          />
+      );
+    }
+
+    const iconButtonElement = (
+      <IconButton
+        onClick={() => this.sendMail(talk.email)}
+        touch={true}
+        tooltipPosition="top-right"
+        style={{paddingRight: 0, width: 32}}
+        >
+        <CommunicationEmail color={red500} />
+      </IconButton>
+    );
+
+    return (
+      <ListItem
+        disabled={true}
+        primaryText={
+          <span>{talk.prenom_et_nom}<span style={{color: lightBlack}}>, le {this.getDate(talk.timestamp)}</span></span>
+        }
+        secondaryText={talk.email}
+        leftAvatar={this.getAvatar(talk.email)}
+        rightIcon={iconButtonElement}
+        />
+    );
+  }
+
   render() {
     const {talk} = this.props;
 
@@ -66,15 +104,7 @@ class Talk extends Component {
         <h2>{talk.titre_de_ta_presentation}</h2>
         <Chip labelColor='white' style={formatStyle}>{talk.formats}</Chip>
         <List>
-          <ListItem
-            onTouchTap={() => this.sendMail(talk.email)}
-            primaryText={
-              <span>{talk.prenom_et_nom}<span style={{color: lightBlack}}>, le {this.getDate(talk.timestamp)}</span></span>
-            }
-            secondaryText={talk.email}
-            leftAvatar={this.getAvatar(talk.email)}
-            rightIcon={<CommunicationEmail color={red500} />}
-            />
+          {this.getProfile(talk)}
         </List>
         <h3>Description</h3>
         {this.getText(talk.description_de_ta_presentation)}

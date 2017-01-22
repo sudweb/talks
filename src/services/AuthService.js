@@ -11,8 +11,6 @@ const gapi = window.gapi;
 export const authorize = immediate => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      console.log(gapi)
-
       gapi.auth.authorize({
         'client_id': CLIENT_ID,
         'scope': SCOPES.join(' '),

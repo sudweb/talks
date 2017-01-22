@@ -24,7 +24,7 @@ class Profile extends Component {
     const iconButtonElement = (
       <IconButton
         touch={true}
-        tooltipPosition="bottom-right"
+        tooltipPosition="top-right"
         style={{paddingRight: 0, width: 32}}
         >
         <MoreVertIcon color='white' />
