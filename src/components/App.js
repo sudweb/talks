@@ -10,6 +10,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import Drawer from 'material-ui/Drawer';
 import CircularProgress from 'material-ui/CircularProgress';
 import { red500 } from 'material-ui/styles/colors';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -29,6 +31,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      auth: false,
       selectedTalk: null,
       talks: null,
       filter: null,
@@ -41,9 +44,11 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    SpreadsheetService.init()
+  loadSheetData() {
+    this.setState({auth: true});
+    SpreadsheetService.loadSheetsApi()
       .then(talks => {
+        console.log(talks);
         this.setState({ talks: talks });
 
         let all = talks.length,
@@ -59,7 +64,21 @@ class App extends Component {
           return false;
         });
         this.setState({ count: { all, PK, LT } });
-      })
+      });
+  }
+
+  handleAuthResult() {
+    SpreadsheetService.authorize()
+      .then(() => this.loadSheetData())
+      .catch(() => this.setState({auth: false}));
+    return false;
+  }
+
+  componentDidMount() {
+    // Auto open google popup
+    // window.addEventListener('google-loaded', this.handleAuthResult());
+
+    // SpreadsheetService.init()
   }
 
   selectTalk(i) {
@@ -107,11 +126,21 @@ class App extends Component {
   handleToggle = () => this.setState({open: !this.state.open});
 
   getContent() {
-    const {talks, count, selectedTalk} = this.state;
+    const {talks, count, selectedTalk, auth} = this.state;
+    
+    if (!auth) {
+      return (
+        <main>
+          <p>Vous devez être connecté pour accéder à cette ressouce</p>
+          <RaisedButton onClick={() => this.handleAuthResult()} label="Se connecter sur Google Drive" backgroundColor={red500} labelColor='white' />
+        </main>
+      )
+    }
 
     if (talks === null) {
       return <div className="loading"><CircularProgress color={red500} size={80} thickness={5} /></div>;
     }
+
     return (
       <main>
         <Drawer open={this.state.open} width={360} openSecondary={true} style={{position: 'relative'}}>

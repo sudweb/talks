@@ -15,6 +15,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Porpositions de sujets Sud Web</title>
+    <script type="text/javascript">
+      function triggerGoogleLoaded() {
+        window.dispatchEvent(new Event('google-loaded'));
+      }
+    </script>
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=triggerGoogleLoaded"></script>
   </head>
   <body>
     <div id="root"></div>

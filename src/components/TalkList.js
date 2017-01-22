@@ -53,8 +53,8 @@ class TalkList extends Component {
             key={i}
             value={i}
             onTouchTap={() => this.props.selectTalk(i)}
-            primaryText={talk.titredetaprésentation}
-            secondaryText={talk.prénometnom}
+            primaryText={talk.titre_de_ta_presentation}
+            secondaryText={talk.prenom_et_nom}
             leftAvatar={this.getFormat(talk.formats)}
           />
     )
