@@ -5,9 +5,10 @@ import { isPK } from '../services/FormatService';
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
-import {red500, lightBlack, orange500, teal500} from 'material-ui/styles/colors';
+import { red500, lightBlack, orange500, teal500 } from 'material-ui/styles/colors';
 import Chip from 'material-ui/Chip';
 import IconButton from 'material-ui/IconButton';
+import Divider from 'material-ui/Divider';
 
 class Talk extends Component {
   getDate(date) {
@@ -56,7 +57,7 @@ class Talk extends Component {
         <ListItem
           disabled={true}
           primaryText={
-            <span>{talk.prenom_et_nom}<span style={{color: lightBlack}}>, le {this.getDate(talk.timestamp)}</span></span>
+            <span>{talk.prenom_et_nom}<span style={{ color: lightBlack }}>, le {this.getDate(talk.timestamp)}</span></span>
           }
           leftAvatar={this.getAvatar(talk.email)}
           />
@@ -68,7 +69,7 @@ class Talk extends Component {
         onClick={() => this.sendMail(talk.email)}
         touch={true}
         tooltipPosition="top-right"
-        style={{paddingRight: 0, width: 32}}
+        style={{ paddingRight: 0, width: 32 }}
         >
         <CommunicationEmail color={red500} />
       </IconButton>
@@ -78,13 +79,27 @@ class Talk extends Component {
       <ListItem
         disabled={true}
         primaryText={
-          <span>{talk.prenom_et_nom}<span style={{color: lightBlack}}>, le {this.getDate(talk.timestamp)}</span></span>
+          <span>{talk.prenom_et_nom}<span style={{ color: lightBlack }}>, le {this.getDate(talk.timestamp)}</span></span>
         }
         secondaryText={talk.email}
         leftAvatar={this.getAvatar(talk.email)}
         rightIcon={iconButtonElement}
         />
     );
+  }
+
+  getNote(note) {
+    note = note === undefined ? '-' : note
+    return (
+      <ListItem
+        disabled={true}
+        primaryText={
+          <span>
+            <strong>Note : </strong>{note}
+          </span>
+        }
+        />
+    )
   }
 
   render() {
@@ -104,8 +119,10 @@ class Talk extends Component {
         <h2>{talk.titre_de_ta_presentation}</h2>
         <Chip labelColor='white' style={formatStyle}>{talk.formats}</Chip>
         <List>
+          {this.getNote(talk.note)}
           {this.getProfile(talk)}
         </List>
+        <Divider />
         <h3>Description</h3>
         {this.getText(talk.description_de_ta_presentation)}
 
