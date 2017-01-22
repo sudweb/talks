@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SpreadsheetService from '../services/SpreadsheetService';
-import { isPK, isLT } from '../services/FormatService';
+import { isPK, isLT, countTalksByFormats } from '../services/FormatService';
 import TalkList from './TalkList';
 import Talk from './Talk';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -46,7 +46,6 @@ class App extends Component {
   }
 
   handleError(error) {
-    console.log(error)
     let message = error.message;
 
     switch(error.status) {
@@ -62,22 +61,7 @@ class App extends Component {
     this.setState({auth: true});
     SpreadsheetService.loadSheetsApi()
       .then(talks => {
-        console.log(talks);
-        this.setState({ talks: talks });
-
-        let all = talks.length,
-          PK = 0,
-          LT = 0;
-        talks.map(talk => {
-          if (isPK(talk.formats)) {
-            PK++;
-          }
-          if (isLT(talk.formats)) {
-            LT++;
-          }
-          return false;
-        });
-        this.setState({ count: { all, PK, LT } });
+        this.setState({ talks: talks, count: countTalksByFormats(talks) });
       })
       .catch(error => this.handleError(error));
   }
@@ -90,10 +74,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // Auto open google popup
-    // window.addEventListener('google-loaded', this.handleAuthResult());
-
-    // SpreadsheetService.init()
+    window.addEventListener('google-loaded', this.handleAuthResult());
   }
 
   selectTalk(i) {
@@ -170,7 +151,12 @@ class App extends Component {
 
     return (
       <main>
-        <Drawer open={this.state.open} width={360} openSecondary={true} style={{position: 'relative'}}>
+        <Drawer 
+          open={this.state.open} 
+          className='drawer'
+          width={360} 
+          openSecondary={true} 
+          style={{position: 'relative'}}>
           <TalkList
             selectedTalk={selectedTalk}
             count={count}

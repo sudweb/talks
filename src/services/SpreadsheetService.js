@@ -15,7 +15,8 @@ class SpreadsheetService {
         gapi.auth.authorize({
           'client_id': CLIENT_ID,
           'scope': SCOPES,
-          'immediate': false
+          'immediate': false,
+          'cookie_policy': 'single_host_origin'
         }, authResult => {
           if (authResult && !authResult.error) {
             resolve(authResult);
@@ -67,11 +68,13 @@ class SpreadsheetService {
     for (let i = 0; i < range.values.length; i++) {
       var row = range.values[i];
       let talk = {};
-      range.values[0].map((field, j) => {
-        talk[this.getPrettyColumnNames(field)] = row[j];
-      });
+      if (i !== 0) {
+        range.values[0].map((field, j) => {
+            talk[this.getPrettyColumnNames(field)] = row[j];
+        });
+        data.push(talk);
+      }
       
-      data.push(talk);
     }
     console.log(data);
     return data;
