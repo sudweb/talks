@@ -6,34 +6,6 @@ import {
 const gapi = window.gapi;
 
 /**
- * Load profile data
- * 
- * @returns
- * 
- * @memberOf SpreadsheetService
- */
-export const loadSheetsApi = () => {
-  var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
-
-  return new Promise((resolve, reject) => {
-    gapi.client.load(discoveryUrl)
-      .then(() => {
-        gapi.client.sheets.spreadsheets.values.get({
-          spreadsheetId: SPREADSHEET_ID,
-          range: 'Propositions',
-        }).then(response => {
-          const range = response.result;
-          if (range.values.length > 0) {
-            resolve(parseResponse(range));
-          } else {
-            reject('No data found.');
-          }
-        }, response => reject(response.result.error));
-      });
-  });
-}
-
-/**
  * Get parse column name
  * 
  * @param {string} str
@@ -56,17 +28,54 @@ const getPrettyColumnNames = str => {
  * 
  * @memberOf SpreadsheetService
  */
-const parseResponse = range => {
-  let data = [];
-  for (let i = 0; i < range.values.length; i++) {
-    var row = range.values[i];
+const parseResponse = (talks, notes) => {
+  let talksArray = [];
+  let notesArray = [];
+  for (let i = 0; i < talks.values.length; i++) {
+    var row = talks.values[i];
     let talk = {};
     if (i !== 0) {
-      range.values[0].map((field, j) => {
-          talk[getPrettyColumnNames(field)] = row[j];
+      talks.values[0].map((field, j) => {
+          return talk[getPrettyColumnNames(field)] = row[j];
       });
-      data.push(talk);
+      talksArray.push(talk);
     }    
   }
-  return data;
+  return {
+    talks: talksArray,
+    notes: notesArray
+  };
+}
+
+/**
+ * Load profile data
+ * 
+ * @returns
+ * 
+ * @memberOf SpreadsheetService
+ */
+export const loadSheetsApi = () => {
+  var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+
+  return new Promise((resolve, reject) => {
+    gapi.client.load(discoveryUrl)
+      .then(() => {
+        gapi.client.sheets.spreadsheets.values.batchGet({
+          spreadsheetId: SPREADSHEET_ID,
+          ranges: [
+            'Propositions',
+            'Notes'
+          ],
+        }).then(response => {
+          const talks = response.result.valueRanges[0];
+          const notes = response.result.valueRanges[1];
+
+          if (talks.values.length > 0) {
+            resolve(parseResponse(talks, notes));
+          } else {
+            reject('No data found.');
+          }
+        }, response => reject(response.result.error));
+      });
+  });
 }

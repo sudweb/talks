@@ -28,6 +28,7 @@ main {
 
 .drawer > div {
   top: 64px !important;
+  height: calc(100vh - 64px) !important;
 }
 
 h1 {

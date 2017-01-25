@@ -1,5 +1,21 @@
 const gapi = window.gapi;
 
+const parseResponse = result => {
+  console.log(result)
+  let profile = {};
+  if (result.names) {
+    profile.name = result.names[0].displayName;
+  }
+  if (result.emailAddresses) {
+    profile.email = result.emailAddresses[0].value;
+  }
+
+  if (result.photos) {
+    profile.img = result.photos[0].url;
+  }
+  return profile;
+}
+
 /**
  * Load profile data
  * 
@@ -15,23 +31,4 @@ export const loadPeopleApi = () => {
       resolve(parseResponse(response.result))
     });
   });
-}
-
-const parseResponse = result => {
-  console.log(result)
-  let profile = {};
-  if (result.names) {
-    profile.name = result.names[0].displayName;
-  }
-
-  if (result.emailAddresses) {
-    profile.email = result.emailAddresses[0].value;
-  }
-
-  if (result.photos) {
-    profile.img = result.photos[0].url;
-
-  }
-
-  return profile;
 }

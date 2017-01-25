@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {authorize, signout} from '../services/AuthService';
+import {authorize} from '../services/AuthService';
 import {loadSheetsApi} from '../services/SpreadsheetService';
 import {loadPeopleApi} from '../services/PeopleService';
 import { isPK, isLT, countTalksByFormats } from '../services/FormatService';
@@ -50,23 +50,12 @@ class App extends Component {
     }
   }
 
-  handleError(error) {
-    let message = error.message;
-
-    switch(error.status) {
-      case 'PERMISSION_DENIED':
-        message = 'Vous n\'êtes pas autorisé(e) à accéder à cette ressource.';
-        break;
-    }
-
-    this.setState({auth: false, errorMessage: message})
-  }
-
   loadData() {
     this.setState({auth: true});
     loadSheetsApi()
-      .then(talks => {
-        this.setState({ talks: talks, count: countTalksByFormats(talks) });
+      .then(data => {
+        this.setState({ talks: data.talks, count: countTalksByFormats(data.talks) });
+        this.setState({ notes: data.notes });
       })
       .catch(error => this.handleError(error));
 
@@ -86,16 +75,32 @@ class App extends Component {
     window.addEventListener('google-loaded', this.handleAuthResult(true));
   }
 
-  selectTalk(i) {
-    this.setState({
-      selectedTalk: i
-    });
+  selectTalk    = i => this.setState({selectedTalk: i});
+  setFilter     = format => this.setState({filter: format});
+  handleToggle  = () => this.setState({open: !this.state.open});
+
+  handleError(error) {
+    let message = error.message;
+
+    switch(error.status) {
+      case 'PERMISSION_DENIED':
+        message = 'Vous n\'êtes pas autorisé(e) à accéder à cette ressource.';
+        break;
+      default:
+        break;
+    }
+
+    this.setState({auth: false, errorMessage: message})
   }
 
-  setFilter(format) {
-    this.setState({
-      filter: format
-    });
+  getErrors() {
+    const {errorMessage} = this.state;
+    if (errorMessage !== null) {
+      return (
+        <p style={{color: red500}}>{errorMessage}</p>
+      )
+    }
+    return null;
   }
 
   getFilteredList(talks) {
@@ -128,17 +133,13 @@ class App extends Component {
     )
   }
 
-  handleToggle = () => this.setState({open: !this.state.open});
-
-  getErrors() {
-    const {errorMessage} = this.state;
-    if (errorMessage !== null) {
-      return (
-        <p style={{color: red500}}>{errorMessage}</p>
-      )
+  getProfile() {
+    const signout = () => {
+      this.setState({auth: false, profile: null});
+      signout();
     }
 
-    return null;
+    return <Profile profile={this.state.profile} signout={() => signout()} />
   }
 
   getContent() {
@@ -179,16 +180,8 @@ class App extends Component {
     );
   }
 
-  signout() {
-    this.setState({auth: false, profile: null});
-    signout();
-  }
-
-  getProfile() {
-    return <Profile profile={this.state.profile} signout={() => this.signout()} />
-  }
-
   render() {
+    console.log(this.state);
     return (
       <MuiThemeProvider>
         <div className="container">

@@ -104,7 +104,7 @@ class Talk extends Component {
 
   render() {
     const {talk} = this.props;
-
+    console.log(talk);
     if (talk === null) {
       return null;
     }
