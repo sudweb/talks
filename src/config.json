@@ -3,7 +3,7 @@
     "CLIENT_ID": "460329070283-8j9kmv5hucpqh2qv2aeirupk7ddg31si.apps.googleusercontent.com",
     "SPREADSHEET_ID": "1I8mJSe6PgrUBmpGHCqtDWcxsSfLWPN11Ezi14bmJ1Iw",
     "SCOPES": [
-        "https://www.googleapis.com/auth/spreadsheets.readonly",
+        "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/plus.login"
     ]
 }

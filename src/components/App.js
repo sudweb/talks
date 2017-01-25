@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {authorize} from '../services/AuthService';
-import {loadSheetsApi} from '../services/SpreadsheetService';
-import {loadPeopleApi} from '../services/PeopleService';
+import {getTalks} from '../services/TalksService';
+import {getProfile} from '../services/ProfileService';
 import { isPK, isLT, countTalksByFormats } from '../services/FormatService';
 import TalkList from './TalkList';
 import Talk from './Talk';
@@ -40,6 +40,7 @@ class App extends Component {
       profile: null,
       selectedTalk: null,
       talks: null,
+      notes: null,
       filter: null,
       count: {
         all: 0,
@@ -52,14 +53,11 @@ class App extends Component {
 
   loadData() {
     this.setState({auth: true});
-    loadSheetsApi()
-      .then(data => {
-        this.setState({ talks: data.talks, count: countTalksByFormats(data.talks) });
-        this.setState({ notes: data.notes });
-      })
+    getTalks()
+      .then(talks => this.setState({ talks: talks, count: countTalksByFormats(talks) }))
       .catch(error => this.handleError(error));
 
-    loadPeopleApi()
+    getProfile()
       .then(profile => this.setState({profile: profile}))
       .catch(error => this.handleError(error));
   }

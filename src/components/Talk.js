@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import md5 from 'js-md5';
 import { isPK } from '../services/FormatService';
+import { append } from '../services/GoogleAPI';
+
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
@@ -9,8 +11,17 @@ import { red500, lightBlack, orange500, teal500 } from 'material-ui/styles/color
 import Chip from 'material-ui/Chip';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 class Talk extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      voteOpen: false
+    }
+  }
+
   getDate(date) {
     return moment(date, 'DD/MM/YYYY').format('DD/MM/YYYY');
   }
@@ -88,6 +99,12 @@ class Talk extends Component {
     );
   }
 
+  handleNestedListToggle = (item) => {
+    this.setState({
+      voteOpen: item.state.open,
+    });
+  };
+
   getNote(note) {
     note = note === undefined ? '-' : note
     return (
@@ -97,6 +114,10 @@ class Talk extends Component {
           <span>
             <strong>Note : </strong>{note}
           </span>
+        }
+        onNestedListToggle={this.handleNestedListToggle}
+        rightIcon={
+          <RaisedButton key="vote" onClick={() => append()} label="Voter" style={{color: red500}} />
         }
         />
     )

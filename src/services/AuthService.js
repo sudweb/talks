@@ -23,7 +23,7 @@ export const authorize = immediate => {
           reject(authResult.error);
         }
       });
-    }, 100);
+    }, 1000);
   });
 }
 
