@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import {authorize} from '../services/AuthService';
-import {getTalks} from '../services/TalksService';
-import {getProfile} from '../services/ProfileService';
-import { isPK, isLT, countTalksByFormats } from '../services/FormatService';
+import { connect } from 'react-redux';
+
+import { loadTalks, selectTalk } from '../actions/Talks';
+import { filterTalks } from '../actions/App';
+import { countTalksByFormats, getFilteredList } from '../selectors/Talks';
+import { requestAuth, signout } from '../actions/Auth';
+
 import TalkList from './TalkList';
 import Talk from './Talk';
 import Profile from './Profile';
@@ -16,12 +19,11 @@ import CircularProgress from 'material-ui/CircularProgress';
 import { red500 } from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-class App extends Component {
+class AppView extends Component {
   static childContextTypes = {
     muiTheme: React.PropTypes.object
   }
@@ -34,87 +36,21 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      auth: false,
-      errorMessage: null,
-      profile: null,
-      selectedTalk: null,
-      talks: null,
-      notes: null,
-      filter: null,
-      count: {
-        all: 0,
-        PK: 0,
-        LT: 0
-      },
-      open: true
-    }
-  }
-
-  loadData() {
-    this.setState({auth: true});
-    getTalks()
-      .then(talks => this.setState({ talks: talks, count: countTalksByFormats(talks) }))
-      .catch(error => this.handleError(error));
-
-    getProfile()
-      .then(profile => this.setState({profile: profile}))
-      .catch(error => this.handleError(error));
-  }
-
-  handleAuthResult(immediate) {
-    authorize(immediate)
-      .then(() => this.loadData())
-      .catch(error => this.handleError(error))
-    return false;
+    this.state = { drawerIsOpen: true }
   }
 
   componentDidMount() {
-    window.addEventListener('google-loaded', this.handleAuthResult(true));
-  }
-
-  selectTalk    = i => this.setState({selectedTalk: i});
-  setFilter     = format => this.setState({filter: format});
-  handleToggle  = () => this.setState({open: !this.state.open});
-
-  handleError(error) {
-    let message = error.message;
-
-    switch(error.status) {
-      case 'PERMISSION_DENIED':
-        message = 'Vous n\'êtes pas autorisé(e) à accéder à cette ressource.';
-        break;
-      default:
-        break;
-    }
-
-    this.setState({auth: false, errorMessage: message})
+    window.addEventListener('google-loaded', this.props.requestAuth(true));
   }
 
   getErrors() {
-    const {errorMessage} = this.state;
+    const {errorMessage} = this.props;
     if (errorMessage !== null) {
       return (
         <p style={{color: red500}}>{errorMessage}</p>
       )
     }
     return null;
-  }
-
-  getFilteredList(talks) {
-    if (this.state.filter === 'PK') {
-      return talks.filter(talk => {
-        return isPK(talk.formats);
-      });
-    }
-
-    if (this.state.filter === 'LT') {
-      return talks.filter(talk => {
-        return isLT(talk.formats);
-      });
-    }
-
-    return talks;
   }
 
   getSelectedTalk(selectedTalk) {
@@ -127,40 +63,41 @@ class App extends Component {
     }
 
     return (
-      <Talk talk={this.state.talks[selectedTalk]} />
+      <Talk talk={this.props.talks[selectedTalk]} />
     )
   }
 
   getProfile() {
-    const signout = () => {
-      this.setState({auth: false, profile: null});
-      signout();
-    }
-
-    return <Profile profile={this.state.profile} signout={() => signout()} />
+    return <Profile profile={this.props.profile} signout={() => this.props.signout()} />
   }
 
   getContent() {
-    const {talks, count, selectedTalk, auth} = this.state;
+    const {
+      talks, 
+      count, 
+      selectedTalk, 
+      authorize,
+      permission,
+      filteredTalks
+    } = this.props;
     
-    if (!auth) {
+    if (permission === null) {
       return (
         <main>
-          <p>Vous devez être connecté pour accéder à cette ressouce</p>
           {this.getErrors()}
-          <RaisedButton onClick={() => this.handleAuthResult()} label="Se connecter sur Google Drive" backgroundColor={red500} labelColor='white' />
+          <RaisedButton onClick={() => this.props.requestAuth()} label="Se connecter sur Google Drive" backgroundColor={red500} labelColor='white' />
         </main>
       )
     }
-
-    if (talks === null) {
+    
+    if (authorize && !talks) {
       return <div className="loading"><CircularProgress color={red500} size={80} thickness={5} /></div>;
     }
 
     return (
       <main>
         <Drawer 
-          open={this.state.open} 
+          open={this.state.drawerIsOpen} 
           className='drawer'
           width={360} 
           openSecondary={true} 
@@ -168,9 +105,9 @@ class App extends Component {
           <TalkList
             selectedTalk={selectedTalk}
             count={count}
-            talks={this.getFilteredList(talks)}
-            selectTalk={talk => this.selectTalk(talk)}
-            setFilter={format => this.setFilter(format)}
+            talks={filteredTalks}
+            selectTalk={talk => this.props.selectTalk(talk)}
+            setFilter={format => this.props.filterTalks(format)}
             />
         </Drawer>
         {this.getSelectedTalk(selectedTalk)}
@@ -178,13 +115,14 @@ class App extends Component {
     );
   }
 
+  toggleDrawer = () => this.setState({drawerIsOpen: !this.state.drawerIsOpen});
+
   render() {
-    console.log(this.state);
     return (
       <MuiThemeProvider>
         <div className="container">
           <AppBar
-            onLeftIconButtonTouchTap={() => this.handleToggle()}
+            onLeftIconButtonTouchTap={() => this.toggleDrawer()}
             style={{ backgroundColor: red500 }}
             title={<h1>Propositions de sujets Sud Web</h1>}
             iconElementRight={this.getProfile()}
@@ -197,5 +135,28 @@ class App extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+    count: countTalksByFormats(state.talks),
+    filteredTalks: getFilteredList(state.talks, state.filter)
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadTalks: () => dispatch(loadTalks()),
+    requestAuth: immediate => dispatch(requestAuth(immediate)),
+    filterTalks: format => dispatch(filterTalks(format)),
+    selectTalk: talk => dispatch(selectTalk(talk)),
+    signout: () => dispatch(signout())
+  };
+}
+
+const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppView)
 
 export default App;

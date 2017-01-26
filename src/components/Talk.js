@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import md5 from 'js-md5';
-import { isPK } from '../services/FormatService';
+import { isPK } from '../selectors/Talks';
 import { append } from '../services/GoogleAPI';
 
 import { List, ListItem } from 'material-ui/List';
