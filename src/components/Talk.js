@@ -2,24 +2,19 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import md5 from 'js-md5';
 import { isPK } from '../selectors/Talks';
-import { append } from '../services/GoogleAPI';
 
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
-import EditorEdit from 'material-ui/svg-icons/editor/mode-edit';
 import { red500, lightBlack, orange500, teal500 } from 'material-ui/styles/colors';
 import Chip from 'material-ui/Chip';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
-import RaisedButton from 'material-ui/RaisedButton';
+import Notes from './Notes';
 
 class Talk extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      voteOpen: false
-    }
   }
 
   getDate(date) {
@@ -99,61 +94,6 @@ class Talk extends Component {
     );
   }
 
-  handleNestedListToggle = (item) => {
-    this.setState({
-      voteOpen: item.state.open,
-    });
-  };
-
-  getNote(average) {
-    average = average === undefined ? '-' : average;
-    const notes = this.props.notes;
-    let myNote = this.props.notes[this.props.profileName];
-    let voteButton = (
-      <IconButton
-        onClick={() => append()}
-        touch={true}
-        tooltipPosition="top-right"
-        style={{ padding: 0, width: 32 }}
-        >
-        <EditorEdit />
-      </IconButton>
-    );
-    
-    if (myNote === undefined) {
-      myNote = 'Pas encore voté !';
-      voteButton = <RaisedButton onClick={() => append()} label="Voter" backgroundColor={red500} labelColor={'white'} />;
-    }
-
-    let peopleNotes = [];
-
-    peopleNotes.push(
-      <ListItem 
-      disabled={true}
-      key={'mine'} 
-      primaryText={'Ma note : ' + myNote}
-      rightIcon={voteButton} />
-    );
-
-    for (let i = 0; i < Object.keys(notes).length; i++) {
-      const member = Object.keys(notes)[i];
-      if (notes[member] !== undefined) {
-        peopleNotes.push(<ListItem key={i} disabled={true} primaryText={member + ' : ' + notes[member]} />);
-      }
-    }
-    return (
-      <ListItem
-        disabled={true}
-        primaryText={
-          <span>
-            <strong>Note : </strong>{average}
-          </span>
-        }
-        onNestedListToggle={this.handleNestedListToggle}
-        nestedItems={peopleNotes}
-        />
-    )
-  }
 
   render() {
     const {talk} = this.props;
@@ -171,7 +111,7 @@ class Talk extends Component {
         <h2>{talk.titre_de_ta_presentation}</h2>
         <Chip labelColor='white' style={formatStyle}>{talk.formats}</Chip>
         <List>
-          {this.getNote(talk.note)}
+          <Notes profileName={this.props.profileName} average={talk.note} notes={this.props.notes} />
         </List>
         <Divider />
         <List>

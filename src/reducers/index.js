@@ -85,7 +85,6 @@ export const rootReducer = (state = defaultState, action) => {
         profile: action.profile
       }
 
-
     case FILTER_TALKS:
       return {
         ...state,
