@@ -1,7 +1,6 @@
 import slug from 'slug';
-import {batchGet} from '../services/GoogleAPI';
 
-const getPrettyColumnNames = str => {
+export const getPrettyColumnNames = str => {
   return slug(str, {
     lower: true,
     replacement: '_'

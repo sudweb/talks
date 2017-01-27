@@ -6,6 +6,7 @@ import {
 
 export const LOAD_TALKS = 'LOAD_TALKS';
 export const FETCHED_TALKS = 'FETCHED_TALKS';
+export const PERMISSION_DENIED = 'PERMISSION_DENIED';
 export const SELECT_TALK = 'SELECT_TALK';
 
 export const fetchedTalks = talks => ({
@@ -27,7 +28,10 @@ export const loadTalks = () => dispatch => {
       dispatch(handleError('No data found.'));
     }
   })
-  .catch(error => dispatch(handleError(error.message)));
+  .catch(error => {
+    dispatch(handleError(error.message));
+    dispatch({type: PERMISSION_DENIED})
+  });
 }
 
 export const selectTalk = talk => ({

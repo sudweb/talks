@@ -7,12 +7,12 @@ import { append } from '../services/GoogleAPI';
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
+import EditorEdit from 'material-ui/svg-icons/editor/mode-edit';
 import { red500, lightBlack, orange500, teal500 } from 'material-ui/styles/colors';
 import Chip from 'material-ui/Chip';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
-
 
 class Talk extends Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class Talk extends Component {
         onClick={() => this.sendMail(talk.email)}
         touch={true}
         tooltipPosition="top-right"
-        style={{ paddingRight: 0, width: 32 }}
+        style={{ padding: 0, width: 32 }}
         >
         <CommunicationEmail color={red500} />
       </IconButton>
@@ -105,27 +105,58 @@ class Talk extends Component {
     });
   };
 
-  getNote(note) {
-    note = note === undefined ? '-' : note
+  getNote(average) {
+    average = average === undefined ? '-' : average;
+    const notes = this.props.notes;
+    let myNote = this.props.notes[this.props.profileName];
+    let voteButton = (
+      <IconButton
+        onClick={() => append()}
+        touch={true}
+        tooltipPosition="top-right"
+        style={{ padding: 0, width: 32 }}
+        >
+        <EditorEdit />
+      </IconButton>
+    );
+    
+    if (myNote === undefined) {
+      myNote = 'Pas encore voté !';
+      voteButton = <RaisedButton onClick={() => append()} label="Voter" backgroundColor={red500} labelColor={'white'} />;
+    }
+
+    let peopleNotes = [];
+
+    peopleNotes.push(
+      <ListItem 
+      disabled={true}
+      key={'mine'} 
+      primaryText={'Ma note : ' + myNote}
+      rightIcon={voteButton} />
+    );
+
+    for (let i = 0; i < Object.keys(notes).length; i++) {
+      const member = Object.keys(notes)[i];
+      if (notes[member] !== undefined) {
+        peopleNotes.push(<ListItem key={i} disabled={true} primaryText={member + ' : ' + notes[member]} />);
+      }
+    }
     return (
       <ListItem
         disabled={true}
         primaryText={
           <span>
-            <strong>Note : </strong>{note}
+            <strong>Note : </strong>{average}
           </span>
         }
         onNestedListToggle={this.handleNestedListToggle}
-        rightIcon={
-          <RaisedButton key="vote" onClick={() => append()} label="Voter" style={{color: red500}} />
-        }
+        nestedItems={peopleNotes}
         />
     )
   }
 
   render() {
     const {talk} = this.props;
-    console.log(talk);
     if (talk === null) {
       return null;
     }
@@ -141,6 +172,9 @@ class Talk extends Component {
         <Chip labelColor='white' style={formatStyle}>{talk.formats}</Chip>
         <List>
           {this.getNote(talk.note)}
+        </List>
+        <Divider />
+        <List>
           {this.getProfile(talk)}
         </List>
         <Divider />

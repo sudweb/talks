@@ -8,6 +8,10 @@ import {
 } from './Talks';
 
 import {
+  loadNotes
+} from './Notes';
+
+import {
   loadProfile
 } from './Profile';
 
@@ -19,6 +23,7 @@ export const requestAuth = immediate => dispatch => {
       .then(() => {
         dispatch(loadTalks())
         dispatch(loadProfile())
+        dispatch(loadNotes())
         return dispatch({
           type: AUTHORIZE,
           authorize: true

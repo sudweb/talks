@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { loadTalks, selectTalk } from '../actions/Talks';
+import { selectTalk } from '../actions/Talks';
 import { filterTalks } from '../actions/App';
 import { countTalksByFormats, getFilteredList } from '../selectors/Talks';
 import { requestAuth, signout } from '../actions/Auth';
@@ -62,8 +62,11 @@ class AppView extends Component {
       )
     }
 
+    const talk = this.props.talks[selectedTalk];
+    const notes = this.props.notes[selectedTalk];
+
     return (
-      <Talk talk={this.props.talks[selectedTalk]} />
+      <Talk talk={talk} notes={notes} profileName={this.props.profile.name} />
     )
   }
 
@@ -73,14 +76,17 @@ class AppView extends Component {
 
   getContent() {
     const {
-      talks, 
+      loader,
       count, 
-      selectedTalk, 
-      authorize,
+      selectedTalk,
       permission,
       filteredTalks
     } = this.props;
     
+    if (loader) {
+      return <div className="loading"><CircularProgress color={red500} size={80} thickness={5} /></div>;
+    }
+
     if (permission === null) {
       return (
         <main>
@@ -90,10 +96,6 @@ class AppView extends Component {
       )
     }
     
-    if (authorize && !talks) {
-      return <div className="loading"><CircularProgress color={red500} size={80} thickness={5} /></div>;
-    }
-
     return (
       <main>
         <Drawer 
@@ -146,7 +148,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadTalks: () => dispatch(loadTalks()),
     requestAuth: immediate => dispatch(requestAuth(immediate)),
     filterTalks: format => dispatch(filterTalks(format)),
     selectTalk: talk => dispatch(selectTalk(talk)),

@@ -56,7 +56,7 @@ export const signOut = () => {
  * 
  * @memberOf GoogleAPI
  */
-export const batchGet = ranges => {
+export const batchGet = (ranges, majorDimension) => {
   var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
 
   return new Promise((resolve, reject) => {
@@ -65,6 +65,7 @@ export const batchGet = ranges => {
         gapi.client.sheets.spreadsheets.values.batchGet({
           spreadsheetId: SPREADSHEET_ID,
           ranges: ranges,
+          majorDimension: majorDimension || 'DIMENSION_UNSPECIFIED'
         }).then(response => {
           resolve(response.result);
         }, response => reject(response.result.error));

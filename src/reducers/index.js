@@ -4,14 +4,21 @@ import {
 } from '../actions/Auth';
 
 import {
+  LOAD_TALKS,
   FETCHED_TALKS,
   SELECT_TALK,
   PERMISSION_DENIED
 } from '../actions/Talks';
 
 import {
+  LOAD_PROFILE,
   FETCHED_PROFILE
 } from '../actions/Profile';
+
+import {
+  LOAD_NOTES,
+  FETCHED_NOTES
+} from '../actions/Notes';
 
 import {
   TOGGLE_DRAWER,
@@ -20,6 +27,7 @@ import {
 } from '../actions/App';
 
 const defaultState = {
+  loader: true,
   authorize: false,
   permission: null,
   errorMessage: null,
@@ -38,35 +46,63 @@ export const rootReducer = (state = defaultState, action) => {
         authorize: action.authorize,
       };
 
+    case LOAD_TALKS: 
+      return {
+        ...state,
+        loader: true
+      }
+
+    case LOAD_PROFILE: 
+      return {
+        ...state,
+        loader: true
+      }
+
+    case LOAD_NOTES: 
+      return {
+        ...state,
+        loader: true
+      }
+
     case FETCHED_TALKS:
       return {
         ...state,
+        loader: false,
         permission: true,
         talks: action.talks
       };
 
-    case TOGGLE_DRAWER:
+    case FETCHED_NOTES:
       return {
         ...state,
-        drawerIsOpen: action.open
-      }
-
-    case FILTER_TALKS:
-      return {
-        ...state,
-        filter: action.filter
-      }
-
-    case SELECT_TALK:
-      return {
-        ...state,
-        selectedTalk: action.talk
+        loader: false,
+        notes: action.notes
       }
 
     case FETCHED_PROFILE:
       return  {
         ...state,
         profile: action.profile
+      }
+
+
+    case FILTER_TALKS:
+      return {
+        ...state,
+        loader: false,
+        filter: action.filter
+      }
+    
+    case TOGGLE_DRAWER:
+      return {
+        ...state,
+        drawerIsOpen: action.open
+      }
+
+    case SELECT_TALK:
+      return {
+        ...state,
+        selectedTalk: action.talk
       }
 
     case SIGN_OUT:
