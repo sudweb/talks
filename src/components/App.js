@@ -40,7 +40,7 @@ class AppView extends Component {
   }
 
   componentDidMount() {
-    // window.addEventListener('google-loaded', this.props.requestAuth());
+    window.addEventListener('google-loaded', this.props.requestAuth(true));
   }
 
   getErrors() {

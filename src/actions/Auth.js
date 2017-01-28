@@ -20,8 +20,8 @@ import {
 export const AUTHORIZE = 'AUTHORIZE';
 export const SIGN_OUT = 'SIGN_OUT';
 
-export const requestAuth = () => dispatch => {
-    authorize(false)
+export const requestAuth = immediate => dispatch => {
+    authorize(immediate)
       .then(() => {
         dispatch(loadTalks())
         dispatch(loadProfile())
@@ -31,7 +31,11 @@ export const requestAuth = () => dispatch => {
           authorize: true
         });
       })
-      .catch(error => dispatch(handleError(error)))
+      .catch(error => {
+        if (error !== 'immediate_failed') {
+          dispatch(handleError(error))
+        }
+      })
 }
 
 

@@ -107,13 +107,15 @@ class NotesView extends Component {
       <div>
         <div style={{margin: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <span><strong>Note moyenne :&nbsp;</strong>{average}</span>
-          <IconButton
-            style={iconStyle}
+          <IconButton            
             onClick={() => this.handleNestedListToggle()}
             touch={true}
-            tooltipPosition="top-right"
+            tooltip="Détail des votes"
+            // tooltipPosition="top-right"
             >
-            <KeyboardArrowDown />
+            <div style={iconStyle}>
+              <KeyboardArrowDown />
+            </div>
           </IconButton>
         </div>
         {this.getDetailsNote()}

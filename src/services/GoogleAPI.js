@@ -16,7 +16,7 @@ export const authorize = immediate => {
         'client_id': CLIENT_ID,
         'scope': SCOPES.join(' '),
         'immediate': immediate,
-        'cookie_policy': 'single_host_origin'
+        // 'cookie_policy': 'single_host_origin'
       }, authResult => {
         if (authResult && !authResult.error) {
           resolve(authResult);
