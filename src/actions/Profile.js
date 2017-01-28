@@ -1,7 +1,9 @@
 import {
   requestPeople
 } from '../services/GoogleAPI';
-
+import {
+  handleError
+} from './App';
 export const LOAD_PROFILE = 'LOAD_PROFILE';
 export const FETCHED_PROFILE = 'FETCHED_PROFILE';
 
@@ -28,5 +30,5 @@ export const loadProfile = result => dispatch => {
       type: FETCHED_PROFILE,
       profile: profile
     })
-  }, error => this.handleError(error))
+  }, error => handleError(error))
 }
