@@ -52,21 +52,18 @@ class NotesView extends Component {
     }
 
     return (
-      <TableRow>
-        <TableRowColumn>{`Ma note (${myName})`}</TableRowColumn>
-        <TableRowColumn>
-          <SelectField
-              value={this.state.myNote}
-              onChange={this.handleNoteChange}
-            >
-              <MenuItem value={-2} primaryText="Exclusion (-2)" />
-              <MenuItem value={-1} primaryText="Désaprobation (-1)" />
-              <MenuItem value={0} primaryText="Neutre (0)" />
-              <MenuItem value={1} primaryText="Approbation (1)" />
-              <MenuItem value={2} primaryText="Sélection (2)" />
-            </SelectField>
-        </TableRowColumn>
-      </TableRow>
+        <SelectField
+          floatingLabelText={`Ma note (${myName})`}
+          style={{width: 200}}
+          value={this.state.myNote}
+          onChange={this.handleNoteChange}
+        >
+          <MenuItem value={-2} primaryText="Exclusion (-2)" />
+          <MenuItem value={-1} primaryText="Désaprobation (-1)" />
+          <MenuItem value={0} primaryText="Neutre (0)" />
+          <MenuItem value={1} primaryText="Approbation (1)" />
+          <MenuItem value={2} primaryText="Sélection (2)" />
+        </SelectField>
     )
   }
 
@@ -98,7 +95,6 @@ class NotesView extends Component {
           </TableRow>
         </TableHeader>
         <TableBody displayRowCheckbox={false}>
-          {this.getMyNote()}
           {othersNoteRow}
         </TableBody>
       </Table>
@@ -107,19 +103,18 @@ class NotesView extends Component {
   }
 
   render() {
-    console.log('render note', this.props.myNote, this.state.myNote)
     const average = this.props.average === undefined ? '-' : this.props.average;
     const iconStyle = {transform: this.state.voteOpen ? 'rotate(180deg)' : 'none'};
     
     return (
       <div>
         <div style={{margin: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-          <span><strong>Note moyenne :&nbsp;</strong>{average}</span>
+          <span style={{flex: 1}}><strong>Note moyenne :&nbsp;</strong>{average}</span>
+          {this.getMyNote()}
           <IconButton            
             onClick={() => this.handleNestedListToggle()}
             touch={true}
             tooltip="Détail des votes"
-            // tooltipPosition="top-right"
             >
             <div style={iconStyle}>
               <KeyboardArrowDown />
@@ -138,7 +133,7 @@ const mapStateToProps = state => {
   const myNote = myData.note !== undefined ? Math.round(myData.note) : 0;
   let othersNote = {...notes};
   delete othersNote[myData.name];
-  console.log(myData)
+
   return {
     myNote: myNote,
     myName: myData.name,
