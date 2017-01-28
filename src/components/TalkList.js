@@ -14,6 +14,14 @@ function wrapState(ComposedComponent) {
       });
     }
 
+    componentWillReceiveProps(nextProps) {
+      if (nextProps.defaultValue !== this.state.selectedIndex) {
+        this.setState({
+          selectedIndex: nextProps.defaultValue
+        });
+      }
+    }
+
     handleRequestChange = (event, index) => {
       this.setState({
         selectedIndex: index,
