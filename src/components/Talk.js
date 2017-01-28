@@ -13,10 +13,6 @@ import Divider from 'material-ui/Divider';
 import Notes from './Notes';
 
 class Talk extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   getDate(date) {
     return moment(date, 'DD/MM/YYYY').format('DD/MM/YYYY');
   }
@@ -110,9 +106,9 @@ class Talk extends Component {
       <section className="Talk">
         <h2>{talk.titre_de_ta_presentation}</h2>
         <Chip labelColor='white' style={formatStyle}>{talk.formats}</Chip>
-        <List>
-          <Notes profileName={this.props.profileName} average={talk.note} notes={this.props.notes} />
-        </List>
+
+        <Notes />
+
         <Divider />
         <List>
           {this.getProfile(talk)}

@@ -73,20 +73,17 @@ export const batchGet = (ranges, majorDimension) => {
   });
 }
 
-export const append = () => {
-  const values = ['test'];
-
-  const body = {
-    'values': values
-  }
-  gapi.client.sheets.spreadsheets.values.append({
+export const batchUpdate = (range, values) => {
+  return gapi.client.sheets.spreadsheets.values.batchUpdate({
     spreadsheetId: SPREADSHEET_ID,
-    range: 'Notes',
     valueInputOption: 'RAW',
-    body: body
-  }).then((response) => {
-    console.log(response)
-  })
+    data: [
+      {
+        range: range,
+        values: values
+      }
+    ]
+  });
 }
 
 

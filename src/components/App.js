@@ -63,10 +63,9 @@ class AppView extends Component {
     }
 
     const talk = this.props.talks[selectedTalk];
-    const notes = this.props.notes[selectedTalk];
 
     return (
-      <Talk talk={talk} notes={notes} profileName={this.props.profile.name} />
+      <Talk talk={talk} />
     )
   }
 

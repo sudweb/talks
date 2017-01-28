@@ -16,7 +16,6 @@ import {
 } from '../actions/Profile';
 
 import {
-  LOAD_NOTES,
   FETCHED_NOTES
 } from '../actions/Notes';
 
@@ -53,12 +52,6 @@ export const rootReducer = (state = defaultState, action) => {
       }
 
     case LOAD_PROFILE: 
-      return {
-        ...state,
-        loader: true
-      }
-
-    case LOAD_NOTES: 
       return {
         ...state,
         loader: true
