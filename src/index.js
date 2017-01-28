@@ -8,12 +8,18 @@ import { rootReducer } from './reducers';
 import App from './components/App';
 import './index.css';
 
-const logger = createLogger();
+let middlewares = [thunk];
+
+if (process.env.NODE_ENV === `development`) {
+  const createLogger = require(`redux-logger`);
+  const logger = createLogger();
+  middlewares.push(logger);
+}
+
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk, logger)
+  applyMiddleware(...middlewares)
 );
-
 
 ReactDOM.render(
   <Provider store={store}>
