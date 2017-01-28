@@ -81,6 +81,7 @@ export const rootReducer = (state = defaultState, action) => {
     case FILTER_TALKS:
       return {
         ...state,
+        selectedTalk: null,
         loader: false,
         filter: action.filter
       }
