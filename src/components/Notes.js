@@ -19,6 +19,13 @@ class NotesView extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.myNote !== this.state.myNote) {
+      this.setState({
+        myNote: nextProps.myNote
+      });
+    }
+  }
 
   handleNestedListToggle = () => {
     this.setState({
@@ -100,6 +107,7 @@ class NotesView extends Component {
   }
 
   render() {
+    console.log('render note', this.props.myNote, this.state.myNote)
     const average = this.props.average === undefined ? '-' : this.props.average;
     const iconStyle = {transform: this.state.voteOpen ? 'rotate(180deg)' : 'none'};
     
@@ -130,7 +138,7 @@ const mapStateToProps = state => {
   const myNote = myData.note !== undefined ? Math.round(myData.note) : 0;
   let othersNote = {...notes};
   delete othersNote[myData.name];
-
+  console.log(myData)
   return {
     myNote: myNote,
     myName: myData.name,
