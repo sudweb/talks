@@ -16,6 +16,7 @@ export const parseTalks = talks => {
       talks[0].map((field, j) => {
           return talk[getPrettyColumnNames(field)] = row[j];
       });
+      talk.id = i;
       talksArray.push(talk);
     }    
   }
@@ -32,7 +33,7 @@ export const isLT = format => {
 
 export const getFilteredList = (talks, filter) => {
   if (filter === 'PK') {
-    return talks.filter(talk => {
+    return talks.filter((talk, id) => {
       return isPK(talk.formats);
     });
   }

@@ -37,18 +37,11 @@ export const loadNotes = () => dispatch => {
   });
 }
 
-export const selectTalk = talk => ({
-  type: 'SELECT_TALK',
-  talk: talk
-});
-
-
 export const vote = (name, note) => (dispatch, getState) => {
   const state = getState();
-  const talkIndex = state.selectedTalk;
-  const nameArray = Object.keys(state.notes[talkIndex]);
+  const nameArray = Object.keys(state.notes[state.selectedTalk]);
   const column = findColumnLetter(name, nameArray);
-  const row = talkIndex + 2; // sheet values start at 2
+  const row = state.selectedTalk + 1; // sheet values start at 2;
   console.log(`${name} give a ${note} to ${state.selectedTalk}`);
 
   dispatch({

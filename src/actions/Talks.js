@@ -34,7 +34,7 @@ export const loadTalks = () => dispatch => {
   });
 }
 
-export const selectTalk = talk => ({
+export const selectTalk = id => ({
   type: 'SELECT_TALK',
-  talk: talk
+  talk: id
 });

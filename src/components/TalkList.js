@@ -3,6 +3,7 @@ import {List, ListItem, makeSelectable} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import {teal500, red400, orange500} from 'material-ui/styles/colors';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import {isPK, isLT} from '../selectors/Talks';
 
 let SelectableList = makeSelectable(List);
 
@@ -45,10 +46,10 @@ SelectableList = wrapState(SelectableList);
 
 class TalkList extends Component {
   getFormat(format) {
-    if (format === 'Pecha Kucha : 20 images x 20 secondes') {
+    if (isPK(format)) {
       return <Avatar backgroundColor={teal500}>PK</Avatar>
     }
-    if (format === 'Lightning Talk : 5 minutes') {
+    if (isLT(format)) {
       return <Avatar backgroundColor={orange500}>LT</Avatar>
     }
 
@@ -60,7 +61,7 @@ class TalkList extends Component {
         <ListItem
             key={i}
             value={i}
-            onTouchTap={() => this.props.selectTalk(i)}
+            onTouchTap={() => this.props.selectTalk(talk.id)}
             primaryText={talk.titre_de_ta_presentation}
             secondaryText={talk.prenom_et_nom}
             leftAvatar={this.getFormat(talk.formats)}
@@ -70,7 +71,6 @@ class TalkList extends Component {
 
   render() {
     const {talks, count} = this.props;
-
     return (
       <div className="TalkList">
         <Tabs 

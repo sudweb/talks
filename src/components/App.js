@@ -107,7 +107,7 @@ class AppView extends Component {
             selectedTalk={selectedTalk}
             count={count}
             talks={filteredTalks}
-            selectTalk={talk => this.props.selectTalk(talk)}
+            selectTalk={id => this.props.selectTalk(id)}
             setFilter={format => this.props.filterTalks(format)}
             />
         </Drawer>
@@ -119,6 +119,8 @@ class AppView extends Component {
   toggleDrawer = () => this.setState({drawerIsOpen: !this.state.drawerIsOpen});
 
   render() {
+    console.log(this.props.filteredTalks)
+
     return (
       <MuiThemeProvider>
         <div className="container">
@@ -149,7 +151,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     requestAuth: immediate => dispatch(requestAuth(immediate)),
     filterTalks: format => dispatch(filterTalks(format)),
-    selectTalk: talk => dispatch(selectTalk(talk)),
+    selectTalk: id => dispatch(selectTalk(id)),
     signout: () => dispatch(signout())
   };
 }
