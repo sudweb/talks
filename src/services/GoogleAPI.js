@@ -1,7 +1,8 @@
 import {
     CLIENT_ID,
     SCOPES,
-    SPREADSHEET_ID
+    SPREADSHEET_ID,
+    API_KEY
 } from '../config.json';
 
 const gapi = window.gapi;
@@ -12,6 +13,7 @@ const gapi = window.gapi;
 export const authorize = immediate => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+      gapi.client.setApiKey(API_KEY);
       gapi.auth.authorize({
         'client_id': CLIENT_ID,
         'scope': SCOPES.join(' '),

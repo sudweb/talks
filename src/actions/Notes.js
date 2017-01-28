@@ -58,12 +58,5 @@ export const vote = (name, note) => (dispatch, getState) => {
   batchUpdate(`Notes!${column}${row}:${column}${maxRow}`, [[note]])
   .then(response => {
     dispatch(loadNotes());
-    // const values = response.valueRanges[0].values;
-    // if (values.length > 0) {
-    //   const talks = parseNotes(values);
-    //   dispatch(fetchedNotes(talks));
-    // } else {
-    //   dispatch(handleError('No data found.'));
-    // }
   }, error => dispatch(handleError(error.message)));
 }

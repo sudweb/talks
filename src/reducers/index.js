@@ -26,7 +26,7 @@ import {
 } from '../actions/App';
 
 const defaultState = {
-  loader: true,
+  loader: false,
   authorize: false,
   permission: null,
   errorMessage: null,

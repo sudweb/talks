@@ -2,7 +2,9 @@ import {
   authorize,
   signOut
 } from '../services/GoogleAPI';
-
+import {
+  handleError
+} from './App';
 import {
   loadTalks
 } from './Talks';
@@ -29,7 +31,11 @@ export const requestAuth = immediate => dispatch => {
           authorize: true
         });
       })
-      .catch(error => this.handleError(error))
+      .catch(error => {
+        if (error !== 'immediate_failed') {
+          dispatch(handleError(error))
+        }
+      })
 }
 
 
