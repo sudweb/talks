@@ -45,10 +45,10 @@ export const selectTalk = talk => ({
 
 export const vote = (name, note) => (dispatch, getState) => {
   const state = getState();
-  const row = state.selectedTalk+2; // sheet values start at 2
-  const nameArray = Object.keys(state.notes[row]);
+  const talkIndex = state.selectedTalk;
+  const nameArray = Object.keys(state.notes[talkIndex]);
   const column = findColumnLetter(name, nameArray);
-
+  const row = talkIndex + 2; // sheet values start at 2
   console.log(`${name} give a ${note} to ${state.selectedTalk}`);
 
   dispatch({
