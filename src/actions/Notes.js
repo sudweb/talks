@@ -53,7 +53,8 @@ export const vote = (name, note) => (dispatch, getState) => {
 
   dispatch({
     type: VOTE,
-    note: note
+    range: `Notes!${column}${row}:${column}${maxRow}`,
+    values: [[note]]
   });
   batchUpdate(`Notes!${column}${row}:${column}${maxRow}`, [[note]])
   .then(response => {
