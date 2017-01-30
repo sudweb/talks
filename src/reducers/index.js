@@ -95,7 +95,7 @@ export const rootReducer = (state = defaultState, action) => {
     case SELECT_TALK:
       return {
         ...state,
-        selectedTalk: action.talk
+        selectedTalk: action.index
       }
 
     case SIGN_OUT:

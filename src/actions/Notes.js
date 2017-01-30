@@ -41,7 +41,7 @@ export const vote = (name, note) => (dispatch, getState) => {
   const state = getState();
   const nameArray = Object.keys(state.notes[state.selectedTalk]);
   const column = findColumnLetter(name, nameArray);
-  const row = state.selectedTalk + 1; // sheet values start at 2;
+  const row = state.selectedTalk + 2; // sheet values start at 2;
   console.log(`${name} give a ${note} to ${state.selectedTalk}`);
 
   dispatch({

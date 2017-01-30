@@ -130,6 +130,7 @@ class NotesView extends Component {
 const mapStateToProps = state => {
   const notes = state.notes[state.selectedTalk];
   const myData = getMyData(notes, state.profile.name);
+  console.log('myData', myData)
   const myNote = myData.note !== undefined ? Math.round(myData.note) : 0;
   let othersNote = {...notes};
   delete othersNote[myData.name];

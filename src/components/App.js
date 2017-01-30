@@ -119,8 +119,6 @@ class AppView extends Component {
   toggleDrawer = () => this.setState({drawerIsOpen: !this.state.drawerIsOpen});
 
   render() {
-    console.log(this.props.filteredTalks)
-
     return (
       <MuiThemeProvider>
         <div className="container">
