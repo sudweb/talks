@@ -8,16 +8,15 @@ export const parseNotes = notes => {
     let talk = {};
 
     if (i !== 0) {
-      notes[0].map((field, j) => {
+      notes[0].map((name, j) => {
         if (j !== 0) {
-          return talk[field] = row[j];
+          return talk[name] = row[j];
         }
         return false;
       });
       notesArray.push(talk);
     } 
   }
-
   return notesArray;
 }
 
