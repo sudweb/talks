@@ -6,7 +6,11 @@ import KeyboardArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-dow
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-import { getMyData, getAverage } from '../selectors/Notes';
+import { 
+  getOwnNote, 
+  getAverage,
+  getOthersNote
+} from '../selectors/Notes';
 import { vote } from '../actions/Notes';
 
 
@@ -15,14 +19,14 @@ class NotesView extends Component {
     super(props);
     this.state = {
       voteOpen: false,
-      myNote: props.myNote
+      ownNote: props.ownNote
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.myNote !== this.state.myNote) {
+    if (nextProps.ownNote !== this.state.ownNote) {
       this.setState({
-        myNote: nextProps.myNote
+        ownNote: nextProps.ownNote
       });
     }
   }
@@ -35,14 +39,14 @@ class NotesView extends Component {
 
   handleNoteChange = (event, index, value) => {
     this.setState({
-      myNote: value
+      ownNote: value
     });
-    this.props.vote(this.props.myName, value);
+    this.props.vote(this.props.ownName, value);
   }
 
-  getMyNote() {
-    const { myName, myProfileName } = this.props;
-    if (myName === null) {
+  getownNote() {
+    const { ownName, myProfileName } = this.props;
+    if (ownName === null) {
       return (
         <TableRow>
           <TableRowColumn>Ton nom ({myProfileName}) n'est pas dans la liste des votants.</TableRowColumn>
@@ -53,9 +57,9 @@ class NotesView extends Component {
 
     return (
         <SelectField
-          floatingLabelText={`Ma note (${myName})`}
+          floatingLabelText={`Ma note (${ownName})`}
           style={{width: 200}}
-          value={this.state.myNote}
+          value={this.state.ownNote}
           onChange={this.handleNoteChange}
         >
           <MenuItem value={-2} primaryText="Exclusion (-2)" />
@@ -74,12 +78,12 @@ class NotesView extends Component {
 
     const { othersNote } = this.props;
 
-    let othersNoteRow = Object.keys(othersNote).map((member, i) => {
-      if (othersNote[member] !== undefined) {
+    let othersNoteRow = othersNote.map((member, i) => {
+      if (member[1] !== undefined) {
         return (
           <TableRow key={i}>
-            <TableRowColumn>{member}</TableRowColumn>
-            <TableRowColumn>{Math.round(othersNote[member])}</TableRowColumn>
+            <TableRowColumn>{member[0]}</TableRowColumn>
+            <TableRowColumn>{member[1]}</TableRowColumn>
           </TableRow>
         );
       }
@@ -103,6 +107,7 @@ class NotesView extends Component {
   }
 
   render() {
+    console.log(this.props);
     const average = this.props.average === undefined ? '-' : this.props.average;
     const iconStyle = {transform: this.state.voteOpen ? 'rotate(180deg)' : 'none'};
     
@@ -110,7 +115,7 @@ class NotesView extends Component {
       <div>
         <div style={{margin: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <span style={{flex: 1}}><strong>Note moyenne :&nbsp;</strong>{average}</span>
-          {this.getMyNote()}
+          {this.getownNote()}
           <IconButton            
             onClick={() => this.handleNestedListToggle()}
             touch={true}
@@ -129,17 +134,11 @@ class NotesView extends Component {
 
 const mapStateToProps = state => {
   const notes = state.notes[state.selectedTalk];
-  const myData = getMyData(notes, state.profile.name);
-  console.log('myData', myData)
-  const myNote = myData.note !== undefined ? Math.round(myData.note) : 0;
-  let othersNote = {...notes};
-  delete othersNote[myData.name];
-
   return {
-    myNote: myNote,
-    myName: myData.name,
+    ownName: state.ownName,
+    ownNote: getOwnNote(notes, state.ownName),
     myProfileName: state.profile.name,
-    othersNote: othersNote,
+    othersNote: getOthersNote(notes, state.ownName),
     average: getAverage(notes)
   };
 }

@@ -26,8 +26,8 @@ export const loadNotes = () => dispatch => {
   .then(response => {
     const values = response.valueRanges[0].values;
     if (values.length > 0) {
-      const talks = parseNotes(values);
-      dispatch(fetchedNotes(talks));
+      const notes = parseNotes(values);
+      dispatch(fetchedNotes(notes));
     } else {
       dispatch(handleError('No data found.'));
     }

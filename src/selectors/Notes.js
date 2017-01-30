@@ -21,21 +21,46 @@ export const parseNotes = notes => {
   return notesArray;
 }
 
-export const getMyData = (notes, profileName) => {
-  let myNote = null;
-  let myName = null;
+export const getOwnName = (notes, profileName) => {
+  let ownName = null;
+
+  if (!notes) {
+    return ownName;
+  }
+
   Object.keys(notes).filter(name => {
     if (profileName.includes(name)) {
-      myNote = notes[name];
-      myName = name;
+      ownName = name;
     }
     return false;
   });
 
-  return {
-    note: myNote,
-    name: myName
+  return ownName;
+}
+
+export const getOwnNote = (notes, ownName) => {
+  if (!notes[ownName]) {
+    return 0;
   }
+  return Math.round(notes[ownName])
+}
+
+export const getOthersNote = (notes, ownName) => {
+  let othertsNotes = [];
+  Object.keys(notes).map(name => {
+    if (name === ownName) {
+      return false;
+    }
+    if (!notes[name]) {
+      othertsNotes.push([name, 0]);
+      return false;
+    }
+    else {
+      othertsNotes.push([name, Math.round(notes[name])]);
+      return false;
+    }
+  })
+  return othertsNotes;
 }
 
 export const findColumnLetter = (name, nameArray) => {
@@ -46,5 +71,6 @@ export const findColumnLetter = (name, nameArray) => {
 
 export const getAverage = notes => {
   const notesNumbers = _.values(notes).map(note => parseInt(note, 10));
-  return _.sum(notesNumbers) / notesNumbers.length;
+  const sum = _.sum(notesNumbers);
+  return !isNaN(sum) ? sum / notesNumbers.length : '-';
 }

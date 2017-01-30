@@ -25,6 +25,10 @@ import {
   HANDLE_ERROR
 } from '../actions/App';
 
+import {
+  getOwnName
+} from '../selectors/Notes';
+
 const defaultState = {
   loader: false,
   authorize: false,
@@ -66,10 +70,12 @@ export const rootReducer = (state = defaultState, action) => {
       };
 
     case FETCHED_NOTES:
+      const ownName = getOwnName(action.notes[0], state.profile.name);
       return {
         ...state,
         loader: false,
-        notes: action.notes
+        notes: action.notes,
+        ownName: ownName
       }
 
     case FETCHED_PROFILE:
