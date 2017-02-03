@@ -40,19 +40,18 @@ export const isLT = format => {
 };
 
 export const getFilteredList = (talks, filter, sortBy) => {
+  const sortedTalks = _.sortBy(talks, sortBy).reverse();
   if (filter === 'PK') {
-    return talks.filter((talk, id) => {
+    return sortedTalks.filter((talk, id) => {
       return isPK(talk.formats);
     });
   }
 
   if (filter === 'LT') {
-    return talks.filter(talk => {
+    return sortedTalks.filter(talk => {
       return isLT(talk.formats);
     });
   }
-  const sortedTalks = _.sortBy(talks, sortBy).reverse();
-  console.log(sortedTalks)
   return sortedTalks;
 }
 
