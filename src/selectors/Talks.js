@@ -15,7 +15,11 @@ export const parseTalks = talks => {
     let talk = {};
     if (i !== 0) {
       talks[0].map((field, j) => {
-          return talk[getPrettyColumnNames(field)] = row[j];
+          let column = getPrettyColumnNames(field);
+          if (column === 'note') {
+            return talk[column] = Number(row[j]);        
+          }
+          return talk[column] = row[j];
       });
       talk.id = i;
 
@@ -47,8 +51,9 @@ export const getFilteredList = (talks, filter, sortBy) => {
       return isLT(talk.formats);
     });
   }
-  console.log(sortBy)
-  return _.sortBy(talks, sortBy);
+  const sortedTalks = _.sortBy(talks, sortBy).reverse();
+  console.log(sortedTalks)
+  return sortedTalks;
 }
 
 export const countTalksByFormats = talks => {
