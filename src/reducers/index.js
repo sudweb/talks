@@ -7,7 +7,8 @@ import {
   LOAD_TALKS,
   FETCHED_TALKS,
   SELECT_TALK,
-  PERMISSION_DENIED
+  PERMISSION_DENIED,
+  SORT_TALK
 } from '../actions/Talks';
 
 import {
@@ -38,7 +39,8 @@ const defaultState = {
   selectedTalk: null,
   talks: null,
   notes: null,
-  filter: null
+  filter: null,
+  sortBy: 'date'
 };
 
 export const rootReducer = (state = defaultState, action) => {
@@ -90,6 +92,12 @@ export const rootReducer = (state = defaultState, action) => {
         selectedTalk: null,
         loader: false,
         filter: action.filter
+      }
+
+    case SORT_TALK:
+      return {
+        ...state,
+        sortBy: action.value
       }
     
     case TOGGLE_DRAWER:

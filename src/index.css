@@ -61,7 +61,7 @@ h3:not(:first-child) {
 
 .TalkList {
   width: 100%;
-  overflow: auto;
+  /*overflow: auto;*/
 }
 
 @media (min-width: 40em) {

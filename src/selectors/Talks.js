@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import slug from 'slug';
 
 export const getPrettyColumnNames = str => {
@@ -17,7 +18,10 @@ export const parseTalks = talks => {
           return talk[getPrettyColumnNames(field)] = row[j];
       });
       talk.id = i;
-      talksArray.push(talk);
+
+      if (talk.titre_de_ta_presentation !== '') {
+        talksArray.push(talk);
+      }
     }    
   }
   return talksArray;
@@ -31,7 +35,7 @@ export const isLT = format => {
   return format === 'Lightning Talk : 5 minutes';
 };
 
-export const getFilteredList = (talks, filter) => {
+export const getFilteredList = (talks, filter, sortBy) => {
   if (filter === 'PK') {
     return talks.filter((talk, id) => {
       return isPK(talk.formats);
@@ -43,8 +47,8 @@ export const getFilteredList = (talks, filter) => {
       return isLT(talk.formats);
     });
   }
-
-  return talks;
+  console.log(sortBy)
+  return _.sortBy(talks, sortBy);
 }
 
 export const countTalksByFormats = talks => {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { selectTalk } from '../actions/Talks';
+import { selectTalk, sortTalks } from '../actions/Talks';
 import { filterTalks } from '../actions/App';
 import { countTalksByFormats, getFilteredList } from '../selectors/Talks';
 import { requestAuth, signout } from '../actions/Auth';
@@ -109,6 +109,8 @@ class AppView extends Component {
             talks={filteredTalks}
             selectTalk={id => this.props.selectTalk(id)}
             setFilter={format => this.props.filterTalks(format)}
+            sortBy={this.props.sortBy}
+            sortTalks={value => this.props.sortTalks(value)}
             />
         </Drawer>
         {this.getSelectedTalk(selectedTalk)}
@@ -141,7 +143,7 @@ const mapStateToProps = (state) => {
   return {
     ...state,
     count: countTalksByFormats(state.talks),
-    filteredTalks: getFilteredList(state.talks, state.filter)
+    filteredTalks: getFilteredList(state.talks, state.filter, state.sortBy)
   };
 }
 
@@ -150,7 +152,8 @@ const mapDispatchToProps = (dispatch) => {
     requestAuth: immediate => dispatch(requestAuth(immediate)),
     filterTalks: format => dispatch(filterTalks(format)),
     selectTalk: id => dispatch(selectTalk(id)),
-    signout: () => dispatch(signout())
+    signout: () => dispatch(signout()),
+    sortTalks: value => dispatch(sortTalks(value))
   };
 }
 

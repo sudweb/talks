@@ -71,5 +71,5 @@ export const findColumnLetter = (name, nameArray) => {
 export const getAverage = notes => {
   const notesNumbers = _.values(notes).map(note => parseInt(note, 10));
   const sum = _.sum(notesNumbers);
-  return !isNaN(sum) ? sum / notesNumbers.length : '-';
+  return !isNaN(sum) ? Math.round(sum) : '-';
 }
