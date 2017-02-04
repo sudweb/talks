@@ -13,13 +13,18 @@ export const parseTalks = talks => {
   for (let i = 0; i < talks.length; i++) {
     var row = talks[i];
     let talk = {};
+
     if (i !== 0) {
       talks[0].map((field, j) => {
+          let content = row[j];
           let column = getPrettyColumnNames(field);
-          if (column === 'note') {
-            return talk[column] = Number(row[j]);        
+
+          if (content !== undefined) {
+            if (column === 'note') {
+              return talk[column] = Number(content);        
+            }
+            return talk[column] = content;
           }
-          return talk[column] = row[j];
       });
       talk.id = i;
 
@@ -40,9 +45,12 @@ export const isLT = format => {
 };
 
 export const getFilteredList = (talks, filter, sortBy) => {
-  const sortedTalks = _.sortBy(talks, sortBy).reverse();
+  const sortedTalks = _.sortBy(talks, sortBy);
+  if (sortBy === 'note') {
+    sortedTalks.reverse();
+  }
   if (filter === 'PK') {
-    return sortedTalks.filter((talk, id) => {
+    return sortedTalks.filter(talk => {
       return isPK(talk.formats);
     });
   }
@@ -56,9 +64,6 @@ export const getFilteredList = (talks, filter, sortBy) => {
 }
 
 export const countTalksByFormats = talks => {
-  if (talks === null) {
-    return null
-  }
   let all = talks.length,
     PK = 0,
     LT = 0;
