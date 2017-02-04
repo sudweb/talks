@@ -4,7 +4,15 @@ import {
     SPREADSHEET_ID
 } from '../config.json';
 
-const gapi = window.gapi;
+
+let gapi;
+try {
+  window.gapi.client;
+  gapi = window.gapi;
+}
+catch(e) {
+  gapi = require('./GoogleAPI.mock')
+}
 
 /**
 * Check if current user has authorized this application.
@@ -96,6 +104,6 @@ export const batchUpdate = (range, values) => {
  */
 export const requestPeople = () => {
   return gapi.client.request({
-      'path': 'https://people.googleapis.com/v1/people/me',
-    });
+    'path': 'https://people.googleapis.com/v1/people/me',
+  });
 }

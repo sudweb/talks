@@ -7,7 +7,7 @@ import {
 export const LOAD_PROFILE = 'LOAD_PROFILE';
 export const FETCHED_PROFILE = 'FETCHED_PROFILE';
 
-export const loadProfile = result => dispatch => {
+export const loadProfile = () => dispatch => {
   dispatch({
     type: LOAD_PROFILE
   });

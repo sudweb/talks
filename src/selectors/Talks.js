@@ -64,6 +64,9 @@ export const getFilteredList = (talks, filter, sortBy) => {
 }
 
 export const countTalksByFormats = talks => {
+  if (talks === null) {
+    return null;
+  }
   let all = talks.length,
     PK = 0,
     LT = 0;

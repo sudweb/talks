@@ -1,14 +1,21 @@
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import {
-    fetchedNotes, FETCHED_NOTES
-} from './Notes';
+  loadProfile, LOAD_PROFILE
+} from './Profile';
 
-describe('App actions', () => {
-    describe('fetchedNotes', () => {
-        it('should create action FETCHED_NOTES with notes', () => {
-            expect(fetchedNotes('test')).toEqual({
-                type: FETCHED_NOTES,
-                notes: 'test'
-            });
-        });
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
+describe('Profile actions', () => {
+
+  describe('loadProfile', () => {
+    it('should create action FETCHED_NOTES with notes', () => {
+      const store = mockStore({});
+      store.dispatch(loadProfile())
+      expect(store.getActions()).toEqual([{
+        type: LOAD_PROFILE
+      }]);
     });
+  });
 });
