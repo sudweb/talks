@@ -107,14 +107,12 @@ class NotesView extends Component {
   }
 
   render() {
-    console.log(this.props);
-    const average = this.props.average === undefined ? '-' : this.props.average;
     const iconStyle = {transform: this.state.voteOpen ? 'rotate(180deg)' : 'none'};
     
     return (
       <div>
         <div style={{margin: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-          <span style={{flex: 1}}><strong>Note moyenne :&nbsp;</strong>{average}</span>
+          <span style={{flex: 1}}><strong>Note moyenne :&nbsp;</strong>{this.props.globalNote}</span>
           {this.getownNote()}
           <IconButton            
             onClick={() => this.handleNestedListToggle()}
@@ -139,7 +137,7 @@ const mapStateToProps = state => {
     ownNote: getOwnNote(notes, state.ownName),
     myProfileName: state.profile.name,
     othersNote: getOthersNote(notes, state.ownName),
-    average: getAverage(notes)
+    globalNote: state.talks[state.selectedTalk].note
   };
 }
 

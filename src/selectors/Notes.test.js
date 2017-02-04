@@ -3,10 +3,8 @@ import {
     getOwnName,
     getOwnNote,
     getOthersNote,
-    findColumnLetter,
-    getAverage
+    findColumnLetter
 } from './Notes';
-
 
 describe('Notes selectors', () => {
     it('parseNotes should return notes array', () => {
@@ -40,10 +38,5 @@ describe('Notes selectors', () => {
     it('findColumnLetter should letter associated to name', () => {
         const nameArray = ['toto', 'mimi', 'lulu']
         expect(findColumnLetter('lulu', nameArray)).toEqual('D');
-    });
-
-    it('getAverage should return averate of notes object', () => {
-        const notesMock = { "A": "1", "B": "2" , "C": "3" };
-        expect(getAverage(notesMock)).toEqual(2);
     });
 })

@@ -67,9 +67,3 @@ export const findColumnLetter = (name, nameArray) => {
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTWXYZ';
   return alphabet[i+1]
 }
-
-export const getAverage = notes => {
-  const notesNumbers = _.values(notes).map(note => parseInt(note, 10));
-  const sum = _.sum(notesNumbers);
-  return !isNaN(sum) ? sum : '-';
-}

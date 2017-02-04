@@ -18,7 +18,7 @@ function wrapState(ComposedComponent) {
     }
 
     componentWillReceiveProps(nextProps) {
-      if (nextProps.defaultValue !== this.state.selectedIndex) {
+      if (nextProps.defaultValue !== undefined && nextProps.defaultValue !== this.state.selectedIndex) {
         this.setState({
           selectedIndex: nextProps.defaultValue
         });

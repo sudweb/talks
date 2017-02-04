@@ -3,6 +3,9 @@ import {
   handleError
 } from './App';
 import {
+  updateTalkNote
+} from './Talks';
+import {
   parseNotes,
   findColumnLetter
 } from '../selectors/Notes';
@@ -37,6 +40,28 @@ export const loadNotes = () => dispatch => {
   });
 }
 
+export const updateNotes = id => dispatch => {
+  dispatch({
+    type: LOAD_NOTES
+  });
+  batchGet([`Propositions!J${id}`, 'Notes!A1:K30'])
+  .then(response => {
+    const talkValue = Number(response.valueRanges[0].values[0]);
+    const noteValues = response.valueRanges[1].values;
+    
+    dispatch(updateTalkNote(id, talkValue));
+    if (noteValues.length > 0) {
+      const notes = parseNotes(noteValues);
+      dispatch(fetchedNotes(notes));
+    } else {
+      dispatch(handleError('No data found.'));
+    }
+  })
+  .catch(error => {
+    dispatch(handleError(error.message));
+  });
+}
+
 export const vote = (name, note) => (dispatch, getState) => {
   const state = getState();
   const nameArray = Object.keys(state.notes[state.selectedTalk]);
@@ -51,6 +76,6 @@ export const vote = (name, note) => (dispatch, getState) => {
   });
   batchUpdate(`Notes!${column}${row}:${column}${maxRow}`, [[note]])
   .then(response => {
-    dispatch(loadNotes());
+    dispatch(updateNotes(state.selectedTalk+2));
   }, error => dispatch(handleError(error.message)));
 }

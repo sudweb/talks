@@ -6,6 +6,7 @@ import {
 
 export const LOAD_TALKS = 'LOAD_TALKS';
 export const FETCHED_TALKS = 'FETCHED_TALKS';
+export const UPDATE_TALKS_NOTE= 'UPDATE_TALKS_NOTE';
 export const PERMISSION_DENIED = 'PERMISSION_DENIED';
 export const SELECT_TALK = 'SELECT_TALK';
 export const SORT_TALK = 'SORT_TALK';
@@ -13,6 +14,12 @@ export const SORT_TALK = 'SORT_TALK';
 export const fetchedTalks = talks => ({
   type: FETCHED_TALKS,
   talks: talks
+});
+
+export const updateTalkNote = (talkId, note) => ({
+  type: UPDATE_TALKS_NOTE,
+  id: talkId,
+  note: note
 });
 
 export const loadTalks = () => dispatch => {
