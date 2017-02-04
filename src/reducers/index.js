@@ -31,7 +31,7 @@ import {
   getOwnName
 } from '../selectors/Notes';
 
-const defaultState = {
+export const defaultState = {
   loader: false,
   authorize: false,
   permission: null,
@@ -118,10 +118,11 @@ export const rootReducer = (state = defaultState, action) => {
         drawerIsOpen: action.open
       }
 
+
     case SELECT_TALK:
       return {
         ...state,
-        selectedTalk: action.index
+        selectedTalk: action.id
       }
 
     case SIGN_OUT:

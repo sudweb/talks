@@ -44,7 +44,7 @@ export const loadTalks = () => dispatch => {
 
 export const selectTalk = id => ({
   type: 'SELECT_TALK',
-  index: id - 1
+  id: id - 1
 });
 
 export const sortTalks = value => ({
