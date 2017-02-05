@@ -10,7 +10,7 @@ import { red500, lightBlack, orange500, teal500 } from 'material-ui/styles/color
 import Chip from 'material-ui/Chip';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
-import Notes from './Notes';
+import Notes from '../containers/Notes';
 
 class Talk extends Component {
   getDate(date) {
@@ -27,17 +27,6 @@ class Talk extends Component {
       return false;
     }
     return paragraphs.map((p, key) => <p key={key}>{p}</p>)
-  }
-
-  getFormat(format) {
-    if (format === 'Pecha Kucha : 20 images x 20 secondes') {
-      return <Avatar backgroundColor={red500}>PK</Avatar>
-    }
-    if (format === 'Lightning Talk : 5 minutes') {
-      return <Avatar backgroundColor={orange500}>LT</Avatar>
-    }
-
-    return null;
   }
 
   getAvatar(email) {

@@ -1,0 +1,2409 @@
+exports[`NotesView component should renders correctly 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <div
+        style={
+            Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "space-between",
+                "margin": 10,
+              }
+        }>
+        <span
+            style={
+                Object {
+                    "flex": 1,
+                  }
+            }>
+            <strong>
+                Note moyenne : 
+            </strong>
+        </span>
+        <SelectField
+            autoWidth={false}
+            disabled={false}
+            floatingLabelText="Ma note (undefined)"
+            fullWidth={false}
+            id="ownNote"
+            onChange={[Function]}
+            style={
+                Object {
+                    "width": 200,
+                  }
+            }
+            value={0}>
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Exclusion (-2)"
+                value={-2} />
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Désaprobation (-1)"
+                value={-1} />
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Neutre (0)"
+                value={0} />
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Approbation (1)"
+                value={1} />
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Sélection (2)"
+                value={2} />
+        </SelectField>
+        <IconButton
+            disableTouchRipple={false}
+            disabled={false}
+            iconStyle={Object {}}
+            onClick={[Function]}
+            tooltip="Détail des votes"
+            tooltipPosition="bottom-center"
+            touch={true}>
+            <div
+                style={
+                    Object {
+                        "transform": "rotate(180deg)",
+                      }
+                }>
+                <HardwareKeyboardArrowDown />
+            </div>
+        </IconButton>
+    </div>
+</div>,
+  "nodes": Array [
+    <div>
+      <div
+            style={
+                  Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                        "justifyContent": "space-between",
+                        "margin": 10,
+                      }
+            }>
+            <span
+                  style={
+                        Object {
+                              "flex": 1,
+                            }
+                  }>
+                  <strong>
+                        Note moyenne : 
+                  </strong>
+            </span>
+            <SelectField
+                  autoWidth={false}
+                  disabled={false}
+                  floatingLabelText="Ma note (undefined)"
+                  fullWidth={false}
+                  id="ownNote"
+                  onChange={[Function]}
+                  style={
+                        Object {
+                              "width": 200,
+                            }
+                  }
+                  value={0}>
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Exclusion (-2)"
+                        value={-2} />
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Désaprobation (-1)"
+                        value={-1} />
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Neutre (0)"
+                        value={0} />
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Approbation (1)"
+                        value={1} />
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Sélection (2)"
+                        value={2} />
+            </SelectField>
+            <IconButton
+                  disableTouchRipple={false}
+                  disabled={false}
+                  iconStyle={Object {}}
+                  onClick={[Function]}
+                  tooltip="Détail des votes"
+                  tooltipPosition="bottom-center"
+                  touch={true}>
+                  <div
+                        style={
+                              Object {
+                                    "transform": "rotate(180deg)",
+                                  }
+                        }>
+                        <HardwareKeyboardArrowDown />
+                  </div>
+            </IconButton>
+      </div>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <NotesView
+        ownNote={0}
+        voteOpen={true} />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": NotesView {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "handleNestedListToggle": [Function],
+        "handleNoteChange": [Function],
+        "props": Object {
+          "ownNote": 0,
+          "voteOpen": true,
+        },
+        "refs": Object {},
+        "state": Object {
+          "ownNote": 0,
+          "voteOpen": false,
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <div
+                    style={
+                              Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "margin": 10,
+                                      }
+                    }>
+                    <span
+                              style={
+                                        Object {
+                                                  "flex": 1,
+                                                }
+                              }>
+                              <strong>
+                                        Note moyenne : 
+                              </strong>
+                    </span>
+                    <SelectField
+                              autoWidth={false}
+                              disabled={false}
+                              floatingLabelText="Ma note (undefined)"
+                              fullWidth={false}
+                              id="ownNote"
+                              onChange={[Function]}
+                              style={
+                                        Object {
+                                                  "width": 200,
+                                                }
+                              }
+                              value={0}>
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Exclusion (-2)"
+                                        value={-2} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Désaprobation (-1)"
+                                        value={-1} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Neutre (0)"
+                                        value={0} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Approbation (1)"
+                                        value={1} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Sélection (2)"
+                                        value={2} />
+                    </SelectField>
+                    <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              tooltip="Détail des votes"
+                              tooltipPosition="bottom-center"
+                              touch={true}>
+                              <div
+                                        style={
+                                                  Object {
+                                                            "transform": "rotate(180deg)",
+                                                          }
+                                        }>
+                                        <HardwareKeyboardArrowDown />
+                              </div>
+                    </IconButton>
+          </div>
+</div>,
+        "_debugID": 2,
+        "_renderedOutput": <div>
+          <div
+                    style={
+                              Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "margin": 10,
+                                      }
+                    }>
+                    <span
+                              style={
+                                        Object {
+                                                  "flex": 1,
+                                                }
+                              }>
+                              <strong>
+                                        Note moyenne : 
+                              </strong>
+                    </span>
+                    <SelectField
+                              autoWidth={false}
+                              disabled={false}
+                              floatingLabelText="Ma note (undefined)"
+                              fullWidth={false}
+                              id="ownNote"
+                              onChange={[Function]}
+                              style={
+                                        Object {
+                                                  "width": 200,
+                                                }
+                              }
+                              value={0}>
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Exclusion (-2)"
+                                        value={-2} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Désaprobation (-1)"
+                                        value={-1} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Neutre (0)"
+                                        value={0} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Approbation (1)"
+                                        value={1} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Sélection (2)"
+                                        value={2} />
+                    </SelectField>
+                    <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              tooltip="Détail des votes"
+                              tooltipPosition="bottom-center"
+                              touch={true}>
+                              <div
+                                        style={
+                                                  Object {
+                                                            "transform": "rotate(180deg)",
+                                                          }
+                                        }>
+                                        <HardwareKeyboardArrowDown />
+                              </div>
+                    </IconButton>
+          </div>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <NotesView
+    ownNote={0}
+    voteOpen={true} />,
+}
+`;
+
+exports[`NotesView component should renders correctly 2`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <div
+        style={
+            Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "space-between",
+                "margin": 10,
+              }
+        }>
+        <span
+            style={
+                Object {
+                    "flex": 1,
+                  }
+            }>
+            <strong>
+                Note moyenne : 
+            </strong>
+        </span>
+        <SelectField
+            autoWidth={false}
+            disabled={false}
+            floatingLabelText="Ma note (Alex)"
+            fullWidth={false}
+            id="ownNote"
+            onChange={[Function]}
+            style={
+                Object {
+                    "width": 200,
+                  }
+            }
+            value={undefined}>
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Exclusion (-2)"
+                value={-2} />
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Désaprobation (-1)"
+                value={-1} />
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Neutre (0)"
+                value={0} />
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Approbation (1)"
+                value={1} />
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                primaryText="Sélection (2)"
+                value={2} />
+        </SelectField>
+        <IconButton
+            disableTouchRipple={false}
+            disabled={false}
+            iconStyle={Object {}}
+            onClick={[Function]}
+            tooltip="Détail des votes"
+            tooltipPosition="bottom-center"
+            touch={true}>
+            <div
+                style={
+                    Object {
+                        "transform": "rotate(180deg)",
+                      }
+                }>
+                <HardwareKeyboardArrowDown />
+            </div>
+        </IconButton>
+    </div>
+    <Table
+        allRowsSelected={false}
+        fixedFooter={true}
+        fixedHeader={true}
+        height="inherit"
+        multiSelectable={false}
+        selectable={false}>
+        <TableHeader
+            adjustForCheckbox={false}
+            displaySelectAll={false}
+            enableSelectAll={true}
+            selectAllSelected={false}>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableHeaderColumn>
+                    Prénom
+                </TableHeaderColumn>
+                <TableHeaderColumn>
+                    Note
+                </TableHeaderColumn>
+            </TableRow>
+        </TableHeader>
+        <TableBody
+            allRowsSelected={false}
+            deselectOnClickaway={true}
+            displayRowCheckbox={false}
+            multiSelectable={false}
+            preScanRows={true}
+            selectable={true}
+            style={Object {}}>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableRowColumn
+                    hoverable={false}>
+                    alex
+                </TableRowColumn>
+                <TableRowColumn
+                    hoverable={false} />
+            </TableRow>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableRowColumn
+                    hoverable={false}>
+                    frank
+                </TableRowColumn>
+                <TableRowColumn
+                    hoverable={false} />
+            </TableRow>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableRowColumn
+                    hoverable={false}>
+                    amanda
+                </TableRowColumn>
+                <TableRowColumn
+                    hoverable={false}>
+                    1
+                </TableRowColumn>
+            </TableRow>
+        </TableBody>
+    </Table>
+</div>,
+  "nodes": Array [
+    <div>
+      <div
+            style={
+                  Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                        "justifyContent": "space-between",
+                        "margin": 10,
+                      }
+            }>
+            <span
+                  style={
+                        Object {
+                              "flex": 1,
+                            }
+                  }>
+                  <strong>
+                        Note moyenne : 
+                  </strong>
+            </span>
+            <SelectField
+                  autoWidth={false}
+                  disabled={false}
+                  floatingLabelText="Ma note (Alex)"
+                  fullWidth={false}
+                  id="ownNote"
+                  onChange={[Function]}
+                  style={
+                        Object {
+                              "width": 200,
+                            }
+                  }
+                  value={undefined}>
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Exclusion (-2)"
+                        value={-2} />
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Désaprobation (-1)"
+                        value={-1} />
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Neutre (0)"
+                        value={0} />
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Approbation (1)"
+                        value={1} />
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        primaryText="Sélection (2)"
+                        value={2} />
+            </SelectField>
+            <IconButton
+                  disableTouchRipple={false}
+                  disabled={false}
+                  iconStyle={Object {}}
+                  onClick={[Function]}
+                  tooltip="Détail des votes"
+                  tooltipPosition="bottom-center"
+                  touch={true}>
+                  <div
+                        style={
+                              Object {
+                                    "transform": "rotate(180deg)",
+                                  }
+                        }>
+                        <HardwareKeyboardArrowDown />
+                  </div>
+            </IconButton>
+      </div>
+      <Table
+            allRowsSelected={false}
+            fixedFooter={true}
+            fixedHeader={true}
+            height="inherit"
+            multiSelectable={false}
+            selectable={false}>
+            <TableHeader
+                  adjustForCheckbox={false}
+                  displaySelectAll={false}
+                  enableSelectAll={true}
+                  selectAllSelected={false}>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableHeaderColumn>
+                              Prénom
+                        </TableHeaderColumn>
+                        <TableHeaderColumn>
+                              Note
+                        </TableHeaderColumn>
+                  </TableRow>
+            </TableHeader>
+            <TableBody
+                  allRowsSelected={false}
+                  deselectOnClickaway={true}
+                  displayRowCheckbox={false}
+                  multiSelectable={false}
+                  preScanRows={true}
+                  selectable={true}
+                  style={Object {}}>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableRowColumn
+                              hoverable={false}>
+                              alex
+                        </TableRowColumn>
+                        <TableRowColumn
+                              hoverable={false} />
+                  </TableRow>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableRowColumn
+                              hoverable={false}>
+                              frank
+                        </TableRowColumn>
+                        <TableRowColumn
+                              hoverable={false} />
+                  </TableRow>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableRowColumn
+                              hoverable={false}>
+                              amanda
+                        </TableRowColumn>
+                        <TableRowColumn
+                              hoverable={false}>
+                              1
+                        </TableRowColumn>
+                  </TableRow>
+            </TableBody>
+      </Table>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <NotesView
+        othersNote={
+                Array [
+                        Array [
+                          "alex",
+                          0,
+                        ],
+                        Array [
+                          "frank",
+                          0,
+                        ],
+                        Array [
+                          "amanda",
+                          1,
+                        ],
+                      ]
+        }
+        ownName="Alex"
+        ownNote={0}
+        vote={[Function]}
+        voteOpen={true} />,
+      "_debugID": 3,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": NotesView {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "handleNestedListToggle": [Function],
+        "handleNoteChange": [Function],
+        "props": Object {
+          "othersNote": Array [
+            Array [
+              "alex",
+              0,
+            ],
+            Array [
+              "frank",
+              0,
+            ],
+            Array [
+              "amanda",
+              1,
+            ],
+          ],
+          "ownName": "Alex",
+          "ownNote": 0,
+          "vote": [Function],
+          "voteOpen": true,
+        },
+        "refs": Object {},
+        "state": Object {
+          "ownNote": undefined,
+          "voteOpen": true,
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 2,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <div
+                    style={
+                              Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "margin": 10,
+                                      }
+                    }>
+                    <span
+                              style={
+                                        Object {
+                                                  "flex": 1,
+                                                }
+                              }>
+                              <strong>
+                                        Note moyenne : 
+                              </strong>
+                    </span>
+                    <SelectField
+                              autoWidth={false}
+                              disabled={false}
+                              floatingLabelText="Ma note (Alex)"
+                              fullWidth={false}
+                              id="ownNote"
+                              onChange={[Function]}
+                              style={
+                                        Object {
+                                                  "width": 200,
+                                                }
+                              }
+                              value={undefined}>
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Exclusion (-2)"
+                                        value={-2} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Désaprobation (-1)"
+                                        value={-1} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Neutre (0)"
+                                        value={0} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Approbation (1)"
+                                        value={1} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Sélection (2)"
+                                        value={2} />
+                    </SelectField>
+                    <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              tooltip="Détail des votes"
+                              tooltipPosition="bottom-center"
+                              touch={true}>
+                              <div
+                                        style={
+                                                  Object {
+                                                            "transform": "rotate(180deg)",
+                                                          }
+                                        }>
+                                        <HardwareKeyboardArrowDown />
+                              </div>
+                    </IconButton>
+          </div>
+          <Table
+                    allRowsSelected={false}
+                    fixedFooter={true}
+                    fixedHeader={true}
+                    height="inherit"
+                    multiSelectable={false}
+                    selectable={false}>
+                    <TableHeader
+                              adjustForCheckbox={false}
+                              displaySelectAll={false}
+                              enableSelectAll={true}
+                              selectAllSelected={false}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableHeaderColumn>
+                                                  Prénom
+                                        </TableHeaderColumn>
+                                        <TableHeaderColumn>
+                                                  Note
+                                        </TableHeaderColumn>
+                              </TableRow>
+                    </TableHeader>
+                    <TableBody
+                              allRowsSelected={false}
+                              deselectOnClickaway={true}
+                              displayRowCheckbox={false}
+                              multiSelectable={false}
+                              preScanRows={true}
+                              selectable={true}
+                              style={Object {}}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  alex
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false} />
+                              </TableRow>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  frank
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false} />
+                              </TableRow>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  amanda
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  1
+                                        </TableRowColumn>
+                              </TableRow>
+                    </TableBody>
+          </Table>
+</div>,
+        "_debugID": 4,
+        "_renderedOutput": <div>
+          <div
+                    style={
+                              Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "margin": 10,
+                                      }
+                    }>
+                    <span
+                              style={
+                                        Object {
+                                                  "flex": 1,
+                                                }
+                              }>
+                              <strong>
+                                        Note moyenne : 
+                              </strong>
+                    </span>
+                    <SelectField
+                              autoWidth={false}
+                              disabled={false}
+                              floatingLabelText="Ma note (Alex)"
+                              fullWidth={false}
+                              id="ownNote"
+                              onChange={[Function]}
+                              style={
+                                        Object {
+                                                  "width": 200,
+                                                }
+                              }
+                              value={undefined}>
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Exclusion (-2)"
+                                        value={-2} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Désaprobation (-1)"
+                                        value={-1} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Neutre (0)"
+                                        value={0} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Approbation (1)"
+                                        value={1} />
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        primaryText="Sélection (2)"
+                                        value={2} />
+                    </SelectField>
+                    <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              tooltip="Détail des votes"
+                              tooltipPosition="bottom-center"
+                              touch={true}>
+                              <div
+                                        style={
+                                                  Object {
+                                                            "transform": "rotate(180deg)",
+                                                          }
+                                        }>
+                                        <HardwareKeyboardArrowDown />
+                              </div>
+                    </IconButton>
+          </div>
+          <Table
+                    allRowsSelected={false}
+                    fixedFooter={true}
+                    fixedHeader={true}
+                    height="inherit"
+                    multiSelectable={false}
+                    selectable={false}>
+                    <TableHeader
+                              adjustForCheckbox={false}
+                              displaySelectAll={false}
+                              enableSelectAll={true}
+                              selectAllSelected={false}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableHeaderColumn>
+                                                  Prénom
+                                        </TableHeaderColumn>
+                                        <TableHeaderColumn>
+                                                  Note
+                                        </TableHeaderColumn>
+                              </TableRow>
+                    </TableHeader>
+                    <TableBody
+                              allRowsSelected={false}
+                              deselectOnClickaway={true}
+                              displayRowCheckbox={false}
+                              multiSelectable={false}
+                              preScanRows={true}
+                              selectable={true}
+                              style={Object {}}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  alex
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false} />
+                              </TableRow>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  frank
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false} />
+                              </TableRow>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  amanda
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  1
+                                        </TableRowColumn>
+                              </TableRow>
+                    </TableBody>
+          </Table>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <NotesView
+    othersNote={
+        Array [
+            Array [
+              "alex",
+              0,
+            ],
+            Array [
+              "frank",
+              0,
+            ],
+            Array [
+              "amanda",
+              1,
+            ],
+          ]
+    }
+    ownName="Alex"
+    ownNote={0}
+    vote={[Function]}
+    voteOpen={true} />,
+}
+`;
+
+exports[`NotesView component should renders correctly without othersNote 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <div
+        style={
+            Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "space-between",
+                "margin": 10,
+              }
+        }>
+        <span
+            style={
+                Object {
+                    "flex": 1,
+                  }
+            }>
+            <strong>
+                Note moyenne : 
+            </strong>
+        </span>
+        <TableRow
+            displayBorder={true}
+            hoverable={false}
+            hovered={false}
+            selectable={true}
+            selected={false}
+            striped={false}>
+            <TableRowColumn
+                hoverable={false}>
+                Ton nom (
+                Alex
+                ) n\'est pas dans la liste des votants.
+            </TableRowColumn>
+            <TableRowColumn
+                hoverable={false} />
+        </TableRow>
+        <IconButton
+            disableTouchRipple={false}
+            disabled={false}
+            iconStyle={Object {}}
+            onClick={[Function]}
+            tooltip="Détail des votes"
+            tooltipPosition="bottom-center"
+            touch={true}>
+            <div
+                style={
+                    Object {
+                        "transform": "rotate(180deg)",
+                      }
+                }>
+                <HardwareKeyboardArrowDown />
+            </div>
+        </IconButton>
+    </div>
+    <Table
+        allRowsSelected={false}
+        fixedFooter={true}
+        fixedHeader={true}
+        height="inherit"
+        multiSelectable={false}
+        selectable={false}>
+        <TableHeader
+            adjustForCheckbox={false}
+            displaySelectAll={false}
+            enableSelectAll={true}
+            selectAllSelected={false}>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableHeaderColumn>
+                    Prénom
+                </TableHeaderColumn>
+                <TableHeaderColumn>
+                    Note
+                </TableHeaderColumn>
+            </TableRow>
+        </TableHeader>
+        <TableBody
+            allRowsSelected={false}
+            deselectOnClickaway={true}
+            displayRowCheckbox={false}
+            multiSelectable={false}
+            preScanRows={true}
+            selectable={true}
+            style={Object {}}>
+            
+        </TableBody>
+    </Table>
+</div>,
+  "nodes": Array [
+    <div>
+      <div
+            style={
+                  Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                        "justifyContent": "space-between",
+                        "margin": 10,
+                      }
+            }>
+            <span
+                  style={
+                        Object {
+                              "flex": 1,
+                            }
+                  }>
+                  <strong>
+                        Note moyenne : 
+                  </strong>
+            </span>
+            <TableRow
+                  displayBorder={true}
+                  hoverable={false}
+                  hovered={false}
+                  selectable={true}
+                  selected={false}
+                  striped={false}>
+                  <TableRowColumn
+                        hoverable={false}>
+                        Ton nom (
+                        Alex
+                        ) n\'est pas dans la liste des votants.
+                  </TableRowColumn>
+                  <TableRowColumn
+                        hoverable={false} />
+            </TableRow>
+            <IconButton
+                  disableTouchRipple={false}
+                  disabled={false}
+                  iconStyle={Object {}}
+                  onClick={[Function]}
+                  tooltip="Détail des votes"
+                  tooltipPosition="bottom-center"
+                  touch={true}>
+                  <div
+                        style={
+                              Object {
+                                    "transform": "rotate(180deg)",
+                                  }
+                        }>
+                        <HardwareKeyboardArrowDown />
+                  </div>
+            </IconButton>
+      </div>
+      <Table
+            allRowsSelected={false}
+            fixedFooter={true}
+            fixedHeader={true}
+            height="inherit"
+            multiSelectable={false}
+            selectable={false}>
+            <TableHeader
+                  adjustForCheckbox={false}
+                  displaySelectAll={false}
+                  enableSelectAll={true}
+                  selectAllSelected={false}>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableHeaderColumn>
+                              Prénom
+                        </TableHeaderColumn>
+                        <TableHeaderColumn>
+                              Note
+                        </TableHeaderColumn>
+                  </TableRow>
+            </TableHeader>
+            <TableBody
+                  allRowsSelected={false}
+                  deselectOnClickaway={true}
+                  displayRowCheckbox={false}
+                  multiSelectable={false}
+                  preScanRows={true}
+                  selectable={true}
+                  style={Object {}}>
+                  
+            </TableBody>
+      </Table>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <NotesView
+        myProfileName="Alex"
+        othersNote={
+                Array [
+                        Array [
+                          "test",
+                          undefined,
+                        ],
+                      ]
+        }
+        ownName={null}
+        ownNote={0}
+        vote={[Function]}
+        voteOpen={true} />,
+      "_debugID": 7,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": NotesView {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "handleNestedListToggle": [Function],
+        "handleNoteChange": [Function],
+        "props": Object {
+          "myProfileName": "Alex",
+          "othersNote": Array [
+            Array [
+              "test",
+              undefined,
+            ],
+          ],
+          "ownName": null,
+          "ownNote": 0,
+          "vote": [Function],
+          "voteOpen": true,
+        },
+        "refs": Object {},
+        "state": Object {
+          "ownNote": 0,
+          "voteOpen": true,
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 4,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <div
+                    style={
+                              Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "margin": 10,
+                                      }
+                    }>
+                    <span
+                              style={
+                                        Object {
+                                                  "flex": 1,
+                                                }
+                              }>
+                              <strong>
+                                        Note moyenne : 
+                              </strong>
+                    </span>
+                    <TableRow
+                              displayBorder={true}
+                              hoverable={false}
+                              hovered={false}
+                              selectable={true}
+                              selected={false}
+                              striped={false}>
+                              <TableRowColumn
+                                        hoverable={false}>
+                                        Ton nom (
+                                        Alex
+                                        ) n\'est pas dans la liste des votants.
+                              </TableRowColumn>
+                              <TableRowColumn
+                                        hoverable={false} />
+                    </TableRow>
+                    <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              tooltip="Détail des votes"
+                              tooltipPosition="bottom-center"
+                              touch={true}>
+                              <div
+                                        style={
+                                                  Object {
+                                                            "transform": "rotate(180deg)",
+                                                          }
+                                        }>
+                                        <HardwareKeyboardArrowDown />
+                              </div>
+                    </IconButton>
+          </div>
+          <Table
+                    allRowsSelected={false}
+                    fixedFooter={true}
+                    fixedHeader={true}
+                    height="inherit"
+                    multiSelectable={false}
+                    selectable={false}>
+                    <TableHeader
+                              adjustForCheckbox={false}
+                              displaySelectAll={false}
+                              enableSelectAll={true}
+                              selectAllSelected={false}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableHeaderColumn>
+                                                  Prénom
+                                        </TableHeaderColumn>
+                                        <TableHeaderColumn>
+                                                  Note
+                                        </TableHeaderColumn>
+                              </TableRow>
+                    </TableHeader>
+                    <TableBody
+                              allRowsSelected={false}
+                              deselectOnClickaway={true}
+                              displayRowCheckbox={false}
+                              multiSelectable={false}
+                              preScanRows={true}
+                              selectable={true}
+                              style={Object {}}>
+                              
+                    </TableBody>
+          </Table>
+</div>,
+        "_debugID": 8,
+        "_renderedOutput": <div>
+          <div
+                    style={
+                              Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "margin": 10,
+                                      }
+                    }>
+                    <span
+                              style={
+                                        Object {
+                                                  "flex": 1,
+                                                }
+                              }>
+                              <strong>
+                                        Note moyenne : 
+                              </strong>
+                    </span>
+                    <TableRow
+                              displayBorder={true}
+                              hoverable={false}
+                              hovered={false}
+                              selectable={true}
+                              selected={false}
+                              striped={false}>
+                              <TableRowColumn
+                                        hoverable={false}>
+                                        Ton nom (
+                                        Alex
+                                        ) n\'est pas dans la liste des votants.
+                              </TableRowColumn>
+                              <TableRowColumn
+                                        hoverable={false} />
+                    </TableRow>
+                    <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              tooltip="Détail des votes"
+                              tooltipPosition="bottom-center"
+                              touch={true}>
+                              <div
+                                        style={
+                                                  Object {
+                                                            "transform": "rotate(180deg)",
+                                                          }
+                                        }>
+                                        <HardwareKeyboardArrowDown />
+                              </div>
+                    </IconButton>
+          </div>
+          <Table
+                    allRowsSelected={false}
+                    fixedFooter={true}
+                    fixedHeader={true}
+                    height="inherit"
+                    multiSelectable={false}
+                    selectable={false}>
+                    <TableHeader
+                              adjustForCheckbox={false}
+                              displaySelectAll={false}
+                              enableSelectAll={true}
+                              selectAllSelected={false}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableHeaderColumn>
+                                                  Prénom
+                                        </TableHeaderColumn>
+                                        <TableHeaderColumn>
+                                                  Note
+                                        </TableHeaderColumn>
+                              </TableRow>
+                    </TableHeader>
+                    <TableBody
+                              allRowsSelected={false}
+                              deselectOnClickaway={true}
+                              displayRowCheckbox={false}
+                              multiSelectable={false}
+                              preScanRows={true}
+                              selectable={true}
+                              style={Object {}}>
+                              
+                    </TableBody>
+          </Table>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <NotesView
+    myProfileName="Alex"
+    othersNote={
+        Array [
+            Array [
+              "test",
+              undefined,
+            ],
+          ]
+    }
+    ownName={null}
+    ownNote={0}
+    vote={[Function]}
+    voteOpen={true} />,
+}
+`;
+
+exports[`NotesView component should renders correctly without ownName 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <div
+        style={
+            Object {
+                "alignItems": "center",
+                "display": "flex",
+                "justifyContent": "space-between",
+                "margin": 10,
+              }
+        }>
+        <span
+            style={
+                Object {
+                    "flex": 1,
+                  }
+            }>
+            <strong>
+                Note moyenne : 
+            </strong>
+        </span>
+        <TableRow
+            displayBorder={true}
+            hoverable={false}
+            hovered={false}
+            selectable={true}
+            selected={false}
+            striped={false}>
+            <TableRowColumn
+                hoverable={false}>
+                Ton nom (
+                Alex
+                ) n\'est pas dans la liste des votants.
+            </TableRowColumn>
+            <TableRowColumn
+                hoverable={false} />
+        </TableRow>
+        <IconButton
+            disableTouchRipple={false}
+            disabled={false}
+            iconStyle={Object {}}
+            onClick={[Function]}
+            tooltip="Détail des votes"
+            tooltipPosition="bottom-center"
+            touch={true}>
+            <div
+                style={
+                    Object {
+                        "transform": "rotate(180deg)",
+                      }
+                }>
+                <HardwareKeyboardArrowDown />
+            </div>
+        </IconButton>
+    </div>
+    <Table
+        allRowsSelected={false}
+        fixedFooter={true}
+        fixedHeader={true}
+        height="inherit"
+        multiSelectable={false}
+        selectable={false}>
+        <TableHeader
+            adjustForCheckbox={false}
+            displaySelectAll={false}
+            enableSelectAll={true}
+            selectAllSelected={false}>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableHeaderColumn>
+                    Prénom
+                </TableHeaderColumn>
+                <TableHeaderColumn>
+                    Note
+                </TableHeaderColumn>
+            </TableRow>
+        </TableHeader>
+        <TableBody
+            allRowsSelected={false}
+            deselectOnClickaway={true}
+            displayRowCheckbox={false}
+            multiSelectable={false}
+            preScanRows={true}
+            selectable={true}
+            style={Object {}}>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableRowColumn
+                    hoverable={false}>
+                    alex
+                </TableRowColumn>
+                <TableRowColumn
+                    hoverable={false} />
+            </TableRow>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableRowColumn
+                    hoverable={false}>
+                    frank
+                </TableRowColumn>
+                <TableRowColumn
+                    hoverable={false} />
+            </TableRow>
+            <TableRow
+                displayBorder={true}
+                hoverable={false}
+                hovered={false}
+                selectable={true}
+                selected={false}
+                striped={false}>
+                <TableRowColumn
+                    hoverable={false}>
+                    amanda
+                </TableRowColumn>
+                <TableRowColumn
+                    hoverable={false}>
+                    1
+                </TableRowColumn>
+            </TableRow>
+        </TableBody>
+    </Table>
+</div>,
+  "nodes": Array [
+    <div>
+      <div
+            style={
+                  Object {
+                        "alignItems": "center",
+                        "display": "flex",
+                        "justifyContent": "space-between",
+                        "margin": 10,
+                      }
+            }>
+            <span
+                  style={
+                        Object {
+                              "flex": 1,
+                            }
+                  }>
+                  <strong>
+                        Note moyenne : 
+                  </strong>
+            </span>
+            <TableRow
+                  displayBorder={true}
+                  hoverable={false}
+                  hovered={false}
+                  selectable={true}
+                  selected={false}
+                  striped={false}>
+                  <TableRowColumn
+                        hoverable={false}>
+                        Ton nom (
+                        Alex
+                        ) n\'est pas dans la liste des votants.
+                  </TableRowColumn>
+                  <TableRowColumn
+                        hoverable={false} />
+            </TableRow>
+            <IconButton
+                  disableTouchRipple={false}
+                  disabled={false}
+                  iconStyle={Object {}}
+                  onClick={[Function]}
+                  tooltip="Détail des votes"
+                  tooltipPosition="bottom-center"
+                  touch={true}>
+                  <div
+                        style={
+                              Object {
+                                    "transform": "rotate(180deg)",
+                                  }
+                        }>
+                        <HardwareKeyboardArrowDown />
+                  </div>
+            </IconButton>
+      </div>
+      <Table
+            allRowsSelected={false}
+            fixedFooter={true}
+            fixedHeader={true}
+            height="inherit"
+            multiSelectable={false}
+            selectable={false}>
+            <TableHeader
+                  adjustForCheckbox={false}
+                  displaySelectAll={false}
+                  enableSelectAll={true}
+                  selectAllSelected={false}>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableHeaderColumn>
+                              Prénom
+                        </TableHeaderColumn>
+                        <TableHeaderColumn>
+                              Note
+                        </TableHeaderColumn>
+                  </TableRow>
+            </TableHeader>
+            <TableBody
+                  allRowsSelected={false}
+                  deselectOnClickaway={true}
+                  displayRowCheckbox={false}
+                  multiSelectable={false}
+                  preScanRows={true}
+                  selectable={true}
+                  style={Object {}}>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableRowColumn
+                              hoverable={false}>
+                              alex
+                        </TableRowColumn>
+                        <TableRowColumn
+                              hoverable={false} />
+                  </TableRow>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableRowColumn
+                              hoverable={false}>
+                              frank
+                        </TableRowColumn>
+                        <TableRowColumn
+                              hoverable={false} />
+                  </TableRow>
+                  <TableRow
+                        displayBorder={true}
+                        hoverable={false}
+                        hovered={false}
+                        selectable={true}
+                        selected={false}
+                        striped={false}>
+                        <TableRowColumn
+                              hoverable={false}>
+                              amanda
+                        </TableRowColumn>
+                        <TableRowColumn
+                              hoverable={false}>
+                              1
+                        </TableRowColumn>
+                  </TableRow>
+            </TableBody>
+      </Table>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <NotesView
+        myProfileName="Alex"
+        othersNote={
+                Array [
+                        Array [
+                          "alex",
+                          0,
+                        ],
+                        Array [
+                          "frank",
+                          0,
+                        ],
+                        Array [
+                          "amanda",
+                          1,
+                        ],
+                      ]
+        }
+        ownName={null}
+        ownNote={0}
+        vote={[Function]}
+        voteOpen={true} />,
+      "_debugID": 5,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": NotesView {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "handleNestedListToggle": [Function],
+        "handleNoteChange": [Function],
+        "props": Object {
+          "myProfileName": "Alex",
+          "othersNote": Array [
+            Array [
+              "alex",
+              0,
+            ],
+            Array [
+              "frank",
+              0,
+            ],
+            Array [
+              "amanda",
+              1,
+            ],
+          ],
+          "ownName": null,
+          "ownNote": 0,
+          "vote": [Function],
+          "voteOpen": true,
+        },
+        "refs": Object {},
+        "state": Object {
+          "ownNote": 0,
+          "voteOpen": true,
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 3,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <div
+                    style={
+                              Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "margin": 10,
+                                      }
+                    }>
+                    <span
+                              style={
+                                        Object {
+                                                  "flex": 1,
+                                                }
+                              }>
+                              <strong>
+                                        Note moyenne : 
+                              </strong>
+                    </span>
+                    <TableRow
+                              displayBorder={true}
+                              hoverable={false}
+                              hovered={false}
+                              selectable={true}
+                              selected={false}
+                              striped={false}>
+                              <TableRowColumn
+                                        hoverable={false}>
+                                        Ton nom (
+                                        Alex
+                                        ) n\'est pas dans la liste des votants.
+                              </TableRowColumn>
+                              <TableRowColumn
+                                        hoverable={false} />
+                    </TableRow>
+                    <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              tooltip="Détail des votes"
+                              tooltipPosition="bottom-center"
+                              touch={true}>
+                              <div
+                                        style={
+                                                  Object {
+                                                            "transform": "rotate(180deg)",
+                                                          }
+                                        }>
+                                        <HardwareKeyboardArrowDown />
+                              </div>
+                    </IconButton>
+          </div>
+          <Table
+                    allRowsSelected={false}
+                    fixedFooter={true}
+                    fixedHeader={true}
+                    height="inherit"
+                    multiSelectable={false}
+                    selectable={false}>
+                    <TableHeader
+                              adjustForCheckbox={false}
+                              displaySelectAll={false}
+                              enableSelectAll={true}
+                              selectAllSelected={false}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableHeaderColumn>
+                                                  Prénom
+                                        </TableHeaderColumn>
+                                        <TableHeaderColumn>
+                                                  Note
+                                        </TableHeaderColumn>
+                              </TableRow>
+                    </TableHeader>
+                    <TableBody
+                              allRowsSelected={false}
+                              deselectOnClickaway={true}
+                              displayRowCheckbox={false}
+                              multiSelectable={false}
+                              preScanRows={true}
+                              selectable={true}
+                              style={Object {}}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  alex
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false} />
+                              </TableRow>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  frank
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false} />
+                              </TableRow>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  amanda
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  1
+                                        </TableRowColumn>
+                              </TableRow>
+                    </TableBody>
+          </Table>
+</div>,
+        "_debugID": 6,
+        "_renderedOutput": <div>
+          <div
+                    style={
+                              Object {
+                                        "alignItems": "center",
+                                        "display": "flex",
+                                        "justifyContent": "space-between",
+                                        "margin": 10,
+                                      }
+                    }>
+                    <span
+                              style={
+                                        Object {
+                                                  "flex": 1,
+                                                }
+                              }>
+                              <strong>
+                                        Note moyenne : 
+                              </strong>
+                    </span>
+                    <TableRow
+                              displayBorder={true}
+                              hoverable={false}
+                              hovered={false}
+                              selectable={true}
+                              selected={false}
+                              striped={false}>
+                              <TableRowColumn
+                                        hoverable={false}>
+                                        Ton nom (
+                                        Alex
+                                        ) n\'est pas dans la liste des votants.
+                              </TableRowColumn>
+                              <TableRowColumn
+                                        hoverable={false} />
+                    </TableRow>
+                    <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              tooltip="Détail des votes"
+                              tooltipPosition="bottom-center"
+                              touch={true}>
+                              <div
+                                        style={
+                                                  Object {
+                                                            "transform": "rotate(180deg)",
+                                                          }
+                                        }>
+                                        <HardwareKeyboardArrowDown />
+                              </div>
+                    </IconButton>
+          </div>
+          <Table
+                    allRowsSelected={false}
+                    fixedFooter={true}
+                    fixedHeader={true}
+                    height="inherit"
+                    multiSelectable={false}
+                    selectable={false}>
+                    <TableHeader
+                              adjustForCheckbox={false}
+                              displaySelectAll={false}
+                              enableSelectAll={true}
+                              selectAllSelected={false}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableHeaderColumn>
+                                                  Prénom
+                                        </TableHeaderColumn>
+                                        <TableHeaderColumn>
+                                                  Note
+                                        </TableHeaderColumn>
+                              </TableRow>
+                    </TableHeader>
+                    <TableBody
+                              allRowsSelected={false}
+                              deselectOnClickaway={true}
+                              displayRowCheckbox={false}
+                              multiSelectable={false}
+                              preScanRows={true}
+                              selectable={true}
+                              style={Object {}}>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  alex
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false} />
+                              </TableRow>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  frank
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false} />
+                              </TableRow>
+                              <TableRow
+                                        displayBorder={true}
+                                        hoverable={false}
+                                        hovered={false}
+                                        selectable={true}
+                                        selected={false}
+                                        striped={false}>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  amanda
+                                        </TableRowColumn>
+                                        <TableRowColumn
+                                                  hoverable={false}>
+                                                  1
+                                        </TableRowColumn>
+                              </TableRow>
+                    </TableBody>
+          </Table>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <NotesView
+    myProfileName="Alex"
+    othersNote={
+        Array [
+            Array [
+              "alex",
+              0,
+            ],
+            Array [
+              "frank",
+              0,
+            ],
+            Array [
+              "amanda",
+              1,
+            ],
+          ]
+    }
+    ownName={null}
+    ownNote={0}
+    vote={[Function]}
+    voteOpen={true} />,
+}
+`;

@@ -1,0 +1,470 @@
+exports[`Talk component should renders correctly 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <section
+    className="Talk">
+    <h2 />
+    <Chip
+        labelColor="white"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyboardFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        style={
+            Object {
+                "backgroundColor": "#ff9800",
+                "marginTop": ".85em",
+              }
+        }>
+        Lightning Talk : 5 minutes
+    </Chip>
+    <Connect(NotesView) />
+    <Divider
+        inset={false} />
+    <List>
+        <ListItem
+            autoGenerateNestedIndicator={true}
+            disableKeyboardFocus={false}
+            disabled={true}
+            initiallyOpen={false}
+            insetChildren={false}
+            leftAvatar={
+                <Avatar
+                    size={40}
+                    src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
+            }
+            nestedItems={Array []}
+            nestedLevel={0}
+            onKeyboardFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onNestedListToggle={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            open={null}
+            primaryText={
+                <span>
+                    <span
+                        style={
+                            Object {
+                                "color": "rgba(0, 0, 0, 0.54)",
+                              }
+                        }>
+                        , le 
+                        Invalid date
+                    </span>
+                </span>
+            }
+            primaryTogglesNestedList={false}
+            rightIcon={
+                <IconButton
+                    disableTouchRipple={false}
+                    disabled={false}
+                    iconStyle={Object {}}
+                    onClick={[Function]}
+                    style={
+                        Object {
+                            "padding": 0,
+                            "width": 32,
+                          }
+                    }
+                    tooltipPosition="top-right"
+                    touch={true}>
+                    <CommunicationEmail
+                        color="#f44336" />
+                </IconButton>
+            }
+            secondaryText="test@test.com"
+            secondaryTextLines={1} />
+    </List>
+    <Divider
+        inset={false} />
+    <h3>
+        Description
+    </h3>
+    <h3>
+        Si le public ne devait retenir qu\'une chose, ce serait...
+    </h3>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.
+    </p>
+    <h3>
+        Tu veux ajouter quelque chose ?
+    </h3>
+</section>,
+  "nodes": Array [
+    <section
+      className="Talk">
+      <h2 />
+      <Chip
+            labelColor="white"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyboardFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            style={
+                  Object {
+                        "backgroundColor": "#ff9800",
+                        "marginTop": ".85em",
+                      }
+            }>
+            Lightning Talk : 5 minutes
+      </Chip>
+      <Connect(NotesView) />
+      <Divider
+            inset={false} />
+      <List>
+            <ListItem
+                  autoGenerateNestedIndicator={true}
+                  disableKeyboardFocus={false}
+                  disabled={true}
+                  initiallyOpen={false}
+                  insetChildren={false}
+                  leftAvatar={
+                        <Avatar
+                              size={40}
+                              src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
+                  }
+                  nestedItems={Array []}
+                  nestedLevel={0}
+                  onKeyboardFocus={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onNestedListToggle={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  open={null}
+                  primaryText={
+                        <span>
+                              <span
+                                    style={
+                                          Object {
+                                                "color": "rgba(0, 0, 0, 0.54)",
+                                              }
+                                    }>
+                                    , le 
+                                    Invalid date
+                              </span>
+                        </span>
+                  }
+                  primaryTogglesNestedList={false}
+                  rightIcon={
+                        <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              onClick={[Function]}
+                              style={
+                                    Object {
+                                          "padding": 0,
+                                          "width": 32,
+                                        }
+                              }
+                              tooltipPosition="top-right"
+                              touch={true}>
+                              <CommunicationEmail
+                                    color="#f44336" />
+                        </IconButton>
+                  }
+                  secondaryText="test@test.com"
+                  secondaryTextLines={1} />
+      </List>
+      <Divider
+            inset={false} />
+      <h3>
+            Description
+      </h3>
+      <h3>
+            Si le public ne devait retenir qu\'une chose, ce serait...
+      </h3>
+      <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.
+      </p>
+      <h3>
+            Tu veux ajouter quelque chose ?
+      </h3>
+</section>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <Talk
+        talk={
+                Object {
+                        "email": "test@test.com",
+                        "formats": "Lightning Talk : 5 minutes",
+                        "si_le_public_ne_devait_retenir_quune_chose_ce_serait": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.",
+                        "title": "test",
+                      }
+        } />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": Talk {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "talk": Object {
+            "email": "test@test.com",
+            "formats": "Lightning Talk : 5 minutes",
+            "si_le_public_ne_devait_retenir_quune_chose_ce_serait": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.",
+            "title": "test",
+          },
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <section
+          className="Talk">
+          <h2 />
+          <Chip
+                    labelColor="white"
+                    onBlur={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyboardFocus={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchStart={[Function]}
+                    style={
+                              Object {
+                                        "backgroundColor": "#ff9800",
+                                        "marginTop": ".85em",
+                                      }
+                    }>
+                    Lightning Talk : 5 minutes
+          </Chip>
+          <Connect(NotesView) />
+          <Divider
+                    inset={false} />
+          <List>
+                    <ListItem
+                              autoGenerateNestedIndicator={true}
+                              disableKeyboardFocus={false}
+                              disabled={true}
+                              initiallyOpen={false}
+                              insetChildren={false}
+                              leftAvatar={
+                                        <Avatar
+                                                  size={40}
+                                                  src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
+                              }
+                              nestedItems={Array []}
+                              nestedLevel={0}
+                              onKeyboardFocus={[Function]}
+                              onMouseEnter={[Function]}
+                              onMouseLeave={[Function]}
+                              onNestedListToggle={[Function]}
+                              onTouchEnd={[Function]}
+                              onTouchStart={[Function]}
+                              open={null}
+                              primaryText={
+                                        <span>
+                                                  <span
+                                                            style={
+                                                                      Object {
+                                                                                "color": "rgba(0, 0, 0, 0.54)",
+                                                                              }
+                                                            }>
+                                                            , le 
+                                                            Invalid date
+                                                  </span>
+                                        </span>
+                              }
+                              primaryTogglesNestedList={false}
+                              rightIcon={
+                                        <IconButton
+                                                  disableTouchRipple={false}
+                                                  disabled={false}
+                                                  iconStyle={Object {}}
+                                                  onClick={[Function]}
+                                                  style={
+                                                            Object {
+                                                                      "padding": 0,
+                                                                      "width": 32,
+                                                                    }
+                                                  }
+                                                  tooltipPosition="top-right"
+                                                  touch={true}>
+                                                  <CommunicationEmail
+                                                            color="#f44336" />
+                                        </IconButton>
+                              }
+                              secondaryText="test@test.com"
+                              secondaryTextLines={1} />
+          </List>
+          <Divider
+                    inset={false} />
+          <h3>
+                    Description
+          </h3>
+          <h3>
+                    Si le public ne devait retenir qu\'une chose, ce serait...
+          </h3>
+          <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.
+          </p>
+          <h3>
+                    Tu veux ajouter quelque chose ?
+          </h3>
+</section>,
+        "_debugID": 2,
+        "_renderedOutput": <section
+          className="Talk">
+          <h2 />
+          <Chip
+                    labelColor="white"
+                    onBlur={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyboardFocus={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchStart={[Function]}
+                    style={
+                              Object {
+                                        "backgroundColor": "#ff9800",
+                                        "marginTop": ".85em",
+                                      }
+                    }>
+                    Lightning Talk : 5 minutes
+          </Chip>
+          <Connect(NotesView) />
+          <Divider
+                    inset={false} />
+          <List>
+                    <ListItem
+                              autoGenerateNestedIndicator={true}
+                              disableKeyboardFocus={false}
+                              disabled={true}
+                              initiallyOpen={false}
+                              insetChildren={false}
+                              leftAvatar={
+                                        <Avatar
+                                                  size={40}
+                                                  src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
+                              }
+                              nestedItems={Array []}
+                              nestedLevel={0}
+                              onKeyboardFocus={[Function]}
+                              onMouseEnter={[Function]}
+                              onMouseLeave={[Function]}
+                              onNestedListToggle={[Function]}
+                              onTouchEnd={[Function]}
+                              onTouchStart={[Function]}
+                              open={null}
+                              primaryText={
+                                        <span>
+                                                  <span
+                                                            style={
+                                                                      Object {
+                                                                                "color": "rgba(0, 0, 0, 0.54)",
+                                                                              }
+                                                            }>
+                                                            , le 
+                                                            Invalid date
+                                                  </span>
+                                        </span>
+                              }
+                              primaryTogglesNestedList={false}
+                              rightIcon={
+                                        <IconButton
+                                                  disableTouchRipple={false}
+                                                  disabled={false}
+                                                  iconStyle={Object {}}
+                                                  onClick={[Function]}
+                                                  style={
+                                                            Object {
+                                                                      "padding": 0,
+                                                                      "width": 32,
+                                                                    }
+                                                  }
+                                                  tooltipPosition="top-right"
+                                                  touch={true}>
+                                                  <CommunicationEmail
+                                                            color="#f44336" />
+                                        </IconButton>
+                              }
+                              secondaryText="test@test.com"
+                              secondaryTextLines={1} />
+          </List>
+          <Divider
+                    inset={false} />
+          <h3>
+                    Description
+          </h3>
+          <h3>
+                    Si le public ne devait retenir qu\'une chose, ce serait...
+          </h3>
+          <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.
+          </p>
+          <h3>
+                    Tu veux ajouter quelque chose ?
+          </h3>
+</section>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Talk
+    talk={
+        Object {
+            "email": "test@test.com",
+            "formats": "Lightning Talk : 5 minutes",
+            "si_le_public_ne_devait_retenir_quune_chose_ce_serait": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.",
+            "title": "test",
+          }
+    } />,
+}
+`;

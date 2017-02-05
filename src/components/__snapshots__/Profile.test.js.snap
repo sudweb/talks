@@ -1,0 +1,519 @@
+exports[`Profile component should render null 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": null,
+  "nodes": Array [
+    null,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <Profile
+        signout={[Function]} />,
+      "_debugID": 3,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": Profile {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "signout": [Function],
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 2,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": null,
+        "_debugID": 4,
+        "_renderedOutput": null,
+      },
+      "_renderedNodeType": 2,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Profile
+    signout={[Function]} />,
+}
+`;
+
+exports[`Profile component should renders correctly 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <ListItem
+    autoGenerateNestedIndicator={true}
+    disableKeyboardFocus={false}
+    disabled={true}
+    initiallyOpen={false}
+    innerDivStyle={
+        Object {
+            "color": "white",
+            "paddingBottom": 14,
+            "paddingRight": 42,
+            "paddingTop": 14,
+          }
+    }
+    insetChildren={false}
+    leftAvatar={
+        <Avatar
+            backgroundColor="white"
+            size={40}
+            src={undefined}
+            style={
+                Object {
+                    "top": 12,
+                  }
+            } />
+    }
+    nestedItems={Array []}
+    nestedLevel={0}
+    onKeyboardFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onNestedListToggle={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
+    open={null}
+    primaryText="Alex"
+    primaryTogglesNestedList={false}
+    rightIconButton={
+        <IconMenu
+            anchorOrigin={
+                Object {
+                    "horizontal": "left",
+                    "vertical": "top",
+                  }
+            }
+            animated={true}
+            iconButtonElement={
+                <IconButton
+                    disableTouchRipple={false}
+                    disabled={false}
+                    iconStyle={Object {}}
+                    style={
+                        Object {
+                            "paddingRight": 0,
+                            "width": 32,
+                          }
+                    }
+                    tooltipPosition="top-right"
+                    touch={true}>
+                    <NavigationMoreVert
+                        color="white" />
+                </IconButton>
+            }
+            multiple={false}
+            onItemTouchTap={[Function]}
+            onKeyboardFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onRequestChange={[Function]}
+            onTouchTap={[Function]}
+            open={null}
+            targetOrigin={
+                Object {
+                    "horizontal": "left",
+                    "vertical": "top",
+                  }
+            }
+            touchTapCloseDelay={200}
+            useLayerForClickAway={false}>
+            <MenuItem
+                checked={false}
+                desktop={false}
+                disabled={false}
+                focusState="none"
+                insetChildren={false}
+                onClick={[Function]}>
+                Déconnexion
+            </MenuItem>
+        </IconMenu>
+    }
+    secondaryText="test@test.com"
+    secondaryTextLines={1} />,
+  "nodes": Array [
+    <ListItem
+      autoGenerateNestedIndicator={true}
+      disableKeyboardFocus={false}
+      disabled={true}
+      initiallyOpen={false}
+      innerDivStyle={
+            Object {
+                  "color": "white",
+                  "paddingBottom": 14,
+                  "paddingRight": 42,
+                  "paddingTop": 14,
+                }
+      }
+      insetChildren={false}
+      leftAvatar={
+            <Avatar
+                  backgroundColor="white"
+                  size={40}
+                  src={undefined}
+                  style={
+                        Object {
+                              "top": 12,
+                            }
+                  } />
+      }
+      nestedItems={Array []}
+      nestedLevel={0}
+      onKeyboardFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onNestedListToggle={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      open={null}
+      primaryText="Alex"
+      primaryTogglesNestedList={false}
+      rightIconButton={
+            <IconMenu
+                  anchorOrigin={
+                        Object {
+                              "horizontal": "left",
+                              "vertical": "top",
+                            }
+                  }
+                  animated={true}
+                  iconButtonElement={
+                        <IconButton
+                              disableTouchRipple={false}
+                              disabled={false}
+                              iconStyle={Object {}}
+                              style={
+                                    Object {
+                                          "paddingRight": 0,
+                                          "width": 32,
+                                        }
+                              }
+                              tooltipPosition="top-right"
+                              touch={true}>
+                              <NavigationMoreVert
+                                    color="white" />
+                        </IconButton>
+                  }
+                  multiple={false}
+                  onItemTouchTap={[Function]}
+                  onKeyboardFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onRequestChange={[Function]}
+                  onTouchTap={[Function]}
+                  open={null}
+                  targetOrigin={
+                        Object {
+                              "horizontal": "left",
+                              "vertical": "top",
+                            }
+                  }
+                  touchTapCloseDelay={200}
+                  useLayerForClickAway={false}>
+                  <MenuItem
+                        checked={false}
+                        desktop={false}
+                        disabled={false}
+                        focusState="none"
+                        insetChildren={false}
+                        onClick={[Function]}>
+                        Déconnexion
+                  </MenuItem>
+            </IconMenu>
+      }
+      secondaryText="test@test.com"
+      secondaryTextLines={1} />,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <Profile
+        profile={
+                Object {
+                        "email": "test@test.com",
+                        "name": "Alex",
+                      }
+        }
+        signout={[Function]} />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": Profile {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "profile": Object {
+            "email": "test@test.com",
+            "name": "Alex",
+          },
+          "signout": [Function],
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <ListItem
+          autoGenerateNestedIndicator={true}
+          disableKeyboardFocus={false}
+          disabled={true}
+          initiallyOpen={false}
+          innerDivStyle={
+                    Object {
+                              "color": "white",
+                              "paddingBottom": 14,
+                              "paddingRight": 42,
+                              "paddingTop": 14,
+                            }
+          }
+          insetChildren={false}
+          leftAvatar={
+                    <Avatar
+                              backgroundColor="white"
+                              size={40}
+                              src={undefined}
+                              style={
+                                        Object {
+                                                  "top": 12,
+                                                }
+                              } />
+          }
+          nestedItems={Array []}
+          nestedLevel={0}
+          onKeyboardFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onNestedListToggle={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          open={null}
+          primaryText="Alex"
+          primaryTogglesNestedList={false}
+          rightIconButton={
+                    <IconMenu
+                              anchorOrigin={
+                                        Object {
+                                                  "horizontal": "left",
+                                                  "vertical": "top",
+                                                }
+                              }
+                              animated={true}
+                              iconButtonElement={
+                                        <IconButton
+                                                  disableTouchRipple={false}
+                                                  disabled={false}
+                                                  iconStyle={Object {}}
+                                                  style={
+                                                            Object {
+                                                                      "paddingRight": 0,
+                                                                      "width": 32,
+                                                                    }
+                                                  }
+                                                  tooltipPosition="top-right"
+                                                  touch={true}>
+                                                  <NavigationMoreVert
+                                                            color="white" />
+                                        </IconButton>
+                              }
+                              multiple={false}
+                              onItemTouchTap={[Function]}
+                              onKeyboardFocus={[Function]}
+                              onMouseDown={[Function]}
+                              onMouseEnter={[Function]}
+                              onMouseLeave={[Function]}
+                              onMouseUp={[Function]}
+                              onRequestChange={[Function]}
+                              onTouchTap={[Function]}
+                              open={null}
+                              targetOrigin={
+                                        Object {
+                                                  "horizontal": "left",
+                                                  "vertical": "top",
+                                                }
+                              }
+                              touchTapCloseDelay={200}
+                              useLayerForClickAway={false}>
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        onClick={[Function]}>
+                                        Déconnexion
+                              </MenuItem>
+                    </IconMenu>
+          }
+          secondaryText="test@test.com"
+          secondaryTextLines={1} />,
+        "_debugID": 2,
+        "_renderedOutput": <ListItem
+          autoGenerateNestedIndicator={true}
+          disableKeyboardFocus={false}
+          disabled={true}
+          initiallyOpen={false}
+          innerDivStyle={
+                    Object {
+                              "color": "white",
+                              "paddingBottom": 14,
+                              "paddingRight": 42,
+                              "paddingTop": 14,
+                            }
+          }
+          insetChildren={false}
+          leftAvatar={
+                    <Avatar
+                              backgroundColor="white"
+                              size={40}
+                              src={undefined}
+                              style={
+                                        Object {
+                                                  "top": 12,
+                                                }
+                              } />
+          }
+          nestedItems={Array []}
+          nestedLevel={0}
+          onKeyboardFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onNestedListToggle={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          open={null}
+          primaryText="Alex"
+          primaryTogglesNestedList={false}
+          rightIconButton={
+                    <IconMenu
+                              anchorOrigin={
+                                        Object {
+                                                  "horizontal": "left",
+                                                  "vertical": "top",
+                                                }
+                              }
+                              animated={true}
+                              iconButtonElement={
+                                        <IconButton
+                                                  disableTouchRipple={false}
+                                                  disabled={false}
+                                                  iconStyle={Object {}}
+                                                  style={
+                                                            Object {
+                                                                      "paddingRight": 0,
+                                                                      "width": 32,
+                                                                    }
+                                                  }
+                                                  tooltipPosition="top-right"
+                                                  touch={true}>
+                                                  <NavigationMoreVert
+                                                            color="white" />
+                                        </IconButton>
+                              }
+                              multiple={false}
+                              onItemTouchTap={[Function]}
+                              onKeyboardFocus={[Function]}
+                              onMouseDown={[Function]}
+                              onMouseEnter={[Function]}
+                              onMouseLeave={[Function]}
+                              onMouseUp={[Function]}
+                              onRequestChange={[Function]}
+                              onTouchTap={[Function]}
+                              open={null}
+                              targetOrigin={
+                                        Object {
+                                                  "horizontal": "left",
+                                                  "vertical": "top",
+                                                }
+                              }
+                              touchTapCloseDelay={200}
+                              useLayerForClickAway={false}>
+                              <MenuItem
+                                        checked={false}
+                                        desktop={false}
+                                        disabled={false}
+                                        focusState="none"
+                                        insetChildren={false}
+                                        onClick={[Function]}>
+                                        Déconnexion
+                              </MenuItem>
+                    </IconMenu>
+          }
+          secondaryText="test@test.com"
+          secondaryTextLines={1} />,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Profile
+    profile={
+        Object {
+            "email": "test@test.com",
+            "name": "Alex",
+          }
+    }
+    signout={[Function]} />,
+}
+`;
