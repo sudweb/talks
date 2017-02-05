@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import _ from 'lodash';
 import slug from 'slug';
 
@@ -21,7 +23,7 @@ export const parseTalks = talks => {
 
           if (content !== undefined) {
             if (column === 'note') {
-              return talk[column] = Number(content);        
+              return talk[column] = Number(content);
             }
             return talk[column] = content;
           }
@@ -31,7 +33,7 @@ export const parseTalks = talks => {
       if (talk.titre_de_ta_presentation !== '') {
         talksArray.push(talk);
       }
-    }    
+    }
   }
   return talksArray;
 }

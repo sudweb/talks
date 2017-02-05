@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import _ from 'lodash';
 
 export const parseNotes = notes => {
@@ -15,7 +17,7 @@ export const parseNotes = notes => {
         return false;
       });
       notesArray.push(talk);
-    } 
+    }
   }
   return notesArray;
 }

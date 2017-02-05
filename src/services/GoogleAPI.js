@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import {
     CLIENT_ID,
     SCOPES,
@@ -61,7 +63,7 @@ export const signOut = () => {
  *  - [1] : an Object contains all members name who already vote once
  * @param {array} range
  * @returns
- * 
+ *
  * @memberOf GoogleAPI
  */
 export const batchGet = (ranges, majorDimension) => {
@@ -97,9 +99,9 @@ export const batchUpdate = (range, values) => {
 
 /**
  * Load profile data
- * 
+ *
  * @returns
- * 
+ *
  * @memberOf GoogleAPI
  */
 export const requestPeople = () => {
