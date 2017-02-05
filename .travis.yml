@@ -13,4 +13,4 @@ env:
     - USE_YARN=no
     - CI=true
 after_success:
-  - if [ "$TRAVIS_PULL_REQUEST" = 'false' ] && [ "$TRAVIS_BRANCH" = "master" ]; then npm deploy; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = 'false' ] && [ "$TRAVIS_BRANCH" = "master" ]; then npm run build;npm run deploy; fi
