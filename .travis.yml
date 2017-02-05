@@ -22,6 +22,7 @@ deploy:
   provider: releases
   api_key:
     secure: TO7FtSgitDx9a1tjRT2aVhATUt1f8/D0cN/puZrUk2qb5oCsOOWvz8Sd3u6ch/Dzoc119DnBLuKMsUHHPbWxIZO3YyoqNiIkroIYRTx1dD7pZmYFtjCt3VrpufOnQ0jfwel1pvPUGNDwMOA6jkU3yCxgYo9dwZgz2p7juC/qQGI=
+  file_glob: true
   file: "build/*/**"
   skip_cleanup: true
   on:
