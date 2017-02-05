@@ -1,5 +1,7 @@
 # Sud Web Talks
 
+[![Build Status](https://travis-ci.org/sudweb/talks.svg?branch=master)](https://travis-ci.org/sudweb/talks)
+
 At [Sud Web](http://sudweb.fr), we manage *call for paper* via a Google Form.
 This is nice and handy but totally unreadable.
 
