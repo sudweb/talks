@@ -1,19 +1,29 @@
 language: node_js
 node_js:
-  - node
+- node
 cache:
   directories:
   - node_modules
 install:
-  - npm install
+- npm install
 before_script:
-  - git config --global user.email "contact@sudweb.fr"
-  - git config --global user.name "Travis-CI"
+- git config --global user.email "contact@sudweb.fr"
+- git config --global user.name "Travis-CI"
 script:
- - npm test
+- npm test
 env:
   global:
-    - USE_YARN=no
-    - CI=true
+  - USE_YARN=no
+  - CI=true
 after_success:
-  - if [ "$TRAVIS_PULL_REQUEST" = 'false' ] && [ "$TRAVIS_BRANCH" = "master" ]; then npm run deploy; fi
+- if [ "$TRAVIS_PULL_REQUEST" = 'false' ] && [ "$TRAVIS_BRANCH" = "master" ]; then
+  npm run deploy; fi
+deploy:
+  provider: releases
+  api_key:
+    secure: TO7FtSgitDx9a1tjRT2aVhATUt1f8/D0cN/puZrUk2qb5oCsOOWvz8Sd3u6ch/Dzoc119DnBLuKMsUHHPbWxIZO3YyoqNiIkroIYRTx1dD7pZmYFtjCt3VrpufOnQ0jfwel1pvPUGNDwMOA6jkU3yCxgYo9dwZgz2p7juC/qQGI=
+  file: "build/*/**"
+  skip_cleanup: true
+  on:
+    repo: sudweb/talks
+    tags: true
