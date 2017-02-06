@@ -42,5 +42,9 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ]
+  },
+  "engines": {
+    "node": ">=6.9.5",
+    "npm": ">=4.1.2"
   }
 }
