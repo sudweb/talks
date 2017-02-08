@@ -1,6 +1,5 @@
 import {
     fetchedTalks, FETCHED_TALKS,
-    updateTalkNote, UPDATE_TALKS_NOTE,
     selectTalk, SELECT_TALK,
     sortTalks, SORT_TALK
 } from './Talks';
@@ -11,16 +10,6 @@ describe('App actions', () => {
             expect(fetchedTalks('test')).toEqual({
                 type: FETCHED_TALKS,
                 talks: 'test'
-            });
-        });
-    });
-
-    describe('updateTalkNote', () => {
-        it('should create action UPDATE_TALKS_NOTE with talk id and note', () => {
-            expect(updateTalkNote(1, 2)).toEqual({
-                type: UPDATE_TALKS_NOTE,
-                id: 1,
-                note: 2
             });
         });
     });

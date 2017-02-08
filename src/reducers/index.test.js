@@ -13,8 +13,7 @@ import {
   FETCHED_TALKS,
   SELECT_TALK,
   PERMISSION_DENIED,
-  SORT_TALK,
-  UPDATE_TALKS_NOTE
+  SORT_TALK
 } from '../actions/Talks';
 
 import {
@@ -79,14 +78,6 @@ describe('rootReducer', () => {
       const expectedState = {loader: false, notes: [{values: {alex: 0}, total: 0}], ownName: 'alex', profile: {name: 'alex'}};
 
       const testAction = {type: FETCHED_NOTES, notes: [{values: {alex: 0}, total: 0}]};
-      expect(rootReducer(baseState, testAction)).toEqual(expectedState);
-    });
-
-    it('should change state start if action.type is UPDATE_TALKS_NOTE', () => {
-      const baseState = {talks: [{note: 0}, {note: 0}, {note: 0}]};
-      const expectedState = {talks: [{note: 0}, {note: 1}, {note: 0}]};
-
-      const testAction = {type: UPDATE_TALKS_NOTE, id: 3, note: 1};
       expect(rootReducer(baseState, testAction)).toEqual(expectedState);
     });
 

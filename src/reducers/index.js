@@ -8,8 +8,7 @@ import {
   FETCHED_TALKS,
   SELECT_TALK,
   PERMISSION_DENIED,
-  SORT_TALK,
-  UPDATE_TALKS_NOTE
+  SORT_TALK
 } from '../actions/Talks';
 
 import {
@@ -79,17 +78,6 @@ export const rootReducer = (state = defaultState, action) => {
         loader: false,
         notes: action.notes,
         ownName: ownName
-      }
-    
-    case UPDATE_TALKS_NOTE:
-      const newTalks = state.talks.slice(0);
-      newTalks[action.id-2] = {
-        ...newTalks[action.id-2],
-        note: action.note
-      };
-      return {
-        ...state,
-        talks: newTalks
       }
 
     case FETCHED_PROFILE:
