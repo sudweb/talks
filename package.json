@@ -1,6 +1,6 @@
 {
   "name": "talks-react",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "homepage": "https://sudweb.github.io/talks",
   "private": true,
   "devDependencies": {
