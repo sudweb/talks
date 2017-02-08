@@ -73,7 +73,8 @@ class AppView extends Component {
       count, 
       selectedTalk,
       permission,
-      filteredTalks
+      filteredTalks,
+      notes
     } = this.props;
     
     if (loader) {
@@ -99,6 +100,7 @@ class AppView extends Component {
           style={{position: 'relative'}}>
           <TalkList
             selectedTalk={selectedTalk}
+            notes={notes}
             count={count}
             talks={filteredTalks}
             selectTalk={id => this.props.selectTalk(id)}

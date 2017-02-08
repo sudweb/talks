@@ -76,9 +76,9 @@ describe('rootReducer', () => {
 
     it('should change state start if action.type is FETCHED_NOTES', () => {
       const baseState = {loader: false, notes: null, ownName: null, profile: {name: 'alex'}};
-      const expectedState = {loader: false, notes: [{alex: 0}], ownName: 'alex', profile: {name: 'alex'}};
+      const expectedState = {loader: false, notes: [{values: {alex: 0}, total: 0}], ownName: 'alex', profile: {name: 'alex'}};
 
-      const testAction = {type: FETCHED_NOTES, notes: [{alex: 0}]};
+      const testAction = {type: FETCHED_NOTES, notes: [{values: {alex: 0}, total: 0}]};
       expect(rootReducer(baseState, testAction)).toEqual(expectedState);
     });
 

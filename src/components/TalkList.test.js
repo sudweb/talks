@@ -23,17 +23,24 @@ const talks = [
   }
 ];
 
+const notes = [
+    { values: { "A": 1, "B": 0 , "C": 0}, total: 1 },
+    { values: { "A": 1, "B": 0 , "C": 0}, total: 1 },
+    { values: {"A": 0, "B": 0, "C": 0}, total: 0 }
+];
+
 describe('TalkList component', () => {
   it('should renders correctly', () => {
-    const sortTalks = jest.fn(()=>Promise.resolve(0))
-    const setFilter = jest.fn(()=>Promise.resolve(0))
-    const selectTalk = jest.fn(()=>Promise.resolve(0))
+    const sortTalks = jest.fn(()=>Promise.resolve(0));
+    const setFilter = jest.fn(()=>Promise.resolve(0));
+    const selectTalk = jest.fn(()=>Promise.resolve(0));
 
     const component = shallow(
         <TalkList 
             selectedTalk={0}
             count={{'all': 3, 'PK': 2, 'PK': 1}}
             talks={talks}
+            notes={notes}
             selectTalk={id => selectTalk(id)}
             setFilter={format => setFilter(format)}
             // sortBy={this.props.sortBy}

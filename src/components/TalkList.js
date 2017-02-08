@@ -59,17 +59,21 @@ class TalkList extends Component {
   }
 
   getTalk(talk, i) {
-    return (
-        <ListItem
-            key={i}
-            value={i}
-            onTouchTap={() => this.props.selectTalk(talk.id)}
-            primaryText={talk.titre_de_ta_presentation}
-            secondaryText={talk.prenom_et_nom}
-            rightIcon={<span>{Math.round(talk.note)}</span>}
-            leftAvatar={this.getFormat(talk.formats)}
-          />
-    )
+    if (this.props.notes !== null) {
+      return (
+          <ListItem
+              key={i}
+              value={i}
+              onTouchTap={() => this.props.selectTalk(talk.id)}
+              primaryText={talk.titre_de_ta_presentation}
+              secondaryText={talk.prenom_et_nom}
+              rightIcon={<span>{this.props.notes[i].total}</span>}
+              leftAvatar={this.getFormat(talk.formats)}
+            />
+      )
+    }
+
+    return null;
   }
 
   render() {

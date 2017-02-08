@@ -9,13 +9,13 @@ import {
 describe('Notes selectors', () => {
     it('parseNotes should return notes array', () => {
         const mockResponse = [
-            ["Sujet", "A", "B", "C" ],
-            ["Test 1", "1", "0", "0"],
-            ["Test 2", "0", "0", "0"]
+            ["Sujet", "Total", "A", "B", "C" ],
+            ["Test 1", "1", "1", "0", "0"],
+            ["Test 2", "0", "0", "0", "0"]
         ]
         expect(parseNotes(mockResponse)).toEqual([
-            { "A": "1", "B": "0" , "C": "0" },
-            { "A": "0", "B": "0", "C": "0" }
+            { values: { "A": 1, "B": 0 , "C": 0}, total: 1 },
+            { values: {"A": 0, "B": 0, "C": 0}, total: 0 }
         ]);
     });
 

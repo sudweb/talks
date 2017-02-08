@@ -55,6 +55,7 @@ ShallowWrapper {
                             "all": 3,
                           }
                     }
+                    notes={undefined}
                     selectTalk={[Function]}
                     selectedTalk={0}
                     setFilter={[Function]}
@@ -122,6 +123,7 @@ ShallowWrapper {
                                           "all": 3,
                                         }
                               }
+                              notes={undefined}
                               selectTalk={[Function]}
                               selectedTalk={0}
                               setFilter={[Function]}
@@ -251,6 +253,7 @@ ShallowWrapper {
                                                                       "all": 3,
                                                                     }
                                                   }
+                                                  notes={undefined}
                                                   selectTalk={[Function]}
                                                   selectedTalk={0}
                                                   setFilter={[Function]}
@@ -318,6 +321,7 @@ ShallowWrapper {
                                                                       "all": 3,
                                                                     }
                                                   }
+                                                  notes={undefined}
                                                   selectTalk={[Function]}
                                                   selectedTalk={0}
                                                   setFilter={[Function]}

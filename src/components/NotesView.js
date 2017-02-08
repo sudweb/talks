@@ -64,6 +64,7 @@ class NotesView extends Component {
   }
 
   getDetailsNote() {
+    console.log(this.props);
     if (!this.state.voteOpen) {
       return null;
     }

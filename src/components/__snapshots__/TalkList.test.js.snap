@@ -93,7 +93,11 @@ ShallowWrapper {
             open={null}
             primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
             primaryTogglesNestedList={false}
-            rightIcon={<span />}
+            rightIcon={
+                <span>
+                    1
+                </span>
+            }
             secondaryText="Alexandra Janin"
             secondaryTextLines={1}
             value={0} />
@@ -122,7 +126,11 @@ ShallowWrapper {
             open={null}
             primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
             primaryTogglesNestedList={false}
-            rightIcon={<span />}
+            rightIcon={
+                <span>
+                    1
+                </span>
+            }
             secondaryText="Alexandra Janin"
             secondaryTextLines={1}
             value={1} />
@@ -239,7 +247,11 @@ ShallowWrapper {
                   open={null}
                   primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                   primaryTogglesNestedList={false}
-                  rightIcon={<span />}
+                  rightIcon={
+                        <span>
+                              1
+                        </span>
+                  }
                   secondaryText="Alexandra Janin"
                   secondaryTextLines={1}
                   value={0} />
@@ -268,7 +280,11 @@ ShallowWrapper {
                   open={null}
                   primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                   primaryTogglesNestedList={false}
-                  rightIcon={<span />}
+                  rightIcon={
+                        <span>
+                              1
+                        </span>
+                  }
                   secondaryText="Alexandra Janin"
                   secondaryTextLines={1}
                   value={1} />
@@ -311,6 +327,34 @@ ShallowWrapper {
                         "all": 3,
                       }
         }
+        notes={
+                Array [
+                        Object {
+                          "total": 1,
+                          "values": Object {
+                            "A": 1,
+                            "B": 0,
+                            "C": 0,
+                          },
+                        },
+                        Object {
+                          "total": 1,
+                          "values": Object {
+                            "A": 1,
+                            "B": 0,
+                            "C": 0,
+                          },
+                        },
+                        Object {
+                          "total": 0,
+                          "values": Object {
+                            "A": 0,
+                            "B": 0,
+                            "C": 0,
+                          },
+                        },
+                      ]
+        }
         selectTalk={[Function]}
         selectedTalk={0}
         setFilter={[Function]}
@@ -344,6 +388,32 @@ ShallowWrapper {
             "PK": 1,
             "all": 3,
           },
+          "notes": Array [
+            Object {
+              "total": 1,
+              "values": Object {
+                "A": 1,
+                "B": 0,
+                "C": 0,
+              },
+            },
+            Object {
+              "total": 1,
+              "values": Object {
+                "A": 1,
+                "B": 0,
+                "C": 0,
+              },
+            },
+            Object {
+              "total": 0,
+              "values": Object {
+                "A": 0,
+                "B": 0,
+                "C": 0,
+              },
+            },
+          ],
           "selectTalk": [Function],
           "selectedTalk": 0,
           "setFilter": [Function],
@@ -472,7 +542,11 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={<span />}
+                              rightIcon={
+                                        <span>
+                                                  1
+                                        </span>
+                              }
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={0} />
@@ -501,7 +575,11 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={<span />}
+                              rightIcon={
+                                        <span>
+                                                  1
+                                        </span>
+                              }
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={1} />
@@ -618,7 +696,11 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={<span />}
+                              rightIcon={
+                                        <span>
+                                                  1
+                                        </span>
+                              }
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={0} />
@@ -647,7 +729,11 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={<span />}
+                              rightIcon={
+                                        <span>
+                                                  1
+                                        </span>
+                              }
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={1} />
@@ -693,6 +779,34 @@ ShallowWrapper {
             "PK": 1,
             "all": 3,
           }
+    }
+    notes={
+        Array [
+            Object {
+              "total": 1,
+              "values": Object {
+                "A": 1,
+                "B": 0,
+                "C": 0,
+              },
+            },
+            Object {
+              "total": 1,
+              "values": Object {
+                "A": 1,
+                "B": 0,
+                "C": 0,
+              },
+            },
+            Object {
+              "total": 0,
+              "values": Object {
+                "A": 0,
+                "B": 0,
+                "C": 0,
+              },
+            },
+          ]
     }
     selectTalk={[Function]}
     selectedTalk={0}

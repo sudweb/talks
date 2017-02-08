@@ -7,13 +7,14 @@ import {
 import { vote } from '../actions/Notes';
 
 const mapStateToProps = state => {
-  const notes = state.notes[state.selectedTalk];
+  const notes = state.notes[state.selectedTalk].values;
+
   return {
     ownName: state.ownName,
     ownNote: getOwnNote(notes, state.ownName),
     myProfileName: state.profile.name,
     othersNote: getOthersNote(notes, state.ownName),
-    globalNote: state.talks[state.selectedTalk].note
+    globalNote: state.notes[state.selectedTalk].total
   };
 }
 

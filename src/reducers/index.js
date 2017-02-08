@@ -73,7 +73,7 @@ export const rootReducer = (state = defaultState, action) => {
       };
 
     case FETCHED_NOTES:
-      const ownName = getOwnName(action.notes[0], state.profile.name);
+      const ownName = getOwnName(action.notes[0].values, state.profile.name);
       return {
         ...state,
         loader: false,

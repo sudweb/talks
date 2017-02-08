@@ -30,7 +30,6 @@ export const loadTalks = () => dispatch => {
   .then(response => {
     const values = response.valueRanges[0].values;
     if (values.length > 0) {
-      console.log(values);
       const talks = parseTalks(values);
       dispatch(fetchedTalks(talks));
     } else {

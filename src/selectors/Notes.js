@@ -7,12 +7,18 @@ export const parseNotes = notes => {
 
   for (let i = 0; i < notes.length; i++) {
     var row = notes[i];
-    let talk = {};
+    let talk = {
+      total: 0,
+      values: {}
+    };
 
     if (i !== 0) {
       notes[0].map((name, j) => {
-        if (j !== 0) {
-          return talk[name] = row[j];
+        if (name === 'Total') {
+          talk.total = Number(row[j]);
+        }
+        if (j > 1) {
+          return talk.values[name] = Number(row[j]);
         }
         return false;
       });
@@ -39,11 +45,11 @@ export const getOwnName = (notes, profileName) => {
   return ownName;
 }
 
-export const getOwnNote = (notes, ownName) => {
-  if (!notes[ownName]) {
+export const getOwnNote = (notes, name) => {
+  if (!notes[name]) {
     return 0;
   }
-  return Math.round(notes[ownName])
+  return Math.round(notes[name])
 }
 
 export const getOthersNote = (notes, ownName) => {
