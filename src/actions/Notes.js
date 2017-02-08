@@ -44,12 +44,10 @@ export const updateNotes = id => dispatch => {
   dispatch({
     type: LOAD_NOTES
   });
-  batchGet([`Propositions!J${id}`, 'Notes!A1:K30'])
+  batchGet(['Notes!A1:K30'])
   .then(response => {
-    const talkValue = Number(response.valueRanges[0].values[0]);
-    const noteValues = response.valueRanges[1].values;
+    const noteValues = response.valueRanges[0].values;
     
-    dispatch(updateTalkNote(id, talkValue));
     if (noteValues.length > 0) {
       const notes = parseNotes(noteValues);
       dispatch(fetchedNotes(notes));
@@ -64,10 +62,9 @@ export const updateNotes = id => dispatch => {
 
 export const vote = (name, note) => (dispatch, getState) => {
   const state = getState();
-  const nameArray = Object.keys(state.notes[state.selectedTalk]);
+  const nameArray = Object.keys(state.notes[state.selectedTalk].values);
   const column = findColumnLetter(name, nameArray);
   const row = state.selectedTalk + 2; // sheet values start at 2;
-  console.log(`${name} give a ${note} to ${state.selectedTalk}`);
 
   dispatch({
     type: VOTE,

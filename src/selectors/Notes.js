@@ -73,5 +73,5 @@ export const getOthersNote = (notes, ownName) => {
 export const findColumnLetter = (name, nameArray) => {
   const i = nameArray.indexOf(name);
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTWXYZ';
-  return alphabet[i+1]
+  return alphabet[i+2]
 }

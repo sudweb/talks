@@ -37,6 +37,6 @@ describe('Notes selectors', () => {
 
     it('findColumnLetter should letter associated to name', () => {
         const nameArray = ['toto', 'mimi', 'lulu']
-        expect(findColumnLetter('lulu', nameArray)).toEqual('D');
+        expect(findColumnLetter('lulu', nameArray)).toEqual('E');
     });
 })
