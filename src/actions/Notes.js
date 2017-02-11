@@ -22,7 +22,7 @@ export const loadNotes = () => dispatch => {
   dispatch({
     type: LOAD_NOTES
   });
-  batchGet(['Notes!A1:K30'])
+  batchGet(['Notes!A1:K70'])
   .then(response => {
     const values = response.valueRanges[0].values;
     if (values.length > 0) {
