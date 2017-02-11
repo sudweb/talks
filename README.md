@@ -1,6 +1,7 @@
 # Sud Web Talks
 
 [![Build Status](https://travis-ci.org/sudweb/talks.svg?branch=master)](https://travis-ci.org/sudweb/talks)
+[![NSP Status](https://nodesecurity.io/orgs/sud-web/projects/eaf659ee-9632-41ba-8005-9050dc85a991/badge)](https://nodesecurity.io/orgs/sud-web/projects/eaf659ee-9632-41ba-8005-9050dc85a991)
 
 At [Sud Web](http://sudweb.fr), we manage *call for paper* via a Google Form.
 This is nice and handy but totally unreadable.
