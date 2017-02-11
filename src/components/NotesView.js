@@ -95,18 +95,18 @@ class NotesView extends Component {
         </TableBody>
       </Table>
     )
-    
+
   }
 
   render() {
     const iconStyle = {transform: 'rotate(180deg)'};
-    
+
     return (
       <div>
         <div style={{margin: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-          <span style={{flex: 1}}><strong>Note moyenne :&nbsp;</strong>{this.props.globalNote}</span>
+          <span style={{flex: 1}}><strong>Note globale :&nbsp;</strong>{this.props.globalNote}</span>
           {this.getownNote()}
-          <IconButton            
+          <IconButton
             onClick={() => this.handleNestedListToggle()}
             touch={true}
             tooltip="Détail des votes"
