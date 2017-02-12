@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import {List, ListItem, makeSelectable} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import {teal500, red400, orange500} from 'material-ui/styles/colors';
@@ -18,11 +19,9 @@ function wrapState(ComposedComponent) {
     }
 
     componentWillReceiveProps(nextProps) {
-      if (nextProps.defaultValue !== undefined && nextProps.defaultValue !== this.state.selectedIndex) {
-        this.setState({
-          selectedIndex: nextProps.defaultValue
-        });
-      }
+      this.setState({
+        selectedIndex: nextProps.defaultValue
+      });
     }
 
     handleRequestChange = (event, index) => {
@@ -76,6 +75,13 @@ class TalkList extends Component {
     return null;
   }
 
+  getSelectedTalkIndex() {
+    if (this.props.selectedTalk === null) {
+      return null;
+    }
+    return _.findIndex(this.props.talks, ['id', this.props.selectedTalk+1]);
+  }
+
   render() {
     const {talks, count} = this.props;
     return (
@@ -99,7 +105,7 @@ class TalkList extends Component {
             <MenuItem value="note" primaryText="Note" />
           </SelectField>
         </div>
-        <SelectableList>
+        <SelectableList defaultValue={this.getSelectedTalkIndex()}>
           {talks.map((talk, i) => this.getTalk(talk, i))}
         </SelectableList>
       </div>

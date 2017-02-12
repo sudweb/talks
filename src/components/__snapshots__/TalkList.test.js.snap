@@ -67,7 +67,8 @@ ShallowWrapper {
                 value="note" />
         </SelectField>
     </div>
-    <SelectableList>
+    <SelectableList
+        defaultValue={-1}>
         <ListItem
             autoGenerateNestedIndicator={true}
             disableKeyboardFocus={false}
@@ -213,7 +214,8 @@ ShallowWrapper {
                         value="note" />
             </SelectField>
       </div>
-      <SelectableList>
+      <SelectableList
+            defaultValue={-1}>
             <ListItem
                   autoGenerateNestedIndicator={true}
                   disableKeyboardFocus={false}
@@ -500,7 +502,8 @@ ShallowWrapper {
                                         value="note" />
                     </SelectField>
           </div>
-          <SelectableList>
+          <SelectableList
+                    defaultValue={-1}>
                     <ListItem
                               autoGenerateNestedIndicator={true}
                               disableKeyboardFocus={false}
@@ -646,7 +649,8 @@ ShallowWrapper {
                                         value="note" />
                     </SelectField>
           </div>
-          <SelectableList>
+          <SelectableList
+                    defaultValue={-1}>
                     <ListItem
                               autoGenerateNestedIndicator={true}
                               disableKeyboardFocus={false}
