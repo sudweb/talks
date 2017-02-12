@@ -46,11 +46,19 @@ export const isLT = format => {
   return format === 'Lightning Talk : 5 minutes';
 };
 
-export const getFilteredList = (talks, filter, sortBy) => {
-  const sortedTalks = _.sortBy(talks, sortBy);
+export const getFilteredList = state => {
+  const { talks, notes, filter, sortBy } = state;
+  let sortedTalks = notes !== null ? _.map(talks, talk => {
+    talk.note = notes[talk.id-1].total;
+    return talk;
+  }) : talks;
+
+  sortedTalks = _.sortBy(sortedTalks, sortBy);
+
   if (sortBy === 'note') {
     sortedTalks.reverse();
   }
+  
   if (filter === 'PK') {
     return sortedTalks.filter(talk => {
       return isPK(talk.formats);

@@ -93,11 +93,7 @@ ShallowWrapper {
             open={null}
             primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
             primaryTogglesNestedList={false}
-            rightIcon={
-                <span>
-                    1
-                </span>
-            }
+            rightIcon={<span />}
             secondaryText="Alexandra Janin"
             secondaryTextLines={1}
             value={0} />
@@ -126,11 +122,7 @@ ShallowWrapper {
             open={null}
             primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
             primaryTogglesNestedList={false}
-            rightIcon={
-                <span>
-                    1
-                </span>
-            }
+            rightIcon={<span />}
             secondaryText="Alexandra Janin"
             secondaryTextLines={1}
             value={1} />
@@ -247,11 +239,7 @@ ShallowWrapper {
                   open={null}
                   primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                   primaryTogglesNestedList={false}
-                  rightIcon={
-                        <span>
-                              1
-                        </span>
-                  }
+                  rightIcon={<span />}
                   secondaryText="Alexandra Janin"
                   secondaryTextLines={1}
                   value={0} />
@@ -280,11 +268,7 @@ ShallowWrapper {
                   open={null}
                   primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                   primaryTogglesNestedList={false}
-                  rightIcon={
-                        <span>
-                              1
-                        </span>
-                  }
+                  rightIcon={<span />}
                   secondaryText="Alexandra Janin"
                   secondaryTextLines={1}
                   value={1} />
@@ -542,11 +526,7 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <span>
-                                                  1
-                                        </span>
-                              }
+                              rightIcon={<span />}
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={0} />
@@ -575,11 +555,7 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <span>
-                                                  1
-                                        </span>
-                              }
+                              rightIcon={<span />}
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={1} />
@@ -696,11 +672,7 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <span>
-                                                  1
-                                        </span>
-                              }
+                              rightIcon={<span />}
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={0} />
@@ -729,11 +701,7 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <span>
-                                                  1
-                                        </span>
-                              }
+                              rightIcon={<span />}
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={1} />

@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
   return {
     ...state,
     count: countTalksByFormats(state.talks),
-    filteredTalks: getFilteredList(state.talks, state.filter, state.sortBy)
+    filteredTalks: getFilteredList(state)
   };
 }
 

@@ -59,7 +59,7 @@ class TalkList extends Component {
   }
 
   getTalk(talk, i) {
-    if (this.props.notes !== null) {
+    if (talk.note !== null) {
       return (
           <ListItem
               key={i}
@@ -67,7 +67,7 @@ class TalkList extends Component {
               onTouchTap={() => this.props.selectTalk(talk.id)}
               primaryText={talk.titre_de_ta_presentation}
               secondaryText={talk.prenom_et_nom}
-              rightIcon={<span>{this.props.notes[i].total}</span>}
+              rightIcon={<span>{talk.note}</span>}
               leftAvatar={this.getFormat(talk.formats)}
             />
       )

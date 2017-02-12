@@ -49,44 +49,71 @@ describe('Talks selectors', () => {
 
   describe('getFilteredList', () => {
     it('should return all talks if no filter and no sortBy', () => {
-      const talks = [
-        { title: 'Test 1', if: 1, note: 2, date: '2017-01-01' },
-        { title: 'Test 2', id: 2, note: -8, date: '2017-02-01' }
-      ];
-      expect(getFilteredList(talks)).toEqual([
-        { title: 'Test 1', if: 1, note: 2, date: '2017-01-01' },
+      const state = {
+        talks: [
+          { title: 'Test 1', id: 1, date: '2017-01-01' },
+          { title: 'Test 2', id: 2, date: '2017-02-01' }
+        ],
+        notes: [
+          { total: 2 },
+          { total: -8 }
+        ]
+      };
+      expect(getFilteredList(state)).toEqual([
+        { title: 'Test 1', id: 1, note: 2, date: '2017-01-01' },
         { title: 'Test 2', id: 2, note: -8, date: '2017-02-01' }
       ]);
     });
 
     it('should return only first talk if filter is LT', () => {
-      const talks = [
-        { title: 'Test 1', if: 1, formats: 'Lightning Talk : 5 minutes', note: 2, date: '2017-01-01' },
-        { title: 'Test 2', id: 2, formats: 'Pecha Kucha : 20 images x 20 secondes', note: 8, date: '2017-02-01' }
-      ];
-      expect(getFilteredList(talks, 'LT')).toEqual([
-        { title: 'Test 1', if: 1, formats: 'Lightning Talk : 5 minutes', note: 2, date: '2017-01-01' }
+      const state = {
+        talks: [
+          { title: 'Test 1', id: 1, formats: 'Lightning Talk : 5 minutes', date: '2017-01-01' },
+          { title: 'Test 2', id: 2, formats: 'Pecha Kucha : 20 images x 20 secondes', date: '2017-02-01' }
+        ],
+        notes: [
+          { total: 2 },
+          { total: 8 }
+        ],
+        filter: 'LT'
+      };
+      expect(getFilteredList(state)).toEqual([
+        { title: 'Test 1', id: 1, formats: 'Lightning Talk : 5 minutes', note: 2, date: '2017-01-01' }
       ]);
     });
 
     it('should return only second talk if filter is PK', () => {
-      const talks = [
-        { title: 'Test 1', if: 1, formats: 'Lightning Talk : 5 minutes', note: 2, date: '2017-01-01' },
-        { title: 'Test 2', id: 2, formats: 'Pecha Kucha : 20 images x 20 secondes', note: 8, date: '2017-02-01' }
-      ];
-      expect(getFilteredList(talks, 'PK')).toEqual([
+      const state = {
+        talks: [
+          { title: 'Test 1', id: 1, formats: 'Lightning Talk : 5 minutes', date: '2017-01-01' },
+          { title: 'Test 2', id: 2, formats: 'Pecha Kucha : 20 images x 20 secondes', date: '2017-02-01' }
+        ],
+        notes: [
+          { total: 2 },
+          { total: 8 }
+        ],
+        filter: 'PK'
+      };
+      expect(getFilteredList(state)).toEqual([
         { title: 'Test 2', id: 2, formats: 'Pecha Kucha : 20 images x 20 secondes', note: 8, date: '2017-02-01' }
       ]);
     });
 
     it('should return talk list sorted by note', () => {
-      const talks = [
-        { title: 'Test 1', if: 1, note: 2, date: '2017-01-01' },
-        { title: 'Test 2', id: 2, note: 8, date: '2017-02-01' }
-      ];
-      expect(getFilteredList(talks, null, 'note')).toEqual([
+      const state = {
+        talks: [
+          { title: 'Test 1', id: 1, date: '2017-01-01' },
+          { title: 'Test 2', id: 2, date: '2017-02-01' }
+        ],
+        notes: [
+          { total: 2 },
+          { total: 8 }
+        ],
+        sortBy: 'note'
+      };
+      expect(getFilteredList(state)).toEqual([
         { title: 'Test 2', id: 2, note: 8, date: '2017-02-01' },
-        { title: 'Test 1', if: 1, note: 2, date: '2017-01-01' },
+        { title: 'Test 1', id: 1, note: 2, date: '2017-01-01' },
       ]);
     });
   });

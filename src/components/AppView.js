@@ -73,8 +73,7 @@ class AppView extends Component {
       count, 
       selectedTalk,
       permission,
-      filteredTalks,
-      notes
+      filteredTalks
     } = this.props;
     
     if (loader) {
@@ -89,7 +88,6 @@ class AppView extends Component {
         </main>
       )
     }
-    
     return (
       <main>
         <Drawer 
@@ -100,7 +98,6 @@ class AppView extends Component {
           style={{position: 'relative'}}>
           <TalkList
             selectedTalk={selectedTalk}
-            notes={notes}
             count={count}
             talks={filteredTalks}
             selectTalk={id => this.props.selectTalk(id)}
