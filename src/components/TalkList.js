@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import _ from 'lodash';
-import {List, ListItem, makeSelectable} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-import {teal500, red400, orange500} from 'material-ui/styles/colors';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import {isPK, isLT} from '../selectors/Talks';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+import React, { Component } from "react";
+import _ from "lodash";
+import { List, ListItem, makeSelectable } from "material-ui/List";
+import Avatar from "material-ui/Avatar";
+import { teal500, red400, orange500 } from "material-ui/styles/colors";
+import { Tabs, Tab } from "material-ui/Tabs";
+import { isPK, isLT } from "../selectors/Talks";
+import SelectField from "material-ui/SelectField";
+import MenuItem from "material-ui/MenuItem";
 
 let SelectableList = makeSelectable(List);
 
@@ -14,7 +14,7 @@ function wrapState(ComposedComponent) {
   return class SelectableList extends Component {
     componentWillMount() {
       this.setState({
-        selectedIndex: this.props.defaultValue,
+        selectedIndex: this.props.defaultValue
       });
     }
 
@@ -26,7 +26,7 @@ function wrapState(ComposedComponent) {
 
     handleRequestChange = (event, index) => {
       this.setState({
-        selectedIndex: index,
+        selectedIndex: index
       });
     };
 
@@ -48,10 +48,10 @@ SelectableList = wrapState(SelectableList);
 class TalkList extends Component {
   getFormat(format) {
     if (isPK(format)) {
-      return <Avatar backgroundColor={teal500}>PK</Avatar>
+      return <Avatar backgroundColor={teal500}>PK</Avatar>;
     }
     if (isLT(format)) {
-      return <Avatar backgroundColor={orange500}>LT</Avatar>
+      return <Avatar backgroundColor={orange500}>LT</Avatar>;
     }
 
     return null;
@@ -60,16 +60,16 @@ class TalkList extends Component {
   getTalk(talk, i) {
     if (talk.note !== null) {
       return (
-          <ListItem
-              key={i}
-              value={i}
-              onTouchTap={() => this.props.selectTalk(talk.id)}
-              primaryText={talk.titre_de_ta_presentation}
-              secondaryText={talk.prenom_et_nom}
-              rightIcon={<span>{talk.note}</span>}
-              leftAvatar={this.getFormat(talk.formats)}
-            />
-      )
+        <ListItem
+          key={i}
+          value={i}
+          onTouchTap={() => this.props.selectTalk(talk.id)}
+          primaryText={talk.titre_de_ta_presentation}
+          secondaryText={talk.prenom_et_nom}
+          rightIcon={<span>{talk.note}</span>}
+          leftAvatar={this.getFormat(talk.formats)}
+        />
+      );
     }
 
     return null;
@@ -79,24 +79,25 @@ class TalkList extends Component {
     if (this.props.selectedTalk === null) {
       return null;
     }
-    return _.findIndex(this.props.talks, ['id', this.props.selectedTalk+1]);
+    return _.findIndex(this.props.talks, ["id", this.props.selectedTalk + 1]);
   }
 
   render() {
-    const {talks, count} = this.props;
+    const { talks, count } = this.props;
     return (
       <div className="TalkList">
-        <Tabs 
-          onChange={value => this.props.setFilter(value)} 
-          tabItemContainerStyle={{backgroundColor: red400}}
-          inkBarStyle={{backgroundColor: 'white'}}>
+        <Tabs
+          onChange={value => this.props.setFilter(value)}
+          tabItemContainerStyle={{ backgroundColor: red400 }}
+          inkBarStyle={{ backgroundColor: "white" }}
+        >
           <Tab label={`All (${count.all})`} value={null} />
           <Tab label={`PK (${count.PK})`} value="PK" />
           <Tab label={`LT (${count.LT})`} value="LT" />
         </Tabs>
-        <div style={{padding: '0 16px'}}>
+        <div style={{ padding: "0 16px" }}>
           <SelectField
-            style={{width: '100%'}}
+            style={{ width: "100%" }}
             floatingLabelText="Trier par"
             value={this.props.sortBy}
             onChange={(event, index, value) => this.props.sortTalks(value)}

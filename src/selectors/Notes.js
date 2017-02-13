@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import _ from 'lodash';
+import _ from "lodash";
 
 export const parseNotes = notes => {
   let notesArray = [];
@@ -14,7 +14,7 @@ export const parseNotes = notes => {
 
     if (i !== 0) {
       notes[0].map((name, j) => {
-        if (name === 'Total') {
+        if (name === "Total") {
           talk.total = Number(row[j]);
         }
         if (j > 1) {
@@ -26,7 +26,7 @@ export const parseNotes = notes => {
     }
   }
   return notesArray;
-}
+};
 
 export const getOwnName = (notes, profileName) => {
   let ownName = null;
@@ -43,14 +43,14 @@ export const getOwnName = (notes, profileName) => {
   });
 
   return ownName;
-}
+};
 
 export const getOwnNote = (notes, name) => {
   if (!notes[name]) {
     return 0;
   }
-  return Math.round(notes[name])
-}
+  return Math.round(notes[name]);
+};
 
 export const getOthersNote = (notes, ownName) => {
   let othertsNotes = [];
@@ -61,17 +61,16 @@ export const getOthersNote = (notes, ownName) => {
     if (!notes[name]) {
       othertsNotes.push([name, 0]);
       return false;
-    }
-    else {
+    } else {
       othertsNotes.push([name, Math.round(notes[name])]);
       return false;
     }
-  })
+  });
   return othertsNotes;
-}
+};
 
 export const findColumnLetter = (name, nameArray) => {
   const i = nameArray.indexOf(name);
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTWXYZ';
-  return alphabet[i+2]
-}
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTWXYZ";
+  return alphabet[i + 2];
+};

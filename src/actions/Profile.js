@@ -1,34 +1,32 @@
-import {
-  requestPeople
-} from '../services/GoogleAPI';
-import {
-  handleError
-} from './App';
-export const LOAD_PROFILE = 'LOAD_PROFILE';
-export const FETCHED_PROFILE = 'FETCHED_PROFILE';
+import { requestPeople } from "../services/GoogleAPI";
+import { handleError } from "./App";
+export const LOAD_PROFILE = "LOAD_PROFILE";
+export const FETCHED_PROFILE = "FETCHED_PROFILE";
 
 export const loadProfile = () => dispatch => {
   dispatch({
     type: LOAD_PROFILE
   });
 
-  requestPeople()
-  .then(response => {
-    const result = response.result;
-    let profile = {};
-    if (result.names) {
-      profile.name = result.names[0].displayName;
-    }
-    if (result.emailAddresses) {
-      profile.email = result.emailAddresses[0].value;
-    }
+  requestPeople().then(
+    response => {
+      const result = response.result;
+      let profile = {};
+      if (result.names) {
+        profile.name = result.names[0].displayName;
+      }
+      if (result.emailAddresses) {
+        profile.email = result.emailAddresses[0].value;
+      }
 
-    if (result.photos) {
-      profile.img = result.photos[0].url;
-    }
-    return dispatch({
-      type: FETCHED_PROFILE,
-      profile: profile
-    })
-  }, error => handleError(error))
-}
+      if (result.photos) {
+        profile.img = result.photos[0].url;
+      }
+      return dispatch({
+        type: FETCHED_PROFILE,
+        profile: profile
+      });
+    },
+    error => handleError(error)
+  );
+};

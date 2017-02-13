@@ -1,19 +1,13 @@
 /* eslint-disable */
 
-import {
-    CLIENT_ID,
-    SCOPES,
-    SPREADSHEET_ID
-} from '../config.json';
-
+import { CLIENT_ID, SCOPES, SPREADSHEET_ID } from "../config.json";
 
 let gapi;
 try {
   window.gapi.client;
   gapi = window.gapi;
-}
-catch(e) {
-  gapi = require('./GoogleAPI.mock')
+} catch (e) {
+  gapi = require("./GoogleAPI.mock");
 }
 
 /**
@@ -21,22 +15,28 @@ catch(e) {
 */
 export const authorize = immediate => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      gapi.auth.authorize({
-        'client_id': CLIENT_ID,
-        'scope': SCOPES.join(' '),
-        'immediate': immediate,
-        // 'cookie_policy': 'single_host_origin'
-      }, authResult => {
-        if (authResult && !authResult.error) {
-          resolve(authResult);
-        } else {
-          reject(authResult.error);
-        }
-      });
-    }, 1000);
+    setTimeout(
+      () => {
+        gapi.auth.authorize(
+          {
+            client_id: CLIENT_ID,
+            scope: SCOPES.join(" "),
+            immediate: immediate
+            // 'cookie_policy': 'single_host_origin'
+          },
+          authResult => {
+            if (authResult && !authResult.error) {
+              resolve(authResult);
+            } else {
+              reject(authResult.error);
+            }
+          }
+        );
+      },
+      1000
+    );
   });
-}
+};
 
 export const signOut = () => {
   // var token = gapi.auth.getToken();
@@ -54,7 +54,7 @@ export const signOut = () => {
   // }
   // gapi.auth.setToken(null);
   gapi.auth.signOut();
-}
+};
 
 /**
  * Load profile data
@@ -67,26 +67,30 @@ export const signOut = () => {
  * @memberOf GoogleAPI
  */
 export const batchGet = (ranges, majorDimension) => {
-  var discoveryUrl = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+  var discoveryUrl = "https://sheets.googleapis.com/$discovery/rest?version=v4";
 
   return new Promise((resolve, reject) => {
-    gapi.client.load(discoveryUrl)
-      .then(() => {
-        gapi.client.sheets.spreadsheets.values.batchGet({
+    gapi.client.load(discoveryUrl).then(() => {
+      gapi.client.sheets.spreadsheets.values
+        .batchGet({
           spreadsheetId: SPREADSHEET_ID,
           ranges: ranges,
-          majorDimension: majorDimension || 'DIMENSION_UNSPECIFIED'
-        }).then(response => {
-          resolve(response.result);
-        }, response => reject(response.result.error));
-      });
+          majorDimension: majorDimension || "DIMENSION_UNSPECIFIED"
+        })
+        .then(
+          response => {
+            resolve(response.result);
+          },
+          response => reject(response.result.error)
+        );
+    });
   });
-}
+};
 
 export const batchUpdate = (range, values) => {
   return gapi.client.sheets.spreadsheets.values.batchUpdate({
     spreadsheetId: SPREADSHEET_ID,
-    valueInputOption: 'RAW',
+    valueInputOption: "RAW",
     data: [
       {
         range: range,
@@ -94,8 +98,7 @@ export const batchUpdate = (range, values) => {
       }
     ]
   });
-}
-
+};
 
 /**
  * Load profile data
@@ -106,6 +109,6 @@ export const batchUpdate = (range, values) => {
  */
 export const requestPeople = () => {
   return gapi.client.request({
-    'path': 'https://people.googleapis.com/v1/people/me',
+    path: "https://people.googleapis.com/v1/people/me"
   });
-}
+};
