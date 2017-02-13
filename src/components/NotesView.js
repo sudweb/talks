@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import IconButton from 'material-ui/IconButton';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
-import KeyboardArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+import React, { Component } from "react";
+import IconButton from "material-ui/IconButton";
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn
+} from "material-ui/Table";
+import KeyboardArrowDown
+  from "material-ui/svg-icons/hardware/keyboard-arrow-down";
+import SelectField from "material-ui/SelectField";
+import MenuItem from "material-ui/MenuItem";
 
 class NotesView extends Component {
   constructor(props) {
@@ -24,7 +32,7 @@ class NotesView extends Component {
 
   handleNestedListToggle = () => {
     this.setState({
-      voteOpen: !this.state.voteOpen,
+      voteOpen: !this.state.voteOpen
     });
   };
 
@@ -33,34 +41,36 @@ class NotesView extends Component {
       ownNote: value
     });
     this.props.vote(this.props.ownName, value);
-  }
+  };
 
   getownNote() {
     const { ownName, myProfileName } = this.props;
     if (ownName === null) {
       return (
         <TableRow>
-          <TableRowColumn>Ton nom ({myProfileName}) n'est pas dans la liste des votants.</TableRowColumn>
-          <TableRowColumn></TableRowColumn>
+          <TableRowColumn>
+            Ton nom ({myProfileName}) n'est pas dans la liste des votants.
+          </TableRowColumn>
+          <TableRowColumn />
         </TableRow>
-      )
+      );
     }
 
     return (
-        <SelectField
-          id="ownNote"
-          floatingLabelText={`Ma note (${ownName})`}
-          style={{width: 200}}
-          value={this.state.ownNote}
-          onChange={this.handleNoteChange}
-        >
-          <MenuItem value={-2} primaryText="Exclusion (-2)" />
-          <MenuItem value={-1} primaryText="Désaprobation (-1)" />
-          <MenuItem value={0} primaryText="Neutre (0)" />
-          <MenuItem value={1} primaryText="Approbation (1)" />
-          <MenuItem value={2} primaryText="Sélection (2)" />
-        </SelectField>
-    )
+      <SelectField
+        id="ownNote"
+        floatingLabelText={`Ma note (${ownName})`}
+        style={{ width: 200 }}
+        value={this.state.ownNote}
+        onChange={this.handleNoteChange}
+      >
+        <MenuItem value={-2} primaryText="Exclusion (-2)" />
+        <MenuItem value={-1} primaryText="Désaprobation (-1)" />
+        <MenuItem value={0} primaryText="Neutre (0)" />
+        <MenuItem value={1} primaryText="Approbation (1)" />
+        <MenuItem value={2} primaryText="Sélection (2)" />
+      </SelectField>
+    );
   }
 
   getDetailsNote() {
@@ -94,23 +104,31 @@ class NotesView extends Component {
           {othersNoteRow}
         </TableBody>
       </Table>
-    )
-
+    );
   }
 
   render() {
-    const iconStyle = {transform: 'rotate(180deg)'};
+    const iconStyle = { transform: "rotate(180deg)" };
 
     return (
       <div>
-        <div style={{margin: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-          <span style={{flex: 1}}><strong>Note globale :&nbsp;</strong>{this.props.globalNote}</span>
+        <div
+          style={{
+            margin: 10,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}
+        >
+          <span style={{ flex: 1 }}>
+            <strong>Note globale :&nbsp;</strong>{this.props.globalNote}
+          </span>
           {this.getownNote()}
           <IconButton
             onClick={() => this.handleNestedListToggle()}
             touch={true}
             tooltip="Détail des votes"
-            >
+          >
             <div style={iconStyle}>
               <KeyboardArrowDown />
             </div>
