@@ -1,6 +1,6 @@
 {
   "name": "talks-react",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "homepage": "https://sudweb.github.io/talks",
   "private": true,
   "devDependencies": {
@@ -13,6 +13,7 @@
     "gh-pages": "^0.12.0",
     "jest": "^18.1.0",
     "postcss": "^5.2.14",
+    "prettier": "^0.16.0",
     "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.8.5",
     "react-test-renderer": "^15.4.2",
@@ -34,8 +35,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "npm run format:all",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "cover:open": "open coverage/lcov-report/index.html",
+    "format:all": "prettier --write src/**/*.js",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

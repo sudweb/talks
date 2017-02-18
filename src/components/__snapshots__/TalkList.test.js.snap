@@ -67,7 +67,8 @@ ShallowWrapper {
                 value="note" />
         </SelectField>
     </div>
-    <SelectableList>
+    <SelectableList
+        defaultValue={-1}>
         <ListItem
             autoGenerateNestedIndicator={true}
             disableKeyboardFocus={false}
@@ -93,11 +94,7 @@ ShallowWrapper {
             open={null}
             primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
             primaryTogglesNestedList={false}
-            rightIcon={
-                <span>
-                    1
-                </span>
-            }
+            rightIcon={<span />}
             secondaryText="Alexandra Janin"
             secondaryTextLines={1}
             value={0} />
@@ -126,11 +123,7 @@ ShallowWrapper {
             open={null}
             primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
             primaryTogglesNestedList={false}
-            rightIcon={
-                <span>
-                    1
-                </span>
-            }
+            rightIcon={<span />}
             secondaryText="Alexandra Janin"
             secondaryTextLines={1}
             value={1} />
@@ -221,7 +214,8 @@ ShallowWrapper {
                         value="note" />
             </SelectField>
       </div>
-      <SelectableList>
+      <SelectableList
+            defaultValue={-1}>
             <ListItem
                   autoGenerateNestedIndicator={true}
                   disableKeyboardFocus={false}
@@ -247,11 +241,7 @@ ShallowWrapper {
                   open={null}
                   primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                   primaryTogglesNestedList={false}
-                  rightIcon={
-                        <span>
-                              1
-                        </span>
-                  }
+                  rightIcon={<span />}
                   secondaryText="Alexandra Janin"
                   secondaryTextLines={1}
                   value={0} />
@@ -280,11 +270,7 @@ ShallowWrapper {
                   open={null}
                   primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                   primaryTogglesNestedList={false}
-                  rightIcon={
-                        <span>
-                              1
-                        </span>
-                  }
+                  rightIcon={<span />}
                   secondaryText="Alexandra Janin"
                   secondaryTextLines={1}
                   value={1} />
@@ -516,7 +502,8 @@ ShallowWrapper {
                                         value="note" />
                     </SelectField>
           </div>
-          <SelectableList>
+          <SelectableList
+                    defaultValue={-1}>
                     <ListItem
                               autoGenerateNestedIndicator={true}
                               disableKeyboardFocus={false}
@@ -542,11 +529,7 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <span>
-                                                  1
-                                        </span>
-                              }
+                              rightIcon={<span />}
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={0} />
@@ -575,11 +558,7 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <span>
-                                                  1
-                                        </span>
-                              }
+                              rightIcon={<span />}
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={1} />
@@ -670,7 +649,8 @@ ShallowWrapper {
                                         value="note" />
                     </SelectField>
           </div>
-          <SelectableList>
+          <SelectableList
+                    defaultValue={-1}>
                     <ListItem
                               autoGenerateNestedIndicator={true}
                               disableKeyboardFocus={false}
@@ -696,11 +676,7 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <span>
-                                                  1
-                                        </span>
-                              }
+                              rightIcon={<span />}
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={0} />
@@ -729,11 +705,7 @@ ShallowWrapper {
                               open={null}
                               primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
                               primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <span>
-                                                  1
-                                        </span>
-                              }
+                              rightIcon={<span />}
                               secondaryText="Alexandra Janin"
                               secondaryTextLines={1}
                               value={1} />

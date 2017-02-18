@@ -1,20 +1,20 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import { selectTalk, sortTalks } from '../actions/Talks';
-import { filterTalks } from '../actions/App';
-import { countTalksByFormats, getFilteredList } from '../selectors/Talks';
-import { requestAuth, signout } from '../actions/Auth';
-import AppView from '../components/AppView';
+import { selectTalk, sortTalks } from "../actions/Talks";
+import { filterTalks } from "../actions/App";
+import { countTalksByFormats, getFilteredList } from "../selectors/Talks";
+import { requestAuth, signout } from "../actions/Auth";
+import AppView from "../components/AppView";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     ...state,
     count: countTalksByFormats(state.talks),
-    filteredTalks: getFilteredList(state.talks, state.filter, state.sortBy)
+    filteredTalks: getFilteredList(state)
   };
-}
+};
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     requestAuth: immediate => dispatch(requestAuth(immediate)),
     filterTalks: format => dispatch(filterTalks(format)),
@@ -22,11 +22,8 @@ const mapDispatchToProps = (dispatch) => {
     signout: () => dispatch(signout()),
     sortTalks: value => dispatch(sortTalks(value))
   };
-}
+};
 
-const App = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppView)
+const App = connect(mapStateToProps, mapDispatchToProps)(AppView);
 
 export default App;

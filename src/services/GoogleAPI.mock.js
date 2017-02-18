@@ -1,12 +1,12 @@
 const gapi = {
   client: {
     request: () => {
-      return Promise.resolve('');
+      return Promise.resolve("");
     }
   },
   requestPeople: {}
 };
 
-console.log(gapi.client.request())
+console.log(gapi.client.request());
 
-module.exports = gapi
+module.exports = gapi;
