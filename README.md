@@ -47,3 +47,13 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 `npm run deploy`
+
+## Docker
+
+To create the image, execute the following command in the project directory:
+
+`docker build  -t=sudweb-talks .`
+
+To run the image:
+
+`docker run -it --name sudweb-talks -v $(pwd)/src:/app/src -v $(pwd)/public:/app/public -p 3000:3000 sudweb-talks`
