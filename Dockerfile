@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:6.9.5
 RUN mkdir /app
 RUN chown node:node -R /app
 USER node
