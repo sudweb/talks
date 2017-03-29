@@ -59,8 +59,9 @@ To run the image:
 `docker run -it --name sudweb-talks -v $(pwd)/src:/app/src -v $(pwd)/public:/app/public -p 3000:3000 sudweb-talks`
 
 
-## Spreadsheet structure
+## Google Spreadsheet
 
+This app uses Google Spreadsheet as database. Read [Google Spreadsheet API] docs(https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/batchGet) for more Details.
 The spreadsheet must follow below structure :
 
 ### 1st sheet called "Propositions"
