@@ -61,7 +61,7 @@ To run the image:
 
 ## Google Spreadsheet
 
-This app uses Google Spreadsheet as database. Read [Google Spreadsheet API] docs(https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/batchGet) for more Details.
+This app uses Google Spreadsheet as database. Read [Google Spreadsheet API docs](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/batchGet) for more Details.
 The spreadsheet must follow below structure :
 
 ### 1st sheet called "Propositions"
