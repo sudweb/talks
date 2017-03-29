@@ -72,9 +72,9 @@ The spreadsheet must follow below structure :
 
 ### 2nd sheet called "Notes"
 
-| Subject | Total | Member's Name | Another member name | ... |
-|---|---|---|---|---|---|
-| Subject 1's title | 1 | 0 | 1 | ... |
-| Subject 2's title | 2 | 1 | 1 | ... |
+Subject | Total | Member's Name | Another member name | ...
+---|---|---|---|---
+Subject 1's title | 1 | 0 | 1 | ...
+Subject 2's title | 2 | 1 | 1 | ...
 
 
