@@ -67,13 +67,14 @@ The spreadsheet must follow below structure :
 
 | Timestamp | Prénom et nom | Email | Titre de ta présentation | Formats | Description de ta présentation | Si le public ne devait retenir qu'une chose, ce serait... | Tu veux ajouter quelque chose ? |
 |---|---|---|---|---|---|---|---|
+| ... | ... | ... | ... | ... | ... | ... | ... |
 
 
 ### 2nd sheet called "Notes"
 
 | Subject | Total | Member's Name | Another member name | ... |
 |---|---|---|---|---|---|
-| Subject 1's title | 1 |0|1|...|
-| Subject 2's title | 2 |1|1|...|
+| Subject 1's title | 1 | 0 | 1 | ... |
+| Subject 2's title | 2 | 1 | 1 | ... |
 
 
