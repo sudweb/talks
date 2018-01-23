@@ -109,6 +109,9 @@ export const batchUpdate = (range, values) => {
  */
 export const requestPeople = () => {
   return gapi.client.request({
-    path: "https://people.googleapis.com/v1/people/me"
+    path: "https://people.googleapis.com/v1/people/me",
+    params: {
+      personFields: "names,photos,emailAddresses"
+    }
   });
 };

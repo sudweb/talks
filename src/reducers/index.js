@@ -19,6 +19,7 @@ import { getOwnName } from "../selectors/Notes";
 export const defaultState = {
   loader: false,
   authorize: false,
+  token: null,
   permission: null,
   errorMessage: null,
   profile: null,

@@ -29,6 +29,7 @@ ShallowWrapper {
         }>
         Lightning Talk : 5 minutes
     </Chip>
+    <Connect(NotesView) />
     <Divider
         inset={false} />
     <List>
@@ -123,6 +124,7 @@ ShallowWrapper {
             }>
             Lightning Talk : 5 minutes
       </Chip>
+      <Connect(NotesView) />
       <Divider
             inset={false} />
       <List>
@@ -266,6 +268,7 @@ ShallowWrapper {
                     }>
                     Lightning Talk : 5 minutes
           </Chip>
+          <Connect(NotesView) />
           <Divider
                     inset={false} />
           <List>
@@ -360,6 +363,7 @@ ShallowWrapper {
                     }>
                     Lightning Talk : 5 minutes
           </Chip>
+          <Connect(NotesView) />
           <Divider
                     inset={false} />
           <List>

@@ -117,7 +117,7 @@ class Talk extends Component {
       <section className="Talk">
         <h2>{talk[CONFIG.fields.title]}</h2>
         <Chip labelColor="white" style={formatStyle}>{talk.formats}</Chip>
-
+        <Notes />
 
         <Divider />
         <List>
