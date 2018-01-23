@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   --red: #e84538;
+  --green: #879e38;
   --yellow: #f8a912;
   --grey: #353535;
   font-size: 1.4em;
@@ -40,7 +41,7 @@ h2 {
   font-size: 2em;
   line-height: 1.08108108em;
   margin-bottom: 0;
-  color: var(--red);
+  color: var(--green);
 }
 
 h3 {
@@ -77,6 +78,6 @@ h3:not(:first-child) {
   .Talk {
     max-width: 40em;
     width: 100%;
-    float: right;
+    margin: 0 auto;
   }
 }

@@ -95,7 +95,7 @@ class TalkList extends Component {
             value={this.props.sortBy}
             onChange={(event, index, value) => this.props.sortTalks(value)}
           >
-            <MenuItem value="horodateur" primaryText="Date" />
+            <MenuItem value="date" primaryText="Date" />
             <MenuItem value="note" primaryText="Note" />
           </SelectField>
         </div>

@@ -7,7 +7,7 @@ import { List, ListItem } from "material-ui/List";
 import Avatar from "material-ui/Avatar";
 import CommunicationEmail from "material-ui/svg-icons/communication/email";
 import {
-  red500,
+  lightGreen500,
   lightBlack,
   orange500,
   teal500
@@ -78,7 +78,7 @@ class Talk extends Component {
         tooltipPosition="top-right"
         style={{ padding: 0, width: 32 }}
       >
-        <CommunicationEmail color={red500} />
+        <CommunicationEmail color={lightGreen500} />
       </IconButton>
     );
 
