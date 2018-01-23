@@ -81,7 +81,7 @@ ShallowWrapper {
                     tooltipPosition="top-right"
                     touch={true}>
                     <CommunicationEmail
-                        color="#f44336" />
+                        color="#8bc34a" />
                 </IconButton>
             }
             secondaryText="test@test.com"
@@ -175,7 +175,7 @@ ShallowWrapper {
                               tooltipPosition="top-right"
                               touch={true}>
                               <CommunicationEmail
-                                    color="#f44336" />
+                                    color="#8bc34a" />
                         </IconButton>
                   }
                   secondaryText="test@test.com"
@@ -318,7 +318,7 @@ ShallowWrapper {
                                                   tooltipPosition="top-right"
                                                   touch={true}>
                                                   <CommunicationEmail
-                                                            color="#f44336" />
+                                                            color="#8bc34a" />
                                         </IconButton>
                               }
                               secondaryText="test@test.com"
@@ -412,7 +412,7 @@ ShallowWrapper {
                                                   tooltipPosition="top-right"
                                                   touch={true}>
                                                   <CommunicationEmail
-                                                            color="#f44336" />
+                                                            color="#8bc34a" />
                                         </IconButton>
                               }
                               secondaryText="test@test.com"

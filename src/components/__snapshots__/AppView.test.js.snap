@@ -24,7 +24,7 @@ ShallowWrapper {
             showMenuIconButton={true}
             style={
                 Object {
-                    "backgroundColor": "#f44336",
+                    "backgroundColor": "#8bc34a",
                   }
             }
             title={
@@ -91,7 +91,7 @@ ShallowWrapper {
                   showMenuIconButton={true}
                   style={
                         Object {
-                              "backgroundColor": "#f44336",
+                              "backgroundColor": "#8bc34a",
                             }
                   }
                   title={
@@ -220,7 +220,7 @@ ShallowWrapper {
                               showMenuIconButton={true}
                               style={
                                         Object {
-                                                  "backgroundColor": "#f44336",
+                                                  "backgroundColor": "#8bc34a",
                                                 }
                               }
                               title={
@@ -287,7 +287,7 @@ ShallowWrapper {
                               showMenuIconButton={true}
                               style={
                                         Object {
-                                                  "backgroundColor": "#f44336",
+                                                  "backgroundColor": "#8bc34a",
                                                 }
                               }
                               title={

@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import { List, ListItem, makeSelectable } from "material-ui/List";
 import Avatar from "material-ui/Avatar";
-import { teal500, red400, orange500 } from "material-ui/styles/colors";
-import { Tabs, Tab } from "material-ui/Tabs";
+import { teal500, orange500 } from "material-ui/styles/colors";
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
 
@@ -85,7 +84,7 @@ class TalkList extends Component {
   }
 
   render() {
-    const { talks, count } = this.props;
+    const { talks } = this.props;
     return (
       <div className="TalkList">
         <div style={{ padding: "0 16px" }}>

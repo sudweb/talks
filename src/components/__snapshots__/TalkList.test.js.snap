@@ -33,7 +33,7 @@ ShallowWrapper {
                 focusState="none"
                 insetChildren={false}
                 primaryText="Date"
-                value="horodateur" />
+                value="date" />
             <MenuItem
                 checked={false}
                 desktop={false}
@@ -157,7 +157,7 @@ ShallowWrapper {
                         focusState="none"
                         insetChildren={false}
                         primaryText="Date"
-                        value="horodateur" />
+                        value="date" />
                   <MenuItem
                         checked={false}
                         desktop={false}
@@ -422,7 +422,7 @@ ShallowWrapper {
                                         focusState="none"
                                         insetChildren={false}
                                         primaryText="Date"
-                                        value="horodateur" />
+                                        value="date" />
                               <MenuItem
                                         checked={false}
                                         desktop={false}
@@ -546,7 +546,7 @@ ShallowWrapper {
                                         focusState="none"
                                         insetChildren={false}
                                         primaryText="Date"
-                                        value="horodateur" />
+                                        value="date" />
                               <MenuItem
                                         checked={false}
                                         desktop={false}
