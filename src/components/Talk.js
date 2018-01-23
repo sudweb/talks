@@ -15,10 +15,14 @@ import {
 import Chip from "material-ui/Chip";
 import IconButton from "material-ui/IconButton";
 import Divider from "material-ui/Divider";
+
+import CONFIG from "../config";
 import Notes from "../containers/Notes";
 
 class Talk extends Component {
   getDate(date) {
+    console.log(date);
+    
     return moment(date, "DD/MM/YYYY").format("DD/MM/YYYY");
   }
 
@@ -55,9 +59,9 @@ class Talk extends Component {
           primaryText={
             (
               <span>
-                {talk.prenom_et_nom}
+                {talk[CONFIG.fields.name]}
                 <span style={{ color: lightBlack }}>
-                  , le {this.getDate(talk.timestamp)}
+                  , le {this.getDate(talk[CONFIG.fields.timestamp])}
                 </span>
               </span>
             )
@@ -84,9 +88,9 @@ class Talk extends Component {
         primaryText={
           (
             <span>
-              {talk.prenom_et_nom}
+              {talk[CONFIG.fields.name]}
               <span style={{ color: lightBlack }}>
-                , le {this.getDate(talk.timestamp)}
+                , le {this.getDate(talk[CONFIG.fields.timestamp])}
               </span>
             </span>
           )
@@ -111,10 +115,9 @@ class Talk extends Component {
 
     return (
       <section className="Talk">
-        <h2>{talk.titre_de_ta_presentation}</h2>
+        <h2>{talk[CONFIG.fields.title]}</h2>
         <Chip labelColor="white" style={formatStyle}>{talk.formats}</Chip>
 
-        <Notes />
 
         <Divider />
         <List>
@@ -122,15 +125,15 @@ class Talk extends Component {
         </List>
         <Divider />
         <h3>Description</h3>
-        {this.getText(talk.description_de_ta_presentation)}
+        {this.getText(talk[CONFIG.fields.description])}
 
-        <h3>Si le public ne devait retenir qu'une chose, ce serait...</h3>
+        <h3>Durée de ton intervention</h3>
         {this.getText(
-          talk.si_le_public_ne_devait_retenir_quune_chose_ce_serait
+          talk.duree_de_ton_intervention
         )}
 
-        <h3>Tu veux ajouter quelque chose ?</h3>
-        {this.getText(talk.tu_veux_ajouter_quelque_chose)}
+        <h3>As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?</h3>
+        {this.getText(talk.as_tu_besoin_daide_concernant_ta_venue_ta_proposition_ou_nimporte_quel_autre_aspect_de_ce_sud_web_ca_ne_sera_pas_publie_sur_le_site)}
       </section>
     );
   }

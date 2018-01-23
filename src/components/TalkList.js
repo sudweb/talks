@@ -4,9 +4,11 @@ import { List, ListItem, makeSelectable } from "material-ui/List";
 import Avatar from "material-ui/Avatar";
 import { teal500, red400, orange500 } from "material-ui/styles/colors";
 import { Tabs, Tab } from "material-ui/Tabs";
-import { isPK, isLT } from "../selectors/Talks";
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
+
+import CONFIG from "../config";
+import { isPK, isLT } from "../selectors/Talks";
 
 let SelectableList = makeSelectable(List);
 
@@ -64,8 +66,8 @@ class TalkList extends Component {
           key={i}
           value={i}
           onTouchTap={() => this.props.selectTalk(talk.id)}
-          primaryText={talk.titre_de_ta_presentation}
-          secondaryText={talk.prenom_et_nom}
+          primaryText={talk[CONFIG.fields.title]}
+          secondaryText={talk[CONFIG.fields.name]}
           rightIcon={<span>{talk.note}</span>}
           leftAvatar={this.getFormat(talk.formats)}
         />
@@ -86,15 +88,6 @@ class TalkList extends Component {
     const { talks, count } = this.props;
     return (
       <div className="TalkList">
-        <Tabs
-          onChange={value => this.props.setFilter(value)}
-          tabItemContainerStyle={{ backgroundColor: red400 }}
-          inkBarStyle={{ backgroundColor: "white" }}
-        >
-          <Tab label={`All (${count.all})`} value={null} />
-          <Tab label={`PK (${count.PK})`} value="PK" />
-          <Tab label={`LT (${count.LT})`} value="LT" />
-        </Tabs>
         <div style={{ padding: "0 16px" }}>
           <SelectField
             style={{ width: "100%" }}
@@ -102,7 +95,7 @@ class TalkList extends Component {
             value={this.props.sortBy}
             onChange={(event, index, value) => this.props.sortTalks(value)}
           >
-            <MenuItem value="date" primaryText="Date" />
+            <MenuItem value="horodateur" primaryText="Date" />
             <MenuItem value="note" primaryText="Note" />
           </SelectField>
         </div>

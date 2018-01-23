@@ -104,7 +104,6 @@ class AppView extends Component {
           open={this.state.drawerIsOpen}
           className="drawer"
           width={360}
-          openSecondary={true}
           style={{ position: "relative" }}
         >
           <TalkList

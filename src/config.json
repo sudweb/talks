@@ -1,10 +1,16 @@
 {
     "API_KEY": "AIzaSyBhmmqWm4QLsQH2dnTaQNOoSGLq_IlweBY",
     "CLIENT_ID": "460329070283-8j9kmv5hucpqh2qv2aeirupk7ddg31si.apps.googleusercontent.com",
-    "SPREADSHEET_ID": "1I8mJSe6PgrUBmpGHCqtDWcxsSfLWPN11Ezi14bmJ1Iw",
+    "SPREADSHEET_ID": "15N2RYUVitQuzArqSInAcUgf9FMwRwH_rdiBLt5K_fLw",
     "SCOPES": [
         "https://www.googleapis.com/auth/spreadsheets",
         "https://www.googleapis.com/auth/plus.login"
     ],
-    "maxRow": 70
+    "maxRow": 70,
+    "fields": {
+        "name": "comment_tappeler_et_pronom_si_necessaire",
+        "title": "titre_de_ta_proposition",
+        "description": "ce_que_tu_souhaites_transmettre",
+        "timestamp": "horodateur"
+    }
 }

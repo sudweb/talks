@@ -75,6 +75,8 @@ h3:not(:first-child) {
   }
 
   .Talk {
-    max-width: 42em;
+    max-width: 40em;
+    width: 100%;
+    float: right;
   }
 }
