@@ -39,7 +39,7 @@ ShallowWrapper {
                 disableSwipeToOpen={false}
                 docked={true}
                 open={true}
-                openSecondary={true}
+                openSecondary={false}
                 style={
                     Object {
                         "position": "relative",
@@ -106,7 +106,7 @@ ShallowWrapper {
                         disableSwipeToOpen={false}
                         docked={true}
                         open={true}
-                        openSecondary={true}
+                        openSecondary={false}
                         style={
                               Object {
                                     "position": "relative",
@@ -235,7 +235,7 @@ ShallowWrapper {
                                         disableSwipeToOpen={false}
                                         docked={true}
                                         open={true}
-                                        openSecondary={true}
+                                        openSecondary={false}
                                         style={
                                                   Object {
                                                             "position": "relative",
@@ -302,7 +302,7 @@ ShallowWrapper {
                                         disableSwipeToOpen={false}
                                         docked={true}
                                         open={true}
-                                        openSecondary={true}
+                                        openSecondary={false}
                                         style={
                                                   Object {
                                                             "position": "relative",

@@ -8,29 +8,6 @@ ShallowWrapper {
   "length": 1,
   "node": <div
     className="TalkList">
-    <Tabs
-        initialSelectedIndex={0}
-        inkBarStyle={
-            Object {
-                "backgroundColor": "white",
-              }
-        }
-        onChange={[Function]}
-        tabItemContainerStyle={
-            Object {
-                "backgroundColor": "#ef5350",
-              }
-        }>
-        <Tab
-            label="All (3)"
-            value={null} />
-        <Tab
-            label="PK (1)"
-            value="PK" />
-        <Tab
-            label="LT (undefined)"
-            value="LT" />
-    </Tabs>
     <div
         style={
             Object {
@@ -56,7 +33,7 @@ ShallowWrapper {
                 focusState="none"
                 insetChildren={false}
                 primaryText="Date"
-                value="date" />
+                value="horodateur" />
             <MenuItem
                 checked={false}
                 desktop={false}
@@ -92,10 +69,10 @@ ShallowWrapper {
             onTouchStart={[Function]}
             onTouchTap={[Function]}
             open={null}
-            primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+            primaryText={undefined}
             primaryTogglesNestedList={false}
             rightIcon={<span />}
-            secondaryText="Alexandra Janin"
+            secondaryText={undefined}
             secondaryTextLines={1}
             value={0} />
         <ListItem
@@ -121,10 +98,10 @@ ShallowWrapper {
             onTouchStart={[Function]}
             onTouchTap={[Function]}
             open={null}
-            primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+            primaryText={undefined}
             primaryTogglesNestedList={false}
             rightIcon={<span />}
-            secondaryText="Alexandra Janin"
+            secondaryText={undefined}
             secondaryTextLines={1}
             value={1} />
         <ListItem
@@ -144,10 +121,10 @@ ShallowWrapper {
             onTouchStart={[Function]}
             onTouchTap={[Function]}
             open={null}
-            primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+            primaryText={undefined}
             primaryTogglesNestedList={false}
             rightIcon={<span />}
-            secondaryText="Alexandra Janin"
+            secondaryText={undefined}
             secondaryTextLines={1}
             value={2} />
     </SelectableList>
@@ -155,29 +132,6 @@ ShallowWrapper {
   "nodes": Array [
     <div
       className="TalkList">
-      <Tabs
-            initialSelectedIndex={0}
-            inkBarStyle={
-                  Object {
-                        "backgroundColor": "white",
-                      }
-            }
-            onChange={[Function]}
-            tabItemContainerStyle={
-                  Object {
-                        "backgroundColor": "#ef5350",
-                      }
-            }>
-            <Tab
-                  label="All (3)"
-                  value={null} />
-            <Tab
-                  label="PK (1)"
-                  value="PK" />
-            <Tab
-                  label="LT (undefined)"
-                  value="LT" />
-      </Tabs>
       <div
             style={
                   Object {
@@ -203,7 +157,7 @@ ShallowWrapper {
                         focusState="none"
                         insetChildren={false}
                         primaryText="Date"
-                        value="date" />
+                        value="horodateur" />
                   <MenuItem
                         checked={false}
                         desktop={false}
@@ -239,10 +193,10 @@ ShallowWrapper {
                   onTouchStart={[Function]}
                   onTouchTap={[Function]}
                   open={null}
-                  primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                  primaryText={undefined}
                   primaryTogglesNestedList={false}
                   rightIcon={<span />}
-                  secondaryText="Alexandra Janin"
+                  secondaryText={undefined}
                   secondaryTextLines={1}
                   value={0} />
             <ListItem
@@ -268,10 +222,10 @@ ShallowWrapper {
                   onTouchStart={[Function]}
                   onTouchTap={[Function]}
                   open={null}
-                  primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                  primaryText={undefined}
                   primaryTogglesNestedList={false}
                   rightIcon={<span />}
-                  secondaryText="Alexandra Janin"
+                  secondaryText={undefined}
                   secondaryTextLines={1}
                   value={1} />
             <ListItem
@@ -291,10 +245,10 @@ ShallowWrapper {
                   onTouchStart={[Function]}
                   onTouchTap={[Function]}
                   open={null}
-                  primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                  primaryText={undefined}
                   primaryTogglesNestedList={false}
                   rightIcon={<span />}
-                  secondaryText="Alexandra Janin"
+                  secondaryText={undefined}
                   secondaryTextLines={1}
                   value={2} />
       </SelectableList>
@@ -443,29 +397,6 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div
           className="TalkList">
-          <Tabs
-                    initialSelectedIndex={0}
-                    inkBarStyle={
-                              Object {
-                                        "backgroundColor": "white",
-                                      }
-                    }
-                    onChange={[Function]}
-                    tabItemContainerStyle={
-                              Object {
-                                        "backgroundColor": "#ef5350",
-                                      }
-                    }>
-                    <Tab
-                              label="All (3)"
-                              value={null} />
-                    <Tab
-                              label="PK (1)"
-                              value="PK" />
-                    <Tab
-                              label="LT (undefined)"
-                              value="LT" />
-          </Tabs>
           <div
                     style={
                               Object {
@@ -491,7 +422,7 @@ ShallowWrapper {
                                         focusState="none"
                                         insetChildren={false}
                                         primaryText="Date"
-                                        value="date" />
+                                        value="horodateur" />
                               <MenuItem
                                         checked={false}
                                         desktop={false}
@@ -527,10 +458,10 @@ ShallowWrapper {
                               onTouchStart={[Function]}
                               onTouchTap={[Function]}
                               open={null}
-                              primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                              primaryText={undefined}
                               primaryTogglesNestedList={false}
                               rightIcon={<span />}
-                              secondaryText="Alexandra Janin"
+                              secondaryText={undefined}
                               secondaryTextLines={1}
                               value={0} />
                     <ListItem
@@ -556,10 +487,10 @@ ShallowWrapper {
                               onTouchStart={[Function]}
                               onTouchTap={[Function]}
                               open={null}
-                              primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                              primaryText={undefined}
                               primaryTogglesNestedList={false}
                               rightIcon={<span />}
-                              secondaryText="Alexandra Janin"
+                              secondaryText={undefined}
                               secondaryTextLines={1}
                               value={1} />
                     <ListItem
@@ -579,10 +510,10 @@ ShallowWrapper {
                               onTouchStart={[Function]}
                               onTouchTap={[Function]}
                               open={null}
-                              primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                              primaryText={undefined}
                               primaryTogglesNestedList={false}
                               rightIcon={<span />}
-                              secondaryText="Alexandra Janin"
+                              secondaryText={undefined}
                               secondaryTextLines={1}
                               value={2} />
           </SelectableList>
@@ -590,29 +521,6 @@ ShallowWrapper {
         "_debugID": 2,
         "_renderedOutput": <div
           className="TalkList">
-          <Tabs
-                    initialSelectedIndex={0}
-                    inkBarStyle={
-                              Object {
-                                        "backgroundColor": "white",
-                                      }
-                    }
-                    onChange={[Function]}
-                    tabItemContainerStyle={
-                              Object {
-                                        "backgroundColor": "#ef5350",
-                                      }
-                    }>
-                    <Tab
-                              label="All (3)"
-                              value={null} />
-                    <Tab
-                              label="PK (1)"
-                              value="PK" />
-                    <Tab
-                              label="LT (undefined)"
-                              value="LT" />
-          </Tabs>
           <div
                     style={
                               Object {
@@ -638,7 +546,7 @@ ShallowWrapper {
                                         focusState="none"
                                         insetChildren={false}
                                         primaryText="Date"
-                                        value="date" />
+                                        value="horodateur" />
                               <MenuItem
                                         checked={false}
                                         desktop={false}
@@ -674,10 +582,10 @@ ShallowWrapper {
                               onTouchStart={[Function]}
                               onTouchTap={[Function]}
                               open={null}
-                              primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                              primaryText={undefined}
                               primaryTogglesNestedList={false}
                               rightIcon={<span />}
-                              secondaryText="Alexandra Janin"
+                              secondaryText={undefined}
                               secondaryTextLines={1}
                               value={0} />
                     <ListItem
@@ -703,10 +611,10 @@ ShallowWrapper {
                               onTouchStart={[Function]}
                               onTouchTap={[Function]}
                               open={null}
-                              primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                              primaryText={undefined}
                               primaryTogglesNestedList={false}
                               rightIcon={<span />}
-                              secondaryText="Alexandra Janin"
+                              secondaryText={undefined}
                               secondaryTextLines={1}
                               value={1} />
                     <ListItem
@@ -726,10 +634,10 @@ ShallowWrapper {
                               onTouchStart={[Function]}
                               onTouchTap={[Function]}
                               open={null}
-                              primaryText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, esse."
+                              primaryText={undefined}
                               primaryTogglesNestedList={false}
                               rightIcon={<span />}
-                              secondaryText="Alexandra Janin"
+                              secondaryText={undefined}
                               secondaryTextLines={1}
                               value={2} />
           </SelectableList>

@@ -29,7 +29,6 @@ ShallowWrapper {
         }>
         Lightning Talk : 5 minutes
     </Chip>
-    <Connect(NotesView) />
     <Divider
         inset={false} />
     <List>
@@ -94,13 +93,10 @@ ShallowWrapper {
         Description
     </h3>
     <h3>
-        Si le public ne devait retenir qu\'une chose, ce serait...
+        Durée de ton intervention
     </h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.
-    </p>
     <h3>
-        Tu veux ajouter quelque chose ?
+        As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
     </h3>
 </section>,
   "nodes": Array [
@@ -127,7 +123,6 @@ ShallowWrapper {
             }>
             Lightning Talk : 5 minutes
       </Chip>
-      <Connect(NotesView) />
       <Divider
             inset={false} />
       <List>
@@ -192,13 +187,10 @@ ShallowWrapper {
             Description
       </h3>
       <h3>
-            Si le public ne devait retenir qu\'une chose, ce serait...
+            Durée de ton intervention
       </h3>
-      <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.
-      </p>
       <h3>
-            Tu veux ajouter quelque chose ?
+            As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
       </h3>
 </section>,
   ],
@@ -274,7 +266,6 @@ ShallowWrapper {
                     }>
                     Lightning Talk : 5 minutes
           </Chip>
-          <Connect(NotesView) />
           <Divider
                     inset={false} />
           <List>
@@ -339,13 +330,10 @@ ShallowWrapper {
                     Description
           </h3>
           <h3>
-                    Si le public ne devait retenir qu\'une chose, ce serait...
+                    Durée de ton intervention
           </h3>
-          <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.
-          </p>
           <h3>
-                    Tu veux ajouter quelque chose ?
+                    As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
           </h3>
 </section>,
         "_debugID": 2,
@@ -372,7 +360,6 @@ ShallowWrapper {
                     }>
                     Lightning Talk : 5 minutes
           </Chip>
-          <Connect(NotesView) />
           <Divider
                     inset={false} />
           <List>
@@ -437,13 +424,10 @@ ShallowWrapper {
                     Description
           </h3>
           <h3>
-                    Si le public ne devait retenir qu\'une chose, ce serait...
+                    Durée de ton intervention
           </h3>
-          <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, earum.
-          </p>
           <h3>
-                    Tu veux ajouter quelque chose ?
+                    As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
           </h3>
 </section>,
       },
