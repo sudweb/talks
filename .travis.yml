@@ -10,8 +10,8 @@ cache:
 install:
 - npm install
 before_script:
-- git config --global user.email "frank.taillandier@gmail.com"
-- git config --global user.name "Frank Taillandier"
+- git config --global user.email "contact.ajanin@gmail.com"
+- git config --global user.name "Alexandra JANIN"
 script:
 - npm test
 env:
