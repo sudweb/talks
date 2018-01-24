@@ -18,15 +18,14 @@ env:
   global:
   - USE_YARN=no
   - CI=true
+  - secure: KHRYfQu/Hq1ogOUIAzSKMvg17I1GY4F0WwVM/eYRaXA6rO4PKT5RYAHj7DJdWjR4D6tYD3+F6NoAMluYHWP5/YR/pg5CqHs+KqmAJ2w8M+pFHAXF3nIXP0xsOrkgQON3AXJrZpZA3Ol3JG+7ORyg9MeGwV0VOpR+20J2gkBBV34=
 after_success:
 - if [ "$TRAVIS_PULL_REQUEST" = 'false' ] && [ "$TRAVIS_BRANCH" = "master" ]; then
   npm run deploy; fi
 deploy:
   provider: releases
-  api_key:
-    secure: bVUp+X2da7NVfD2LOWI3F19HEufzveSC5VbISMCeWe2jNHAR1nmEZuy6NQyNqdPQpG0vt/dLCzza6fDyjY4BW6pI5kpomaIjPSmLtop/gWVmBtTTSL71+OZrUbzjhRnAAh6Zqmy2iwhGlxJ42NTqbe9rdzozwT68MusOTXGZLps=
   file_glob: true
-  file: "build/*/**"
+  file: build/*/**
   skip_cleanup: true
   on:
     repo: sudweb/talks
