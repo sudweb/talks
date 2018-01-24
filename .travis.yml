@@ -10,6 +10,7 @@ cache:
 install:
 - npm install
 before_script:
+- openssl aes-256-cbc -K $encrypted_5a94740118c9_key -iv $encrypted_5a94740118c9_iv -in github_deploy_key.enc -out github_deploy_key -d
 - git config --global user.email "contact.ajanin@gmail.com"
 - git config --global user.name "Alexandra JANIN"
 script:
@@ -18,14 +19,19 @@ env:
   global:
   - USE_YARN=no
   - CI=true
-  - secure: KHRYfQu/Hq1ogOUIAzSKMvg17I1GY4F0WwVM/eYRaXA6rO4PKT5RYAHj7DJdWjR4D6tYD3+F6NoAMluYHWP5/YR/pg5CqHs+KqmAJ2w8M+pFHAXF3nIXP0xsOrkgQON3AXJrZpZA3Ol3JG+7ORyg9MeGwV0VOpR+20J2gkBBV34=
+  - secure: BE4yJU0+iicDu37+nmVxldUA10V7eJgo+fvL3cXU68j5hgowfZGcr95Qy3xk1PhDDqiRFcX7VGYM3NfFGgjdJwt5FZ7s/FBtUwfmLtDw7SEn6SsDYpLxbnT2FDL94yPDNRakMDK0p549qkRn/xNothSIyaik8eYrt1DEnp5viJ4=
 after_success:
+- |
+
+      $(npm bin)/set-up-ssh --key "$encrypted_XXXXXXXXXXXX_key" \
+                            --iv "$encrypted_XXXXXXXXXXXX_iv" \
+                            --path-encrypted-key ".travis/github_deploy_key.enc"
 - if [ "$TRAVIS_PULL_REQUEST" = 'false' ] && [ "$TRAVIS_BRANCH" = "master" ]; then
   npm run deploy; fi
 deploy:
   provider: releases
   api_key:
-    secure: bVUp+X2da7NVfD2LOWI3F19HEufzveSC5VbISMCeWe2jNHAR1nmEZuy6NQyNqdPQpG0vt/dLCzza6fDyjY4BW6pI5kpomaIjPSmLtop/gWVmBtTTSL71+OZrUbzjhRnAAh6Zqmy2iwhGlxJ42NTqbe9rdzozwT68MusOTXGZLps=
+    secure: BE4yJU0+iicDu37+nmVxldUA10V7eJgo+fvL3cXU68j5hgowfZGcr95Qy3xk1PhDDqiRFcX7VGYM3NfFGgjdJwt5FZ7s/FBtUwfmLtDw7SEn6SsDYpLxbnT2FDL94yPDNRakMDK0p549qkRn/xNothSIyaik8eYrt1DEnp5viJ4=
   file_glob: true
   file: build/*/**
   skip_cleanup: true
