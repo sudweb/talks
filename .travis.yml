@@ -19,7 +19,7 @@ env:
   global:
   - USE_YARN=no
   - CI=true
-  - secure: BE4yJU0+iicDu37+nmVxldUA10V7eJgo+fvL3cXU68j5hgowfZGcr95Qy3xk1PhDDqiRFcX7VGYM3NfFGgjdJwt5FZ7s/FBtUwfmLtDw7SEn6SsDYpLxbnT2FDL94yPDNRakMDK0p549qkRn/xNothSIyaik8eYrt1DEnp5viJ4=
+  - secure: AjvpQvllucOmhuqVnit2F9hHuvpvrT2fa9RG8yrlmnp9srV4lCja9bbzmXAlbexFO8X5o79zYpjoj8Vv5V2r+6ivJe8wee1Xh0Tt0qn/jXWzKtzPagfNXOXMBfw3dmgW6EuCUd1AR6coOr5UFPe64eLMpMVOOWVJLSaBt0YmnLo=
 after_success:
 - |
 
@@ -31,7 +31,7 @@ after_success:
 deploy:
   provider: releases
   api_key:
-    secure: BE4yJU0+iicDu37+nmVxldUA10V7eJgo+fvL3cXU68j5hgowfZGcr95Qy3xk1PhDDqiRFcX7VGYM3NfFGgjdJwt5FZ7s/FBtUwfmLtDw7SEn6SsDYpLxbnT2FDL94yPDNRakMDK0p549qkRn/xNothSIyaik8eYrt1DEnp5viJ4=
+    secure: AjvpQvllucOmhuqVnit2F9hHuvpvrT2fa9RG8yrlmnp9srV4lCja9bbzmXAlbexFO8X5o79zYpjoj8Vv5V2r+6ivJe8wee1Xh0Tt0qn/jXWzKtzPagfNXOXMBfw3dmgW6EuCUd1AR6coOr5UFPe64eLMpMVOOWVJLSaBt0YmnLo=
   file_glob: true
   file: build/*/**
   skip_cleanup: true
