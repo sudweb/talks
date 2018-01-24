@@ -24,6 +24,8 @@ after_success:
   npm run deploy; fi
 deploy:
   provider: releases
+  api_key:
+    secure: bVUp+X2da7NVfD2LOWI3F19HEufzveSC5VbISMCeWe2jNHAR1nmEZuy6NQyNqdPQpG0vt/dLCzza6fDyjY4BW6pI5kpomaIjPSmLtop/gWVmBtTTSL71+OZrUbzjhRnAAh6Zqmy2iwhGlxJ42NTqbe9rdzozwT68MusOTXGZLps=
   file_glob: true
   file: build/*/**
   skip_cleanup: true
