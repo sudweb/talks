@@ -1,6 +1,3 @@
-sudo: required
-dist: trusty
-group: deprecated-2017Q4
 language: node_js
 node_js:
 - node
@@ -9,32 +6,9 @@ cache:
   - node_modules
 install:
 - npm install
-before_script:
-- openssl aes-256-cbc -K $encrypted_5a94740118c9_key -iv $encrypted_5a94740118c9_iv -in github_deploy_key.enc -out github_deploy_key -d
-- git config --global user.email "contact.ajanin@gmail.com"
-- git config --global user.name "Alexandra JANIN"
 script:
 - npm test
 env:
   global:
   - USE_YARN=no
   - CI=true
-  - secure: AjvpQvllucOmhuqVnit2F9hHuvpvrT2fa9RG8yrlmnp9srV4lCja9bbzmXAlbexFO8X5o79zYpjoj8Vv5V2r+6ivJe8wee1Xh0Tt0qn/jXWzKtzPagfNXOXMBfw3dmgW6EuCUd1AR6coOr5UFPe64eLMpMVOOWVJLSaBt0YmnLo=
-after_success:
-- |
-
-      $(npm bin)/set-up-ssh --key "$encrypted_5a94740118c9_key" \
-                            --iv "$encrypted_5a94740118c9_iv" \
-                            --path-encrypted-key ".travis/github_deploy_key.enc"
-- if [ "$TRAVIS_PULL_REQUEST" = 'false' ] && [ "$TRAVIS_BRANCH" = "master" ]; then
-  npm run deploy; fi
-deploy:
-  provider: releases
-  api_key:
-    secure: AjvpQvllucOmhuqVnit2F9hHuvpvrT2fa9RG8yrlmnp9srV4lCja9bbzmXAlbexFO8X5o79zYpjoj8Vv5V2r+6ivJe8wee1Xh0Tt0qn/jXWzKtzPagfNXOXMBfw3dmgW6EuCUd1AR6coOr5UFPe64eLMpMVOOWVJLSaBt0YmnLo=
-  file_glob: true
-  file: build/*/**
-  skip_cleanup: true
-  on:
-    repo: sudweb/talks
-    tags: true
