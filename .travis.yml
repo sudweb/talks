@@ -24,7 +24,7 @@ after_success:
 deploy:
   provider: releases
   api_key:
-    secure: TO7FtSgitDx9a1tjRT2aVhATUt1f8/D0cN/puZrUk2qb5oCsOOWvz8Sd3u6ch/Dzoc119DnBLuKMsUHHPbWxIZO3YyoqNiIkroIYRTx1dD7pZmYFtjCt3VrpufOnQ0jfwel1pvPUGNDwMOA6jkU3yCxgYo9dwZgz2p7juC/qQGI=
+    secure: bVUp+X2da7NVfD2LOWI3F19HEufzveSC5VbISMCeWe2jNHAR1nmEZuy6NQyNqdPQpG0vt/dLCzza6fDyjY4BW6pI5kpomaIjPSmLtop/gWVmBtTTSL71+OZrUbzjhRnAAh6Zqmy2iwhGlxJ42NTqbe9rdzozwT68MusOTXGZLps=
   file_glob: true
   file: "build/*/**"
   skip_cleanup: true
