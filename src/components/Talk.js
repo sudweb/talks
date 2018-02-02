@@ -114,26 +114,28 @@ class Talk extends Component {
     };
 
     return (
-      <section className="Talk">
-        <h2>{talk[CONFIG.fields.title]}</h2>
-        <Chip labelColor="white" style={formatStyle}>{talk.formats}</Chip>
-        <Notes />
+      <section className="Wrapper">
+        <div className="Talk">
+          <h2>{talk[CONFIG.fields.title]}</h2>
+          <Chip labelColor="white" style={formatStyle}>{talk.formats}</Chip>
+          <Notes />
 
-        <Divider />
-        <List>
-          {this.getProfile(talk)}
-        </List>
-        <Divider />
-        <h3>Description</h3>
-        {this.getText(talk[CONFIG.fields.description])}
+          <Divider />
+          <List>
+            {this.getProfile(talk)}
+          </List>
+          <Divider />
+          <h3>Description</h3>
+          {this.getText(talk[CONFIG.fields.description])}
 
-        <h3>Durée de ton intervention</h3>
-        {this.getText(
-          talk.duree_de_ton_intervention
-        )}
+          <h3>Durée de ton intervention</h3>
+          {this.getText(
+            talk.duree_de_ton_intervention
+          )}
 
-        <h3>As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?</h3>
-        {this.getText(talk.as_tu_besoin_daide_concernant_ta_venue_ta_proposition_ou_nimporte_quel_autre_aspect_de_ce_sud_web_ca_ne_sera_pas_publie_sur_le_site)}
+          <h3>As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?</h3>
+          {this.getText(talk.as_tu_besoin_daide_concernant_ta_venue_ta_proposition_ou_nimporte_quel_autre_aspect_de_ce_sud_web_ca_ne_sera_pas_publie_sur_le_site)}
+        </div>
       </section>
     );
   }

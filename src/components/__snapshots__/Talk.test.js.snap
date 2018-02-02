@@ -7,104 +7,11 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <section
-    className="Talk">
-    <h2 />
-    <Chip
-        labelColor="white"
-        onBlur={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyboardFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}
-        style={
-            Object {
-                "backgroundColor": "#ff9800",
-                "marginTop": ".85em",
-              }
-        }>
-        Lightning Talk : 5 minutes
-    </Chip>
-    <Connect(NotesView) />
-    <Divider
-        inset={false} />
-    <List>
-        <ListItem
-            autoGenerateNestedIndicator={true}
-            disableKeyboardFocus={false}
-            disabled={true}
-            initiallyOpen={false}
-            insetChildren={false}
-            leftAvatar={
-                <Avatar
-                    size={40}
-                    src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
-            }
-            nestedItems={Array []}
-            nestedLevel={0}
-            onKeyboardFocus={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onNestedListToggle={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-            open={null}
-            primaryText={
-                <span>
-                    <span
-                        style={
-                            Object {
-                                "color": "rgba(0, 0, 0, 0.54)",
-                              }
-                        }>
-                        , le 
-                        Invalid date
-                    </span>
-                </span>
-            }
-            primaryTogglesNestedList={false}
-            rightIcon={
-                <IconButton
-                    disableTouchRipple={false}
-                    disabled={false}
-                    iconStyle={Object {}}
-                    onClick={[Function]}
-                    style={
-                        Object {
-                            "padding": 0,
-                            "width": 32,
-                          }
-                    }
-                    tooltipPosition="top-right"
-                    touch={true}>
-                    <CommunicationEmail
-                        color="#8bc34a" />
-                </IconButton>
-            }
-            secondaryText="test@test.com"
-            secondaryTextLines={1} />
-    </List>
-    <Divider
-        inset={false} />
-    <h3>
-        Description
-    </h3>
-    <h3>
-        Durée de ton intervention
-    </h3>
-    <h3>
-        As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
-    </h3>
-</section>,
-  "nodes": Array [
-    <section
-      className="Talk">
-      <h2 />
-      <Chip
+    className="Wrapper">
+    <div
+        className="Talk">
+        <h2 />
+        <Chip
             labelColor="white"
             onBlur={[Function]}
             onFocus={[Function]}
@@ -117,83 +24,182 @@ ShallowWrapper {
             onTouchEnd={[Function]}
             onTouchStart={[Function]}
             style={
-                  Object {
-                        "backgroundColor": "#ff9800",
-                        "marginTop": ".85em",
-                      }
+                Object {
+                    "backgroundColor": "#ff9800",
+                    "marginTop": ".85em",
+                  }
             }>
             Lightning Talk : 5 minutes
-      </Chip>
-      <Connect(NotesView) />
-      <Divider
+        </Chip>
+        <Connect(NotesView) />
+        <Divider
             inset={false} />
-      <List>
+        <List>
             <ListItem
-                  autoGenerateNestedIndicator={true}
-                  disableKeyboardFocus={false}
-                  disabled={true}
-                  initiallyOpen={false}
-                  insetChildren={false}
-                  leftAvatar={
-                        <Avatar
-                              size={40}
-                              src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
-                  }
-                  nestedItems={Array []}
-                  nestedLevel={0}
+                autoGenerateNestedIndicator={true}
+                disableKeyboardFocus={false}
+                disabled={true}
+                initiallyOpen={false}
+                insetChildren={false}
+                leftAvatar={
+                    <Avatar
+                        size={40}
+                        src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
+                }
+                nestedItems={Array []}
+                nestedLevel={0}
+                onKeyboardFocus={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onNestedListToggle={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
+                open={null}
+                primaryText={
+                    <span>
+                        <span
+                            style={
+                                Object {
+                                    "color": "rgba(0, 0, 0, 0.54)",
+                                  }
+                            }>
+                            , le 
+                            Invalid date
+                        </span>
+                    </span>
+                }
+                primaryTogglesNestedList={false}
+                rightIcon={
+                    <IconButton
+                        disableTouchRipple={false}
+                        disabled={false}
+                        iconStyle={Object {}}
+                        onClick={[Function]}
+                        style={
+                            Object {
+                                "padding": 0,
+                                "width": 32,
+                              }
+                        }
+                        tooltipPosition="top-right"
+                        touch={true}>
+                        <CommunicationEmail
+                            color="#8bc34a" />
+                    </IconButton>
+                }
+                secondaryText="test@test.com"
+                secondaryTextLines={1} />
+        </List>
+        <Divider
+            inset={false} />
+        <h3>
+            Description
+        </h3>
+        <h3>
+            Durée de ton intervention
+        </h3>
+        <h3>
+            As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
+        </h3>
+    </div>
+</section>,
+  "nodes": Array [
+    <section
+      className="Wrapper">
+      <div
+            className="Talk">
+            <h2 />
+            <Chip
+                  labelColor="white"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
                   onKeyboardFocus={[Function]}
+                  onMouseDown={[Function]}
                   onMouseEnter={[Function]}
                   onMouseLeave={[Function]}
-                  onNestedListToggle={[Function]}
+                  onMouseUp={[Function]}
                   onTouchEnd={[Function]}
                   onTouchStart={[Function]}
-                  open={null}
-                  primaryText={
-                        <span>
-                              <span
+                  style={
+                        Object {
+                              "backgroundColor": "#ff9800",
+                              "marginTop": ".85em",
+                            }
+                  }>
+                  Lightning Talk : 5 minutes
+            </Chip>
+            <Connect(NotesView) />
+            <Divider
+                  inset={false} />
+            <List>
+                  <ListItem
+                        autoGenerateNestedIndicator={true}
+                        disableKeyboardFocus={false}
+                        disabled={true}
+                        initiallyOpen={false}
+                        insetChildren={false}
+                        leftAvatar={
+                              <Avatar
+                                    size={40}
+                                    src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
+                        }
+                        nestedItems={Array []}
+                        nestedLevel={0}
+                        onKeyboardFocus={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onNestedListToggle={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchStart={[Function]}
+                        open={null}
+                        primaryText={
+                              <span>
+                                    <span
+                                          style={
+                                                Object {
+                                                      "color": "rgba(0, 0, 0, 0.54)",
+                                                    }
+                                          }>
+                                          , le 
+                                          Invalid date
+                                    </span>
+                              </span>
+                        }
+                        primaryTogglesNestedList={false}
+                        rightIcon={
+                              <IconButton
+                                    disableTouchRipple={false}
+                                    disabled={false}
+                                    iconStyle={Object {}}
+                                    onClick={[Function]}
                                     style={
                                           Object {
-                                                "color": "rgba(0, 0, 0, 0.54)",
+                                                "padding": 0,
+                                                "width": 32,
                                               }
-                                    }>
-                                    , le 
-                                    Invalid date
-                              </span>
-                        </span>
-                  }
-                  primaryTogglesNestedList={false}
-                  rightIcon={
-                        <IconButton
-                              disableTouchRipple={false}
-                              disabled={false}
-                              iconStyle={Object {}}
-                              onClick={[Function]}
-                              style={
-                                    Object {
-                                          "padding": 0,
-                                          "width": 32,
-                                        }
-                              }
-                              tooltipPosition="top-right"
-                              touch={true}>
-                              <CommunicationEmail
-                                    color="#8bc34a" />
-                        </IconButton>
-                  }
-                  secondaryText="test@test.com"
-                  secondaryTextLines={1} />
-      </List>
-      <Divider
-            inset={false} />
-      <h3>
-            Description
-      </h3>
-      <h3>
-            Durée de ton intervention
-      </h3>
-      <h3>
-            As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
-      </h3>
+                                    }
+                                    tooltipPosition="top-right"
+                                    touch={true}>
+                                    <CommunicationEmail
+                                          color="#8bc34a" />
+                              </IconButton>
+                        }
+                        secondaryText="test@test.com"
+                        secondaryTextLines={1} />
+            </List>
+            <Divider
+                  inset={false} />
+            <h3>
+                  Description
+            </h3>
+            <h3>
+                  Durée de ton intervention
+            </h3>
+            <h3>
+                  As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
+            </h3>
+      </div>
 </section>,
   ],
   "options": Object {},
@@ -246,193 +252,199 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <section
-          className="Talk">
-          <h2 />
-          <Chip
-                    labelColor="white"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyboardFocus={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchStart={[Function]}
-                    style={
-                              Object {
-                                        "backgroundColor": "#ff9800",
-                                        "marginTop": ".85em",
-                                      }
-                    }>
-                    Lightning Talk : 5 minutes
-          </Chip>
-          <Connect(NotesView) />
-          <Divider
-                    inset={false} />
-          <List>
-                    <ListItem
-                              autoGenerateNestedIndicator={true}
-                              disableKeyboardFocus={false}
-                              disabled={true}
-                              initiallyOpen={false}
-                              insetChildren={false}
-                              leftAvatar={
-                                        <Avatar
-                                                  size={40}
-                                                  src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
-                              }
-                              nestedItems={Array []}
-                              nestedLevel={0}
+          className="Wrapper">
+          <div
+                    className="Talk">
+                    <h2 />
+                    <Chip
+                              labelColor="white"
+                              onBlur={[Function]}
+                              onFocus={[Function]}
+                              onKeyDown={[Function]}
                               onKeyboardFocus={[Function]}
+                              onMouseDown={[Function]}
                               onMouseEnter={[Function]}
                               onMouseLeave={[Function]}
-                              onNestedListToggle={[Function]}
+                              onMouseUp={[Function]}
                               onTouchEnd={[Function]}
                               onTouchStart={[Function]}
-                              open={null}
-                              primaryText={
-                                        <span>
-                                                  <span
+                              style={
+                                        Object {
+                                                  "backgroundColor": "#ff9800",
+                                                  "marginTop": ".85em",
+                                                }
+                              }>
+                              Lightning Talk : 5 minutes
+                    </Chip>
+                    <Connect(NotesView) />
+                    <Divider
+                              inset={false} />
+                    <List>
+                              <ListItem
+                                        autoGenerateNestedIndicator={true}
+                                        disableKeyboardFocus={false}
+                                        disabled={true}
+                                        initiallyOpen={false}
+                                        insetChildren={false}
+                                        leftAvatar={
+                                                  <Avatar
+                                                            size={40}
+                                                            src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
+                                        }
+                                        nestedItems={Array []}
+                                        nestedLevel={0}
+                                        onKeyboardFocus={[Function]}
+                                        onMouseEnter={[Function]}
+                                        onMouseLeave={[Function]}
+                                        onNestedListToggle={[Function]}
+                                        onTouchEnd={[Function]}
+                                        onTouchStart={[Function]}
+                                        open={null}
+                                        primaryText={
+                                                  <span>
+                                                            <span
+                                                                      style={
+                                                                                Object {
+                                                                                          "color": "rgba(0, 0, 0, 0.54)",
+                                                                                        }
+                                                                      }>
+                                                                      , le 
+                                                                      Invalid date
+                                                            </span>
+                                                  </span>
+                                        }
+                                        primaryTogglesNestedList={false}
+                                        rightIcon={
+                                                  <IconButton
+                                                            disableTouchRipple={false}
+                                                            disabled={false}
+                                                            iconStyle={Object {}}
+                                                            onClick={[Function]}
                                                             style={
                                                                       Object {
-                                                                                "color": "rgba(0, 0, 0, 0.54)",
+                                                                                "padding": 0,
+                                                                                "width": 32,
                                                                               }
-                                                            }>
-                                                            , le 
-                                                            Invalid date
-                                                  </span>
-                                        </span>
-                              }
-                              primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <IconButton
-                                                  disableTouchRipple={false}
-                                                  disabled={false}
-                                                  iconStyle={Object {}}
-                                                  onClick={[Function]}
-                                                  style={
-                                                            Object {
-                                                                      "padding": 0,
-                                                                      "width": 32,
-                                                                    }
-                                                  }
-                                                  tooltipPosition="top-right"
-                                                  touch={true}>
-                                                  <CommunicationEmail
-                                                            color="#8bc34a" />
-                                        </IconButton>
-                              }
-                              secondaryText="test@test.com"
-                              secondaryTextLines={1} />
-          </List>
-          <Divider
-                    inset={false} />
-          <h3>
-                    Description
-          </h3>
-          <h3>
-                    Durée de ton intervention
-          </h3>
-          <h3>
-                    As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
-          </h3>
+                                                            }
+                                                            tooltipPosition="top-right"
+                                                            touch={true}>
+                                                            <CommunicationEmail
+                                                                      color="#8bc34a" />
+                                                  </IconButton>
+                                        }
+                                        secondaryText="test@test.com"
+                                        secondaryTextLines={1} />
+                    </List>
+                    <Divider
+                              inset={false} />
+                    <h3>
+                              Description
+                    </h3>
+                    <h3>
+                              Durée de ton intervention
+                    </h3>
+                    <h3>
+                              As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
+                    </h3>
+          </div>
 </section>,
         "_debugID": 2,
         "_renderedOutput": <section
-          className="Talk">
-          <h2 />
-          <Chip
-                    labelColor="white"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyboardFocus={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchStart={[Function]}
-                    style={
-                              Object {
-                                        "backgroundColor": "#ff9800",
-                                        "marginTop": ".85em",
-                                      }
-                    }>
-                    Lightning Talk : 5 minutes
-          </Chip>
-          <Connect(NotesView) />
-          <Divider
-                    inset={false} />
-          <List>
-                    <ListItem
-                              autoGenerateNestedIndicator={true}
-                              disableKeyboardFocus={false}
-                              disabled={true}
-                              initiallyOpen={false}
-                              insetChildren={false}
-                              leftAvatar={
-                                        <Avatar
-                                                  size={40}
-                                                  src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
-                              }
-                              nestedItems={Array []}
-                              nestedLevel={0}
+          className="Wrapper">
+          <div
+                    className="Talk">
+                    <h2 />
+                    <Chip
+                              labelColor="white"
+                              onBlur={[Function]}
+                              onFocus={[Function]}
+                              onKeyDown={[Function]}
                               onKeyboardFocus={[Function]}
+                              onMouseDown={[Function]}
                               onMouseEnter={[Function]}
                               onMouseLeave={[Function]}
-                              onNestedListToggle={[Function]}
+                              onMouseUp={[Function]}
                               onTouchEnd={[Function]}
                               onTouchStart={[Function]}
-                              open={null}
-                              primaryText={
-                                        <span>
-                                                  <span
+                              style={
+                                        Object {
+                                                  "backgroundColor": "#ff9800",
+                                                  "marginTop": ".85em",
+                                                }
+                              }>
+                              Lightning Talk : 5 minutes
+                    </Chip>
+                    <Connect(NotesView) />
+                    <Divider
+                              inset={false} />
+                    <List>
+                              <ListItem
+                                        autoGenerateNestedIndicator={true}
+                                        disableKeyboardFocus={false}
+                                        disabled={true}
+                                        initiallyOpen={false}
+                                        insetChildren={false}
+                                        leftAvatar={
+                                                  <Avatar
+                                                            size={40}
+                                                            src="https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452" />
+                                        }
+                                        nestedItems={Array []}
+                                        nestedLevel={0}
+                                        onKeyboardFocus={[Function]}
+                                        onMouseEnter={[Function]}
+                                        onMouseLeave={[Function]}
+                                        onNestedListToggle={[Function]}
+                                        onTouchEnd={[Function]}
+                                        onTouchStart={[Function]}
+                                        open={null}
+                                        primaryText={
+                                                  <span>
+                                                            <span
+                                                                      style={
+                                                                                Object {
+                                                                                          "color": "rgba(0, 0, 0, 0.54)",
+                                                                                        }
+                                                                      }>
+                                                                      , le 
+                                                                      Invalid date
+                                                            </span>
+                                                  </span>
+                                        }
+                                        primaryTogglesNestedList={false}
+                                        rightIcon={
+                                                  <IconButton
+                                                            disableTouchRipple={false}
+                                                            disabled={false}
+                                                            iconStyle={Object {}}
+                                                            onClick={[Function]}
                                                             style={
                                                                       Object {
-                                                                                "color": "rgba(0, 0, 0, 0.54)",
+                                                                                "padding": 0,
+                                                                                "width": 32,
                                                                               }
-                                                            }>
-                                                            , le 
-                                                            Invalid date
-                                                  </span>
-                                        </span>
-                              }
-                              primaryTogglesNestedList={false}
-                              rightIcon={
-                                        <IconButton
-                                                  disableTouchRipple={false}
-                                                  disabled={false}
-                                                  iconStyle={Object {}}
-                                                  onClick={[Function]}
-                                                  style={
-                                                            Object {
-                                                                      "padding": 0,
-                                                                      "width": 32,
-                                                                    }
-                                                  }
-                                                  tooltipPosition="top-right"
-                                                  touch={true}>
-                                                  <CommunicationEmail
-                                                            color="#8bc34a" />
-                                        </IconButton>
-                              }
-                              secondaryText="test@test.com"
-                              secondaryTextLines={1} />
-          </List>
-          <Divider
-                    inset={false} />
-          <h3>
-                    Description
-          </h3>
-          <h3>
-                    Durée de ton intervention
-          </h3>
-          <h3>
-                    As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
-          </h3>
+                                                            }
+                                                            tooltipPosition="top-right"
+                                                            touch={true}>
+                                                            <CommunicationEmail
+                                                                      color="#8bc34a" />
+                                                  </IconButton>
+                                        }
+                                        secondaryText="test@test.com"
+                                        secondaryTextLines={1} />
+                    </List>
+                    <Divider
+                              inset={false} />
+                    <h3>
+                              Description
+                    </h3>
+                    <h3>
+                              Durée de ton intervention
+                    </h3>
+                    <h3>
+                              As-tu besoin d’aide concernant ta venue, ta proposition ou n’importe quel autre aspect de ce Sud Web (ça ne sera pas publié sur le site) ?
+                    </h3>
+          </div>
 </section>,
       },
       "_renderedNodeType": 0,
