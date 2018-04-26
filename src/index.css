@@ -75,6 +75,11 @@ h3:not(:first-child) {
     padding: 1.5em 2.5em;
   }
 
+  .Wrapper {
+    padding:0;
+    margin-left: 360px;
+  }
+
   .Talk {
     max-width: 40em;
     width: 100%;
